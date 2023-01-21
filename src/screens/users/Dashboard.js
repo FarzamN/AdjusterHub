@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -7,8 +7,9 @@ import {
   FlatList,
   Image,
 } from 'react-native';
+import { verticalScale, scale } from 'react-native-size-matters';
 import BackWithMenu from '../../components/BackWithMenu';
-import {Color} from '../../utils/Colors';
+import { Color } from '../../utils/Colors';
 
 const DATA = [
   {
@@ -44,7 +45,7 @@ const DATA = [
     Image: require('../../assets/Images/eight.png'),
   },
 ];
-const Item = ({item}) => (
+const Item = ({ item }) => (
   <TouchableOpacity style={styles.item}>
     <Image style={styles.Images} source={item.Image} />
   </TouchableOpacity>
@@ -61,8 +62,10 @@ const Dashboard = () => {
           renderItem={Item}
           horizontal={false}
           numColumns={2}
-          columnWrapperStyle={{marginTop: 10}}
+          columnWrapperStyle={{ marginTop: 10 }}
         />
+        <View style={{ height: 20 }}></View>
+
       </View>
     </SafeAreaView>
   );
@@ -75,13 +78,13 @@ const styles = StyleSheet.create({
   },
   item: {
     padding: 20,
-    marginVertical: 8,
-    marginHorizontal: 16,
-    width: '40%',
-    height: 200,
+    marginHorizontal: scale(5),
+    width: '47%',
+    height: verticalScale(160),
     backgroundColor: Color.White,
     justifyContent: 'center',
     alignItems: 'center',
+    borderRadius: 5
   },
   Images: {},
 });
