@@ -1,5 +1,5 @@
-import React, {forwardRef, useState} from 'react';
-import {useController, useForm} from 'react-hook-form';
+import React, { forwardRef, useState } from 'react';
+import { useController, useForm } from 'react-hook-form';
 import {
   StyleSheet,
   InputField,
@@ -9,12 +9,12 @@ import {
   TouchableOpacity,
   Text,
 } from 'react-native';
-import {moderateScale, scale, verticalScale} from 'react-native-size-matters';
+import { moderateScale, scale, verticalScale } from 'react-native-size-matters';
 import Zocial from 'react-native-vector-icons/Zocial';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 
 const CustomInput = forwardRef((props, ref) => {
-  const {field} = useController({
+  const { field } = useController({
     control: props.control,
     defaultValue: props.defaultValue || '',
     name: props.name,

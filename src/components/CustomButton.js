@@ -1,6 +1,6 @@
-import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import React from 'react';
-import {scale, moderateScale} from 'react-native-size-matters';
+import { scale, moderateScale } from 'react-native-size-matters';
 
 const CustomButtton = props => {
   return props.withToggle ? (
@@ -11,7 +11,7 @@ const CustomButtton = props => {
         style={[
           styles.containerStyle,
           props.containerStyle,
-          {flexDirection: 'row', justifyContent: 'space-between'},
+          { flexDirection: 'row', justifyContent: 'space-between' },
         ]}>
         <Text style={[styles.font, props.textStyle]}>{props.title}</Text>
       </TouchableOpacity>
@@ -44,5 +44,7 @@ const styles = StyleSheet.create({
     fontSize: scale(20),
     fontFamily: 'Inter-Bold',
     fontWeight: '700',
+    textTransform: 'uppercase'
+
   },
 });

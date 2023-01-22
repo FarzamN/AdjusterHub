@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -9,13 +9,13 @@ import {
   TouchableOpacity,
   ScrollView,
 } from 'react-native';
-import {scale, moderateScale} from 'react-native-size-matters';
+import { scale, moderateScale, verticalScale } from 'react-native-size-matters';
 import Zocial from 'react-native-vector-icons/Zocial';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 
 import Validation from '../../components/Validation';
+import { useForm } from 'react-hook-form';
 import CustomInput from '../../components/CustomInput';
-import {useForm} from 'react-hook-form';
 import CustomButton from '../../components/CustomButton';
 
 const Login = () => {
@@ -27,11 +27,11 @@ const Login = () => {
   const {
     control,
     handleSubmit,
-    formState: {errors, isValid},
-  } = useForm({mode: 'all'});
+    formState: { errors, isValid },
+  } = useForm({ mode: 'all' });
   return (
     <SafeAreaView style={styles.container}>
-      <View styles={{height: '100%', backgroundColor: 'pink'}}>
+      <View styles={{ height: '100%' }}>
         <View style={styles.BlueBox}>
           <Text style={styles.TextOne}>WELCOME BACK</Text>
           <Text style={styles.TextTwo}>Its good to see you agaon!</Text>
@@ -106,7 +106,7 @@ const Login = () => {
                 style={{
                   position: 'absolute',
                   right: scale(15),
-                  top: scale(35),
+                  top: scale(50),
                   // justifyContent: 'flex-end',
                 }}
                 onPress={() => setIsPasswordSecure(prevCheck => !prevCheck)}>
@@ -138,7 +138,7 @@ const Login = () => {
                 </Text>
               </TouchableOpacity>
             </View>
-            <CustomButton title={'LOGIN'} textStyle={{fontSize: scale(27)}} />
+            <CustomButton title={'LOGIN'} textStyle={{ fontSize: scale(27) }} />
             <View style={styles.FPassCon}>
               <Text
                 style={{
@@ -170,6 +170,7 @@ const Login = () => {
 };
 
 const styles = StyleSheet.create({
+  textInput: { height: verticalScale(50), marginVertical: scale(15) },
   container: {
     flex: 1,
   },
@@ -201,6 +202,7 @@ const styles = StyleSheet.create({
     top: '22%',
     paddingHorizontal: 20,
     paddingVertical: scale(20),
+    borderRadius: 20
   },
   logo: {
     alignSelf: 'center',
