@@ -1,29 +1,15 @@
 import React, {forwardRef, useState} from 'react';
 import {useController, useForm} from 'react-hook-form';
-import {
-  StyleSheet,
-  InputField,
-  TextInput,
-  View,
-  Image,
-  TouchableOpacity,
-  Text,
-} from 'react-native';
+import {StyleSheet, TextInput, View, Image, Text} from 'react-native';
 import {moderateScale, scale, verticalScale} from 'react-native-size-matters';
-import Zocial from 'react-native-vector-icons/Zocial';
-import Fontisto from 'react-native-vector-icons/Fontisto';
 
-const CustomInput = forwardRef((props, ref) => {
+const NewCustomInput = forwardRef((props, ref) => {
   const {field} = useController({
     control: props.control,
     defaultValue: props.defaultValue || '',
     name: props.name,
     rules: props.rules,
   });
-  // const [password, setPassword] = useState('');
-  const [showPassword, setshowPassword] = useState(true);
-  const [isEnabled, setIsEnabled] = useState(true);
-  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
   return (
     <View style={[styles.field, props.style, props.Hello]}>
       {props.image ? <Image style={styles.image} source={props.image} /> : null}
@@ -49,23 +35,6 @@ const CustomInput = forwardRef((props, ref) => {
         fontSize={props.fontSize}
         maxLength={props.maxLength}
       />
-      <View>
-        <Zocial
-          style={props.PIstylye}
-          name={props.PIname}
-          size={props.PIsize}
-          color={props.PIcolor}
-        />
-      </View>
-
-      <View>
-        <Fontisto
-          style={props.PIstylye2}
-          name={props.PIname2}
-          size={props.PIsize2}
-          color={props.PIcolor2}
-        />
-      </View>
     </View>
   );
 });
@@ -75,7 +44,7 @@ const styles = StyleSheet.create({
     height: scale(55),
     borderRadius: 12,
     alignItems: 'center',
-    paddingHorizontal: scale(35),
+    paddingHorizontal: scale(25),
     backgroundColor: '#FFF',
     color: 'black',
   },
@@ -93,5 +62,9 @@ const styles = StyleSheet.create({
     color: 'grey',
     marginLeft: scale(20),
   },
+  field: {
+    height: verticalScale(55),
+    marginBottom: scale(10),
+  },
 });
-export default CustomInput;
+export default NewCustomInput;

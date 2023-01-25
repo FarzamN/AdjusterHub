@@ -1,0 +1,29 @@
+import React from 'react';
+import {} from 'react-native';
+import Dashboard from '../screens/users/Dashboard';
+import Person from '../screens/users/Person';
+import User from '../screens/users/User';
+import Bubbles from '../screens/users/Bubbles';
+import AddAdjusters from '../screens/users/AddAdjuster';
+import Profile from '../screens/users/Profile';
+
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import 'react-native-gesture-handler';
+
+const Stack = createNativeStackNavigator();
+const UserNavigation = () => {
+  return (
+    <Stack.Navigator
+      initialRouteName="dashboard1"
+      screenOptions={{headerShown: false}}>
+      <Stack.Screen name="dashboard1" component={Dashboard} />
+      <Stack.Screen name="user" component={User} />
+      <Stack.Screen name="person" component={Person} />
+      <Stack.Screen name="bubbles" component={Bubbles} />
+      <Stack.Screen name="addadjusters" component={AddAdjusters} />
+      <Stack.Screen name="profile" component={Profile} />
+    </Stack.Navigator>
+  );
+};
+
+export default UserNavigation;

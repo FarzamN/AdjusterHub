@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -7,65 +7,68 @@ import {
   FlatList,
   Image,
 } from 'react-native';
-import { verticalScale, scale } from 'react-native-size-matters';
+import {verticalScale, scale} from 'react-native-size-matters';
 import BackWithMenu from '../../components/BackWithMenu';
-import { Color } from '../../utils/Colors';
+import {Color} from '../../utils/Colors';
 
-const DATA = [
-  {
-    id: '1',
-    Image: require('../../assets/Images/one.png'),
-  },
-  {
-    id: '2',
-    Image: require('../../assets/Images/two.png'),
-  },
-  {
-    id: '3',
-    Image: require('../../assets/Images/three.png'),
-  },
-  {
-    id: '4',
-    Image: require('../../assets/Images/four.png'),
-  },
-  {
-    id: '5',
-    Image: require('../../assets/Images/five.png'),
-  },
-  {
-    id: '6',
-    Image: require('../../assets/Images/six.png'),
-  },
-  {
-    id: '7',
-    Image: require('../../assets/Images/seven.png'),
-  },
-  {
-    id: '8',
-    Image: require('../../assets/Images/eight.png'),
-  },
-];
-const Item = ({ item }) => (
-  <TouchableOpacity style={styles.item}>
-    <Image style={styles.Images} source={item.Image} />
-  </TouchableOpacity>
-);
-
-const Dashboard = () => {
+const Dashboard = ({navigation}) => {
+  const DATA = [
+    {
+      id: '1',
+      Image: require('../../assets/Images/one.png'),
+    },
+    {
+      id: '2',
+      Image: require('../../assets/Images/two.png'),
+    },
+    {
+      id: '3',
+      Image: require('../../assets/Images/three.png'),
+    },
+    {
+      id: '4',
+      Image: require('../../assets/Images/four.png'),
+    },
+    {
+      id: '5',
+      Image: require('../../assets/Images/five.png'),
+    },
+    {
+      id: '6',
+      Image: require('../../assets/Images/six.png'),
+    },
+    {
+      id: '7',
+      Image: require('../../assets/Images/seven.png'),
+    },
+    {
+      id: '8',
+      Image: require('../../assets/Images/eight.png'),
+    },
+  ];
+  const Item = ({item, onPress}) => (
+    <TouchableOpacity
+      onPress={() => navigation.navigate('user')}
+      style={styles.item}>
+      <Image style={styles.Images} source={item.Image} />
+    </TouchableOpacity>
+  );
   return (
     <SafeAreaView style={styles.Container}>
-      <BackWithMenu />
-      <View>
+      <BackWithMenu
+        onPress_back={() => navigation.navigate('login')}
+        onPress={() => navigation.openDrawer()}
+      />
+      <View style={{flex: 1}}>
         <FlatList
           keyExtractor={item => item.id}
           data={DATA}
           renderItem={Item}
           horizontal={false}
           numColumns={2}
-          columnWrapperStyle={{ marginTop: 10 }}
+          columnWrapperStyle={{marginTop: scale(10)}}
         />
-        <View style={{ height: 20 }}></View>
-
+        <View style={{height: verticalScale(10)}}></View>
       </View>
     </SafeAreaView>
   );
@@ -84,7 +87,7 @@ const styles = StyleSheet.create({
     backgroundColor: Color.White,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 5
+    borderRadius: 5,
   },
   Images: {},
 });

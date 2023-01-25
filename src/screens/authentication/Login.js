@@ -1,24 +1,23 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
   Text,
   View,
   Image,
-  TextInput,
   TouchableOpacity,
   ScrollView,
+  KeyboardAvoidingView,
+  Platform,
 } from 'react-native';
-import { scale, moderateScale, verticalScale } from 'react-native-size-matters';
-import Zocial from 'react-native-vector-icons/Zocial';
-import Fontisto from 'react-native-vector-icons/Fontisto';
+import {scale, moderateScale, verticalScale} from 'react-native-size-matters';
 
 import Validation from '../../components/Validation';
-import { useForm } from 'react-hook-form';
+import {useForm} from 'react-hook-form';
 import CustomInput from '../../components/CustomInput';
 import CustomButton from '../../components/CustomButton';
 
-const Login = () => {
+const Login = ({navigation}) => {
   const [password, setPassword] = useState('');
   const [isPasswordSecure, setIsPasswordSecure] = useState(true);
   const [isEnabled, setIsEnabled] = useState(true);
@@ -27,11 +26,11 @@ const Login = () => {
   const {
     control,
     handleSubmit,
-    formState: { errors, isValid },
-  } = useForm({ mode: 'all' });
+    formState: {errors, isValid},
+  } = useForm({mode: 'all'});
   return (
     <SafeAreaView style={styles.container}>
-      <View styles={{ height: '100%' }}>
+      <View styles={{height: '100%'}}>
         <View style={styles.BlueBox}>
           <Text style={styles.TextOne}>WELCOME BACK</Text>
           <Text style={styles.TextTwo}>Its good to see you agaon!</Text>
@@ -39,130 +38,140 @@ const Login = () => {
         <View style={styles.GreyBox}></View>
 
         <View style={styles.MainContainer}>
-          <ScrollView showsVerticalScrollIndicator={false}>
-            <Image
-              source={require('../../assets/Images/logo.png')}
-              style={styles.logo}
-            />
-            <CustomInput
-              name="Email"
-              rules={{
-                required: 'Email is required',
-              }}
-              control={control}
-              style={styles.textInput}
-              textStyle={styles.InputTextStyle}
-              placeholder={'Email@gmail.com'}
-              keyboardType={'default'}
-              restyle={{
-                marginTop: scale(15),
-                backgroundColor: '#F4F5F5',
-                color: '#000',
-              }}
-              PIname={'email'}
-              PIsize={20}
-              PIcolor={'#999B9E'}
-              PIstylye={{
-                position: 'absolute',
-                bottom: scale(18),
-                left: scale(12),
-              }}
-            />
-            {errors.email && <Validation title={errors.email.message} />}
-            <View>
+          <KeyboardAvoidingView
+            behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+            style={styles.container}>
+            <ScrollView showsVerticalScrollIndicator={false}>
+              <Image
+                source={require('../../assets/Images/logo.png')}
+                style={styles.logo}
+              />
               <CustomInput
-                secureTextEntry={isPasswordSecure}
-                textContentType={'password'}
-                value={password}
-                onChangeText={text => setPassword(text)}
-                name="Password"
+                name="Email"
                 rules={{
-                  required: 'Password is required',
+                  required: 'Email is required',
                 }}
                 control={control}
                 style={styles.textInput}
                 textStyle={styles.InputTextStyle}
-                placeholder={'Password'}
+                placeholder={'Email@gmail.com'}
                 keyboardType={'default'}
                 restyle={{
+                  marginTop: scale(15),
                   backgroundColor: '#F4F5F5',
                   color: '#000',
                 }}
-                PIname2={'locked'}
-                PIsize2={18}
-                PIcolor2={'#999B9E'}
-                PIstylye2={{
+                PIname={'email'}
+                PIsize={20}
+                PIcolor={'#999B9E'}
+                PIstylye={{
                   position: 'absolute',
-                  bottom: scale(34),
+                  bottom: scale(18),
                   left: scale(12),
                 }}
-                onPress={() => {
-                  isPasswordSecure
-                    ? setIsPasswordSecure(false)
-                    : setIsPasswordSecure(true);
-                }}
               />
-              <TouchableOpacity
-                style={{
-                  position: 'absolute',
-                  right: scale(15),
-                  top: scale(50),
-                  // justifyContent: 'flex-end',
-                }}
-                onPress={() => setIsPasswordSecure(prevCheck => !prevCheck)}>
-                <Text style={styles.viewText}>
-                  {isPasswordSecure ? 'SHOW' : 'HIDE'}
-                </Text>
-              </TouchableOpacity>
-            </View>
-            <View style={styles.FPassCon}>
-              <Text
-                style={{
-                  fontSize: scale(14),
-                  fontWeight: '500',
-                  color: '#000',
-                  fontStyle: 'normal',
-                }}>
-                Forget Password?
-              </Text>
-              <TouchableOpacity>
+              {errors.email && <Validation title={errors.email.message} />}
+              <View>
+                <CustomInput
+                  secureTextEntry={isPasswordSecure}
+                  textContentType={'password'}
+                  value={password}
+                  onChangeText={text => setPassword(text)}
+                  name="Password"
+                  rules={{
+                    required: 'Password is required',
+                  }}
+                  control={control}
+                  style={styles.textInput}
+                  textStyle={styles.InputTextStyle}
+                  placeholder={'Password'}
+                  keyboardType={'default'}
+                  restyle={{
+                    backgroundColor: '#F4F5F5',
+                    color: '#000',
+                  }}
+                  PIname2={'locked'}
+                  PIsize2={18}
+                  PIcolor2={'#999B9E'}
+                  PIstylye2={{
+                    position: 'absolute',
+                    bottom: scale(34),
+                    left: scale(12),
+                  }}
+                  onPress={() => {
+                    isPasswordSecure
+                      ? setIsPasswordSecure(false)
+                      : setIsPasswordSecure(true);
+                  }}
+                />
+                <TouchableOpacity
+                  style={{
+                    position: 'absolute',
+                    right: scale(15),
+                    top: scale(50),
+                    // justifyContent: 'flex-end',
+                  }}
+                  onPress={() => setIsPasswordSecure(prevCheck => !prevCheck)}>
+                  <Text style={styles.viewText}>
+                    {isPasswordSecure ? 'SHOW' : 'HIDE'}
+                  </Text>
+                </TouchableOpacity>
+              </View>
+              <View style={[styles.FPassCon, {marginTop: scale(10)}]}>
                 <Text
                   style={{
                     fontSize: scale(14),
                     fontWeight: '500',
-                    color: '#0568F2',
+                    color: '#000',
                     fontStyle: 'normal',
-                    marginLeft: scale(5),
                   }}>
-                  Reset Here
+                  Forget Password?
                 </Text>
-              </TouchableOpacity>
-            </View>
-            <CustomButton title={'LOGIN'} textStyle={{ fontSize: scale(27) }} />
-            <View style={styles.FPassCon}>
-              <Text
-                style={{
-                  fontSize: scale(14),
-                  fontWeight: '500',
-                  color: '#000',
-                  fontStyle: 'normal',
-                }}>
-                Dont have an account?
-              </Text>
-              <TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => navigation.navigate('changePass')}>
+                  <Text
+                    style={{
+                      fontSize: scale(14),
+                      fontWeight: '500',
+                      color: '#0568F2',
+                      fontStyle: 'normal',
+                      marginLeft: scale(5),
+                    }}>
+                    Reset Here
+                  </Text>
+                </TouchableOpacity>
+              </View>
+              <CustomButton
+                onPress={() => navigation.navigate('DrawerNavigation')}
+                title={'LOGIN'}
+                textStyle={{fontSize: scale(27)}}
+              />
+              <View style={styles.FPassCon}>
                 <Text
                   style={{
                     fontSize: scale(14),
                     fontWeight: '500',
-                    color: '#0568F2',
+                    color: '#000',
                     fontStyle: 'normal',
-                    marginLeft: scale(5),
                   }}>
-                  Register
+                  Dont have an account?
                 </Text>
-              </TouchableOpacity>
-            </View>
-          </ScrollView>
+                <TouchableOpacity
+                  onPress={() => navigation.navigate('register')}>
+                  <Text
+                    style={{
+                      fontSize: scale(14),
+                      fontWeight: '500',
+                      color: '#0568F2',
+                      fontStyle: 'normal',
+                      marginLeft: scale(5),
+                    }}>
+                    Register
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            </ScrollView>
+          </KeyboardAvoidingView>
         </View>
       </View>
     </SafeAreaView>
@@ -170,7 +179,7 @@ const Login = () => {
 };
 
 const styles = StyleSheet.create({
-  textInput: { height: verticalScale(50), marginVertical: scale(15) },
+  textInput: {height: verticalScale(50), marginVertical: scale(15)},
   container: {
     flex: 1,
   },
@@ -183,7 +192,6 @@ const styles = StyleSheet.create({
   TextTwo: {
     color: '#fff',
     fontSize: scale(17),
-    fontWeight: '600',
   },
   BlueBox: {
     backgroundColor: '#0568F2',
@@ -202,7 +210,7 @@ const styles = StyleSheet.create({
     top: '22%',
     paddingHorizontal: 20,
     paddingVertical: scale(20),
-    borderRadius: 20
+    borderRadius: 20,
   },
   logo: {
     alignSelf: 'center',
@@ -217,7 +225,7 @@ const styles = StyleSheet.create({
   FPassCon: {
     flexDirection: 'row',
     justifyContent: 'flex-end',
-    marginTop: scale(5),
+    // marginTop: scale(5),
   },
 });
 export default Login;

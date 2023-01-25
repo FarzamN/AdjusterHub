@@ -6,10 +6,13 @@ import Feather from 'react-native-vector-icons/Feather';
 
 import {Color} from '../utils/Colors';
 
-const BackAndLogo = () => {
+const BackAndLogo = props => {
   return (
     <View style={styles.Container}>
-      <TouchableOpacity activeOpacity={0.5} style={styles.arrow}>
+      <TouchableOpacity
+        onPress={props.onPress}
+        activeOpacity={0.5}
+        style={styles.arrow}>
         <FontAwesome name={'angle-left'} size={35} color={Color.White} />
       </TouchableOpacity>
       <View>
