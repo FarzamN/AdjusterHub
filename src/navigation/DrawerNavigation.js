@@ -43,12 +43,7 @@ export const DrawerNavigation = () => {
         options={{
           title: 'Profile',
           drawerIcon: () => (
-            <FontAwesome
-              style={{transform: [{rotateY: '180deg'}]}}
-              name="user"
-              size={20}
-              color={Color.Main}
-            />
+            <FontAwesome name="user" size={20} color={Color.Main} />
           ),
         }}
         name="Profile"

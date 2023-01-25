@@ -195,96 +195,105 @@ const Bubbles = ({navigation}) => {
   return (
     <SafeAreaView styles={styles.container}>
       <BackAndLogo onPress={() => navigation.goBack()} />
-      <View style={{height: '30%', backgroundColor: Color.Main}}></View>
-      <View
-        style={{height: '70%', backgroundColor: Color.BackgroundColor}}></View>
-      <View style={{position: 'absolute', top: 100, width: '100%'}}>
-        <View style={styles.MainBox}>
-          {/* <ScrollView> */}
-          <Text style={styles.topContaintor}>Describe our adjecter</Text>
-          <View>
-            <FlatList
-              numColumns={3}
-              data={data}
-              keyExtractor={item => item.id}
-              renderItem={renderItem}
-            />
-          </View>
-          <Image
-            style={styles.Image}
-            source={require('../../assets/Images/stars.png')}
-          />
-          <NewCustomInput
-            name="clame"
-            control={control}
-            style={styles.textInput}
-            textStyle={styles.InputTextStyle}
-            placeholder={'Clame#'}
-            keyboardType={'default'}
-            restyle={{
-              width: '80%',
-              alignSelf: 'center',
-              backgroundColor: '#F4F5F5',
-              color: '#000',
-            }}
-          />
-          <CustomButton
-            onPress={() => {
-              // navigation.navigate('person');
-              setShowAnime(!showAnime);
-            }}
-            title={'Submit'}
-            containerStyle={{
-              width: '80%',
-              alignSelf: 'center',
-              marginTop: scale(30),
-              height: verticalScale(50),
-            }}
-          />
-          {showAnime && (
-            <View
-              style={{
-                backgroundColor: '#fff',
-                position: 'absolute',
-                width: '100%',
-                flexDirection: 'row',
-                borderWidth: 1,
-                justifyContent: 'center',
-                alignItems: 'center',
-                borderRadius: 20,
-              }}>
-              <View>
-                <Text
-                  style={{
-                    fontWeight: '600',
-                    color: Color.Main,
-                    fontSize: scale(18),
-                  }}>
-                  FeedBack Added
-                </Text>
-                <Text style={{color: Color.Main, fontSize: scale(15)}}>
-                  Thanks for your FeedBack
-                </Text>
-              </View>
-              <LottieView
-                style={{
-                  width: 100,
-                  height: 100,
-                }}
-                source={require('../../assets/Lottie/thanks.json')}
-                colorFilters={[
-                  {
-                    keypath: 'button',
-                    color: '#E94057',
-                  },
-                ]}
-                autoPlay
-                loop
+      <View styles={{height: '100%'}}>
+        <View style={styles.BlueBox}>
+          <Text style={styles.TextOne}>Add adjuster</Text>
+          <Text style={styles.TextTwo}>Don`t see your adjuster? Add them!</Text>
+        </View>
+        <View style={styles.GreyBox}></View>
+        <View style={{position: 'absolute', top: 100, width: '100%'}}>
+          <View style={styles.MainBox}>
+            {/* <ScrollView> */}
+            <Text style={styles.topContaintor}>Describe our adjecter</Text>
+            <View>
+              <FlatList
+                numColumns={3}
+                data={data}
+                keyExtractor={item => item.id}
+                renderItem={renderItem}
               />
             </View>
-          )}
-          <View style={{height: 20}}></View>
-          {/* </ScrollView> */}
+            <Image
+              style={styles.Image}
+              source={require('../../assets/Images/stars.png')}
+            />
+            <NewCustomInput
+              name="clame"
+              control={control}
+              style={styles.textInput}
+              textStyle={styles.InputTextStyle}
+              placeholder={'Clame#'}
+              keyboardType={'default'}
+              restyle={{
+                width: '80%',
+                alignSelf: 'center',
+                backgroundColor: '#F4F5F5',
+                color: '#000',
+              }}
+            />
+            <CustomButton
+              onPress={() => {
+                // navigation.navigate('person');
+                setShowAnime(!showAnime);
+              }}
+              title={'Submit'}
+              containerStyle={{
+                width: '80%',
+                alignSelf: 'center',
+                marginTop: scale(30),
+                height: verticalScale(50),
+              }}
+            />
+            {showAnime && (
+              <View
+                style={{
+                  backgroundColor: '#fff',
+                  position: 'absolute',
+                  top: -50,
+                  width: '90%',
+                  flexDirection: 'row',
+                  borderWidth: 1,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  borderRadius: 20,
+                  alignSelf: 'center',
+                  borderColor: Color.Main,
+                  paddingLeft: 20,
+                }}>
+                <View>
+                  <Text
+                    style={{
+                      fontWeight: '600',
+                      color: Color.Main,
+                      fontSize: scale(16),
+                      textTransform: 'uppercase',
+                    }}>
+                    FeedBack Added
+                  </Text>
+                  <Text style={{color: Color.Main, fontSize: scale(15)}}>
+                    Thanks for your FeedBack
+                  </Text>
+                </View>
+                <LottieView
+                  style={{
+                    width: 100,
+                    height: 100,
+                  }}
+                  source={require('../../assets/Lottie/thanks.json')}
+                  colorFilters={[
+                    {
+                      keypath: 'button',
+                      color: '#E94057',
+                    },
+                  ]}
+                  autoPlay
+                  loop
+                />
+              </View>
+            )}
+            <View style={{height: 20}}></View>
+            {/* </ScrollView> */}
+          </View>
         </View>
       </View>
     </SafeAreaView>
@@ -343,6 +352,15 @@ const styles = StyleSheet.create({
   Image: {
     alignSelf: 'center',
     marginTop: scale(10),
+  },
+  BlueBox: {
+    backgroundColor: '#0568F2',
+    height: '35%',
+    padding: moderateScale(20),
+  },
+  GreyBox: {
+    backgroundColor: '#DDDEDF',
+    height: '65%',
   },
 });
 

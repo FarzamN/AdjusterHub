@@ -72,22 +72,21 @@ const AddAdjuster = () => {
               style={styles.logo}
             />
             <View
-              style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+              style={{flexDirection: 'row', justifyContent: 'space-evenly'}}>
               <NewCustomInput
                 name="First Name"
                 rules={{
                   required: 'First Name is required',
                 }}
                 control={control}
-                style={styles.textInput}
+                style={[styles.textInput, styles.nameinput]}
                 textStyle={styles.InputTextStyle}
-                placeholder={'first_name'}
+                placeholder={'first name'}
                 keyboardType={'default'}
                 restyle={{
                   marginTop: scale(10),
                   backgroundColor: Color.InputBackground,
                   color: '#000',
-                  paddingHorizontal: moderateScale(45),
                 }}
               />
               <NewCustomInput
@@ -96,7 +95,7 @@ const AddAdjuster = () => {
                   required: 'Last Name is required',
                 }}
                 control={control}
-                style={styles.textInput}
+                style={[styles.textInput, styles.nameinput]}
                 textStyle={styles.InputTextStyle}
                 placeholder={'Last Name'}
                 keyboardType={'default'}
@@ -104,7 +103,6 @@ const AddAdjuster = () => {
                   marginTop: scale(10),
                   backgroundColor: Color.InputBackground,
                   color: '#000',
-                  paddingHorizontal: moderateScale(45),
                 }}
               />
             </View>
@@ -148,19 +146,24 @@ const AddAdjuster = () => {
                 style={{
                   backgroundColor: '#fff',
                   position: 'absolute',
-                  width: '100%',
+                  top: 10,
+                  width: '90%',
                   flexDirection: 'row',
                   borderWidth: 1,
                   justifyContent: 'center',
                   alignItems: 'center',
                   borderRadius: 20,
+                  alignSelf: 'center',
+                  borderColor: Color.Main,
+                  paddingLeft: 20,
                 }}>
                 <View>
                   <Text
                     style={{
-                      fontWeight: '600',
+                      fontWeight: '700',
                       color: Color.Main,
-                      fontSize: scale(18),
+                      fontSize: scale(16),
+                      textTransform: 'uppercase',
                     }}>
                     New Adjuster Added
                   </Text>
@@ -194,6 +197,7 @@ const AddAdjuster = () => {
 };
 
 const styles = StyleSheet.create({
+  nameinput: {width: '45%', paddingLeft: 0},
   textInput: {height: verticalScale(50), marginBottom: scale(30)},
   container: {
     flex: 1,
@@ -225,12 +229,13 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: '20%',
     paddingHorizontal: 20,
-    paddingVertical: scale(20),
+    paddingBottom: scale(30),
     borderRadius: 20,
   },
   logo: {
     alignSelf: 'center',
     width: 250,
+    marginTop: scale(30),
     height: 180,
   },
   Add: {

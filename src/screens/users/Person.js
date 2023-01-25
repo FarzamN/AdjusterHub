@@ -24,7 +24,7 @@ const Person = ({navigation}) => {
         <View style={styles.MainBox}>
           <Image
             style={styles.Photo}
-            source={require('../../assets/Images/photo.jpg')}
+            source={require('../../assets/Images/oldman.jpg')}
           />
           <Image
             style={styles.companyLogo}
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
     borderRadius: 100,
     alignSelf: 'center',
     marginTop: scale(-100),
-    borderColor: Color.White,
+    borderColor: Color.Black,
     borderWidth: 2,
   },
   companyLogo: {
