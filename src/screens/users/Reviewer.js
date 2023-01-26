@@ -10,14 +10,20 @@ import {
 import BackAndLogo from '../../components/BackAndLogo';
 import {Color} from '../../utils/Colors';
 import {verticalScale, scale, moderateScale} from 'react-native-size-matters';
-
+import LinearGradient from 'react-native-linear-gradient';
 import Entypo from 'react-native-vector-icons/Entypo';
 import CustomButton from '../../components/CustomButton';
 const Person = ({navigation}) => {
   return (
     <SafeAreaView styles={styles.container}>
       <BackAndLogo onPress={() => navigation.goBack()} />
-      <View style={{height: '30%', backgroundColor: Color.Main}}></View>
+      <View style={{height: '30%'}}>
+        <LinearGradient
+          start={{x: 0, y: 0}}
+          end={{x: 1, y: 0}}
+          colors={['#056DFE', '#045CD2', '#056DFE', '#045CD2']}
+          style={{flex: 1}}></LinearGradient>
+      </View>
       <View
         style={{height: '70%', backgroundColor: Color.BackgroundColor}}></View>
       <View style={{position: 'absolute', top: 100, width: '100%'}}>

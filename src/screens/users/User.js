@@ -1,3 +1,4 @@
+import React, {useState, useEffect} from 'react';
 import {
   StyleSheet,
   Text,
@@ -7,66 +8,94 @@ import {
   Image,
   TouchableOpacity,
   FlatList,
-  ImageBackground,
   ScrollView,
 } from 'react-native';
-import React from 'react';
 import {verticalScale, scale, moderateScale} from 'react-native-size-matters';
 import BackAndLogo from '../../components/BackAndLogo';
 import {Color} from '../../utils/Colors';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import LinearGradient from 'react-native-linear-gradient';
-const DATA = [
-  {
-    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-    title: 'John Smith',
-  },
-  {
-    id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-    title: 'Peter Burrow',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d72',
-    title: 'Alex Heinz',
-  },
-  {
-    id: 'bd7acbea-c1b1-46c2-aed5-3ad53a01b28ba',
-    title: 'Kyle	William',
-  },
-  {
-    id: '3ac68afc-c605-48d3-a4f8-f17d91aa97f63',
-    title: 'Joe Ethan',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-1455709e29d72',
-    title: 'George Reece',
-  },
-  {
-    id: 'bd7acbea-c1b1-46c2-aed3-3ad5398bb28ba',
-    title: 'Oscar Rhys',
-  },
-  {
-    id: '3ac68afc-c605-48d3-a4f8-fbd5241aa97f63',
-    title: 'James Charlie',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-1475371e29d72',
-    title: 'William Damian',
-  },
-];
 
 const User = ({navigation}) => {
-  const Item = ({item}) => (
+  const [search, setSearch] = useState('');
+  const [filteredDataSource, setFilteredDataSource] = useState([]);
+  const [masterDataSource, setMasterDataSource] = useState([]);
+
+  useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/posts')
+      .then(response => response.json())
+      .then(responseJson => {
+        setFilteredDataSource(responseJson);
+        setMasterDataSource(responseJson);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }, []);
+
+  const searchFilterFunction = text => {
+    // Check if searched text is not blank
+    if (text) {
+      // Inserted text is not blank
+      // Filter the masterDataSource and update FilteredDataSource
+      const newData = masterDataSource.filter(function (item) {
+        // Applying filter for the inserted text in search bar
+        const itemData = item.title
+          ? item.title.toUpperCase()
+          : ''.toUpperCase();
+        const textData = text.toUpperCase();
+        return itemData.indexOf(textData) > -1;
+      });
+      setFilteredDataSource(newData);
+      setSearch(text);
+    } else {
+      // Inserted text is blank
+      // Update FilteredDataSource with masterDataSource
+      setFilteredDataSource(masterDataSource);
+      setSearch(text);
+    }
+  };
+  const ItemView = ({item}) => (
     <TouchableOpacity
-      onPress={() => navigation.navigate('person')}
+      onPress={() => navigation.navigate('reviewer')}
       style={styles.names}>
-      <Text style={styles.Text_Name}>{item.title}</Text>
+      <Text style={styles.Text_Name} onPress={() => getItem(item)}>
+        {/* {item.id} */}
+        {item.title}
+        {'.'}
+        {/* {item.title.toUpperCase()} */}
+      </Text>
     </TouchableOpacity>
   );
+
+  const ItemSeparatorView = () => {
+    return (
+      // Flat List Item Separator
+      <View
+        style={{
+          height: 0.5,
+          width: '100%',
+          backgroundColor: '#C8C8C8',
+        }}
+      />
+    );
+  };
+
+  const getItem = item => {
+    // Function for click on an item
+    alert('Id : ' + item.id + ' Title : ' + item.title);
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <BackAndLogo onPress={() => navigation.goBack()} />
-      <View style={{height: '30%', backgroundColor: Color.Main}}></View>
+      <View style={{height: '30%'}}>
+        <LinearGradient
+          start={{x: 0, y: 0}}
+          end={{x: 1, y: 0}}
+          colors={['#056DFE', '#045CD2', '#056DFE', '#045CD2']}
+          style={{flex: 1}}></LinearGradient>
+      </View>
       <View
         style={{height: '70%', backgroundColor: Color.BackgroundColor}}></View>
       <View style={{position: 'absolute', top: 100, width: '100%'}}>
@@ -76,6 +105,8 @@ const User = ({navigation}) => {
             source={require('../../assets/Images/search.png')}
           />
           <TextInput
+            onChangeText={text => searchFilterFunction(text)}
+            value={search}
             style={styles.search}
             placeholder="search adjuster's names here"
             placeholderTextColor={Color.placeholderTextColor}
@@ -89,14 +120,18 @@ const User = ({navigation}) => {
           <View style={{height: verticalScale(380)}}>
             <FlatList
               showsVerticalScrollIndicator={false}
-              scrollEnabled={true}
-              data={DATA}
-              renderItem={Item}
-              keyExtractor={item => item.id}
+              // scrollEnabled={true}
+              // data={DATA}
+              // renderItem={Item}
+              // keyExtractor={item => item.id}
+              data={filteredDataSource}
+              keyExtractor={(item, index) => index.toString()}
+              ItemSeparatorComponent={ItemSeparatorView}
+              renderItem={ItemView}
             />
           </View>
         </View>
-        <View style={{height: 100}}></View>
+        <View style={{height: verticalScale(100)}}></View>
       </View>
 
       <TouchableOpacity
@@ -114,7 +149,7 @@ const styles = StyleSheet.create({
     backgroundColor: Color.BackgroundColor,
   },
   linearGradient: {
-    height: 200,
+    height: verticalScale(200),
   },
   InputBox: {
     width: '80%',
@@ -138,8 +173,8 @@ const styles = StyleSheet.create({
     marginTop: scale(20),
     borderRadius: 20,
     // paddingVertical: verticalScale(30),
-    paddingTop: 30,
-    paddingHorizontal: 20,
+    paddingTop: verticalScale(30),
+    paddingHorizontal: moderateScale(20),
   },
   companyLogo: {
     width: scale(200),
@@ -154,7 +189,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     justifyContent: 'center',
     marginBottom: scale(10),
-    paddingHorizontal: scale(15),
+    paddingHorizontal: moderateScale(15),
   },
   Text_Name: {
     color: Color.placeholderTextColor,
@@ -174,154 +209,3 @@ const styles = StyleSheet.create({
 });
 
 export default User;
-
-// import { StyleSheet, Text, View, SafeAreaView, TextInput, Image, TouchableOpacity, FlatList } from 'react-native'
-// import React from 'react'
-// import { verticalScale, scale, moderateScale, moderateVerticalScale } from 'react-native-size-matters'
-// import BackAndLogo from '../../components/BackAndLogo'
-// import { Color } from '../../utils/Colors'
-// import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-// import LinearGradient from 'react-native-linear-gradient';
-
-// const DATA = [
-//     {
-//         id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-//         title: 'John Smith',
-//     },
-//     {
-//         id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-//         title: 'Peter Burrow',
-//     },
-//     {
-//         id: '58694a0f-3da1-471f-bd96-145571e29d72',
-//         title: 'Alex Heinz',
-//     },
-//     {
-//         id: 'bd7acbea-c1b1-46c2-aed5-3ad53a01b28ba',
-//         title: 'Kyle	William',
-//     },
-//     {
-//         id: '3ac68afc-c605-48d3-a4f8-f17d91aa97f63',
-//         title: 'Joe Ethan',
-//     },
-//     {
-//         id: '58694a0f-3da1-471f-bd96-1455709e29d72',
-//         title: 'George Reece',
-//     },
-//     {
-//         id: 'bd7acbea-c1b1-46c2-aed3-3ad5398bb28ba',
-//         title: 'Oscar Rhys',
-//     },
-//     {
-//         id: '3ac68afc-c605-48d3-a4f8-fbd5241aa97f63',
-//         title: 'James Charlie',
-//     },
-//     {
-//         id: '58694a0f-3da1-471f-bd96-1475371e29d72',
-//         title: 'William Damian',
-//     },
-// ];
-
-// const Item = ({ name }) => (
-
-//     <View style={styles.nameBox}>
-//         <Image style={styles.companyLogo} source={require('../../assets/Images/four.png')} />
-//         <TouchableOpacity style={styles.names}>
-//             <Text style={styles.Text_Name}>{name}</Text>
-//         </TouchableOpacity>
-
-//     </View>
-// );
-// const User = () => {
-//     return (
-//         <SafeAreaView style={styles.container}>
-//             <BackAndLogo />
-//             <LinearGradient colors={['#045DD3', '#0462E3', '#056DFE']} style={styles.linearGradient}>
-// <View style={styles.InputBox}>
-//     <Image style={styles.SearchImg} source={require('../../assets/Images/search.png')} />
-//     <TextInput
-//         style={styles.search}
-//         placeholder="search adjuster's names here"
-//         placeholderTextColor={Color.placeholderTextColor} />
-// </View>
-
-// <FlatList
-//     data={DATA}
-//     renderItem={({ item }) => <Item title={item.title} />}
-//     keyExtractor={item => item.id}
-// />
-
-//                 <View style={{ height: 20 }}></View>
-//             </LinearGradient>
-// <TouchableOpacity style={styles.PlusBox}>
-//     <FontAwesome5 name={'plus'} size={30} color={Color.White} />
-// </TouchableOpacity>
-//         </SafeAreaView>
-//     )
-// }
-
-// const styles = StyleSheet.create({
-//     container: {
-//         flex: 1,
-//         backgroundColor: Color.BackgroundColor
-//     },
-//     linearGradient: {
-//         height: 200
-//     },
-//     InputBox: {
-//         width: '80%',
-//         alignSelf: 'center',
-//         backgroundColor: Color.White,
-//         height: verticalScale(50),
-//         borderRadius: 10,
-//         flexDirection: 'row',
-//         marginTop: scale(10),
-//         height: verticalScale(50)
-//     },
-//     SearchImg: {
-//         marginTop: scale(13),
-//         marginHorizontal: 10
-//     },
-//     nameBox: {
-//         width: '80%',
-//         borderRadius: 10,
-//         alignSelf: 'center',
-//         backgroundColor: Color.White,
-//         marginTop: scale(20),
-//         borderRadius: 20,
-//         paddingVertical: verticalScale(30)
-//     },
-//     companyLogo: {
-//         width: scale(200),
-//         height: verticalScale(40),
-//         alignSelf: 'center',
-//         marginBottom: scale(20)
-//     },
-//     names: {
-//         backgroundColor: Color.InputBackground,
-//         width: '90%',
-//         marginLeft: '5%',
-//         borderRadius: 10,
-//         marginVertical: scale(5),
-//         height: 50,
-//         justifyContent: 'center',
-//         paddingLeft: moderateScale(20)
-//     },
-//     Text_Name: {
-//         color: Color.placeholderTextColor,
-//         fontSize: scale(14),
-//     },
-//     PlusBox: {
-//         borderRadius: 100,
-//         backgroundColor: Color.Main,
-//         width: scale(50),
-//         height: scale(50),
-//         position: 'absolute',
-//         bottom: scale(20),
-//         right: scale(20),
-//         justifyContent: 'center',
-//         alignItems: 'center'
-//     }
-// })
-
-// export default User

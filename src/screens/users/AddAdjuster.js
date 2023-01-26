@@ -11,16 +11,20 @@ import {
 import LottieView from 'lottie-react-native';
 import {scale, moderateScale, verticalScale} from 'react-native-size-matters';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-
+import LinearGradient from 'react-native-linear-gradient';
 import Validation from '../../components/Validation';
 import {useForm} from 'react-hook-form';
 import CustomButton from '../../components/CustomButton';
 import {Color} from '../../utils/Colors';
 import NewCustomInput from '../../components/NewCustomInput';
+import Modal from 'react-native-modal';
 
 import {launchImageLibrary} from 'react-native-image-picker';
 const AddAdjuster = () => {
-  const [showAnime, setShowAnime] = useState(false);
+  const [isModalVisible, setModalVisible] = useState(false);
+  const toggleModal = () => {
+    setModalVisible(!isModalVisible);
+  };
   const [saveimage, setsaveimage] = useState();
   const [show, setShow] = useState(true);
   const {
@@ -59,12 +63,23 @@ const AddAdjuster = () => {
   return (
     <SafeAreaView style={styles.container}>
       <View styles={{height: '100%'}}>
-        <View style={styles.BlueBox}>
-          <Text style={styles.TextOne}>Add adjuster</Text>
-          <Text style={styles.TextTwo}>Don`t see your adjuster? Add them!</Text>
+        <View style={{height: '35%'}}>
+          <LinearGradient
+            start={{x: 0, y: 1}}
+            end={{x: 0, y: 0}}
+            colors={['#056DFE', '#045CD2', '#056DFE', '#045CD2']}
+            style={{flex: 1, paddingLeft: moderateScale(20)}}>
+            <Text style={styles.TextOne}>Add adjuster</Text>
+            <Text style={styles.TextTwo}>
+              Don`t see your Adjuster? Add them!
+            </Text>
+          </LinearGradient>
         </View>
-        <View style={styles.GreyBox}></View>
-
+        <View
+          style={{
+            height: '65%',
+            backgroundColor: Color.BackgroundColor,
+          }}></View>
         <View style={styles.MainContainer}>
           <ScrollView showsVerticalScrollIndicator={false}>
             <Image
@@ -130,9 +145,7 @@ const AddAdjuster = () => {
             </TouchableOpacity>
 
             <CustomButton
-              onPress={() => {
-                setShowAnime(!showAnime);
-              }}
+              onPress={toggleModal}
               title={'CReAtE ADJUStER'}
               containerStyle={{
                 alignSelf: 'center',
@@ -141,12 +154,15 @@ const AddAdjuster = () => {
               }}
               textStyle={{fontSize: scale(20), fontWeight: '700'}}
             />
-            {showAnime && (
+            <Modal
+              testID={'modal'}
+              isVisible={isModalVisible}
+              onBackdropPress={() => setModalVisible(false)}>
               <View
                 style={{
                   backgroundColor: '#fff',
                   position: 'absolute',
-                  top: 10,
+                  top: 100,
                   width: '90%',
                   flexDirection: 'row',
                   borderWidth: 1,
@@ -188,7 +204,7 @@ const AddAdjuster = () => {
                   loop
                 />
               </View>
-            )}
+            </Modal>
           </ScrollView>
         </View>
       </View>
@@ -214,7 +230,8 @@ const styles = StyleSheet.create({
     fontSize: scale(17),
   },
   BlueBox: {
-    backgroundColor: '#0568F2',
+    // backgroundColor: '#0568F2',
+
     height: '35%',
     padding: moderateScale(20),
   },
@@ -227,7 +244,7 @@ const styles = StyleSheet.create({
     width: '90%',
     alignSelf: 'center',
     position: 'absolute',
-    top: '20%',
+    top: scale(100),
     paddingHorizontal: 20,
     paddingBottom: scale(30),
     borderRadius: 20,

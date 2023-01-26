@@ -1,7 +1,7 @@
 import React from 'react';
 import {} from 'react-native';
 import Dashboard from '../screens/users/Dashboard';
-import Person from '../screens/users/Person';
+import Reviewer from '../screens/users/Reviewer';
 import User from '../screens/users/User';
 import Bubbles from '../screens/users/Bubbles';
 import AddAdjusters from '../screens/users/AddAdjuster';
@@ -18,7 +18,7 @@ const UserNavigation = () => {
       screenOptions={{headerShown: false}}>
       <Stack.Screen name="dashboard1" component={Dashboard} />
       <Stack.Screen name="user" component={User} />
-      <Stack.Screen name="person" component={Person} />
+      <Stack.Screen name="reviewer" component={Reviewer} />
       <Stack.Screen name="bubbles" component={Bubbles} />
       <Stack.Screen name="addadjusters" component={AddAdjusters} />
       <Stack.Screen name="profile" component={Profile} />
