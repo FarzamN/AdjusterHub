@@ -18,13 +18,13 @@ import {useForm} from 'react-hook-form';
 import CustomButton from '../../components/CustomButton';
 import NewCustomInput from '../../components/NewCustomInput';
 import LinearGradient from 'react-native-linear-gradient';
-
+import StarRating from 'react-native-star-rating';
 const Bubbles = ({navigation}) => {
   const [isModalVisible, setModalVisible] = useState(false);
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
   };
-  const [showAnime, setShowAnime] = useState(false);
+  const [rating, setRating] = useState(0);
   const {
     control,
     handleSubmit,
@@ -223,10 +223,17 @@ const Bubbles = ({navigation}) => {
               renderItem={renderItem}
             />
           </View>
-          <Image
-            style={styles.Image}
-            source={require('../../assets/Images/stars.png')}
-          />
+          <View
+            style={{width: '50%', alignSelf: 'center', marginTop: scale(10)}}>
+            <StarRating
+              fullStarColor={Color.Main}
+              starSize={30}
+              disabled={false}
+              maxStars={5}
+              rating={rating}
+              selectedStar={setRating}
+            />
+          </View>
           <NewCustomInput
             name="clame"
             control={control}
@@ -243,7 +250,7 @@ const Bubbles = ({navigation}) => {
           />
           <CustomButton
             onPress={() => {
-              navigation.navigate('person');
+              // navigation.navigate('reviewer');
               toggleModal();
             }}
             title={'Submit'}
@@ -360,10 +367,6 @@ const styles = StyleSheet.create({
     marginVertical: scale(5),
     paddingLeft: scale(20),
     color: Color.Black,
-  },
-  Image: {
-    alignSelf: 'center',
-    marginTop: scale(10),
   },
 });
 

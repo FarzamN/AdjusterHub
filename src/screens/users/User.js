@@ -59,7 +59,7 @@ const User = ({navigation}) => {
     <TouchableOpacity
       onPress={() => navigation.navigate('reviewer')}
       style={styles.names}>
-      <Text style={styles.Text_Name} onPress={() => getItem(item)}>
+      <Text style={styles.Text_Name}>
         {/* {item.id} */}
         {item.title}
         {'.'}
@@ -79,11 +79,6 @@ const User = ({navigation}) => {
         }}
       />
     );
-  };
-
-  const getItem = item => {
-    // Function for click on an item
-    alert('Id : ' + item.id + ' Title : ' + item.title);
   };
 
   return (
