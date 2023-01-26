@@ -87,7 +87,7 @@ const AddAdjuster = () => {
               style={styles.logo}
             />
             <View
-              style={{flexDirection: 'row', justifyContent: 'space-evenly'}}>
+              style={{flexDirection: 'row', justifyContent: 'space-between'}}>
               <NewCustomInput
                 name="First Name"
                 rules={{
@@ -96,7 +96,7 @@ const AddAdjuster = () => {
                 control={control}
                 style={[styles.textInput, styles.nameinput]}
                 textStyle={styles.InputTextStyle}
-                placeholder={'first name'}
+                placeholder={'First name'}
                 keyboardType={'default'}
                 restyle={{
                   marginTop: scale(10),
@@ -213,7 +213,7 @@ const AddAdjuster = () => {
 };
 
 const styles = StyleSheet.create({
-  nameinput: {width: '45%', paddingLeft: 0},
+  nameinput: {width: '49%', paddingLeft: 0},
   textInput: {height: verticalScale(50), marginBottom: scale(30)},
   container: {
     flex: 1,
