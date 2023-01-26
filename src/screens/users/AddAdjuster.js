@@ -141,7 +141,7 @@ const AddAdjuster = () => {
 
             <TouchableOpacity onPress={() => photosave()} style={styles.Add}>
               <Text style={styles.Add_Text}>Add Image/business Card</Text>
-              <FontAwesome name={'photo'} size={30} color={Color.White} />
+              <FontAwesome name={'photo'} size={35} color={Color.White} />
             </TouchableOpacity>
 
             <CustomButton
@@ -268,6 +268,7 @@ const styles = StyleSheet.create({
   },
   Add_Text: {
     color: Color.White,
+    fontSize: scale(15),
   },
 });
 export default AddAdjuster;
