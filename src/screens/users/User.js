@@ -49,8 +49,6 @@ const User = ({navigation}) => {
       setFilteredDataSource(newData);
       setSearch(text);
     } else {
-      // Inserted text is blank
-      // Update FilteredDataSource with masterDataSource
       setFilteredDataSource(masterDataSource);
       setSearch(text);
     }
@@ -59,12 +57,7 @@ const User = ({navigation}) => {
     <TouchableOpacity
       onPress={() => navigation.navigate('reviewer')}
       style={styles.names}>
-      <Text style={styles.Text_Name}>
-        {/* {item.id} */}
-        {item.title}
-        {'.'}
-        {/* {item.title.toUpperCase()} */}
-      </Text>
+      <Text style={styles.Text_Name}>{item.title}</Text>
     </TouchableOpacity>
   );
 
@@ -115,10 +108,6 @@ const User = ({navigation}) => {
           <View style={{height: verticalScale(380)}}>
             <FlatList
               showsVerticalScrollIndicator={false}
-              // scrollEnabled={true}
-              // data={DATA}
-              // renderItem={Item}
-              // keyExtractor={item => item.id}
               data={filteredDataSource}
               keyExtractor={(item, index) => index.toString()}
               ItemSeparatorComponent={ItemSeparatorView}
@@ -167,7 +156,6 @@ const styles = StyleSheet.create({
     backgroundColor: Color.White,
     marginTop: scale(20),
     borderRadius: 20,
-    // paddingVertical: verticalScale(30),
     paddingTop: verticalScale(30),
     paddingHorizontal: moderateScale(20),
   },
@@ -181,7 +169,7 @@ const styles = StyleSheet.create({
     height: verticalScale(50),
     width: '100%',
     backgroundColor: Color.InputBackground,
-    borderRadius: 10,
+    borderRadius: 7,
     justifyContent: 'center',
     marginBottom: scale(10),
     paddingHorizontal: moderateScale(15),
@@ -189,6 +177,7 @@ const styles = StyleSheet.create({
   Text_Name: {
     color: Color.placeholderTextColor,
     fontSize: scale(14),
+    textTransform: 'capitalize',
   },
   PlusBox: {
     borderRadius: 100,
