@@ -9,6 +9,7 @@ import {
   ScrollView,
   KeyboardAvoidingView,
   Platform,
+  StatusBar,
 } from 'react-native';
 import {scale, moderateScale, verticalScale} from 'react-native-size-matters';
 
@@ -16,6 +17,7 @@ import Validation from '../../components/Validation';
 import {useForm} from 'react-hook-form';
 import CustomInput from '../../components/CustomInput';
 import CustomButton from '../../components/CustomButton';
+import { Color } from '../../utils/Colors';
 
 const Login = ({navigation}) => {
   const [password, setPassword] = useState('');
@@ -29,7 +31,7 @@ const Login = ({navigation}) => {
     formState: {errors, isValid},
   } = useForm({mode: 'all'});
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.container} >
       <View styles={{height: '100%'}}>
         <View style={styles.BlueBox}>
           <Text style={styles.TextOne}>WELCOME BACK</Text>
@@ -40,7 +42,7 @@ const Login = ({navigation}) => {
         <View style={styles.MainContainer}>
           <KeyboardAvoidingView
             behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-            style={styles.container}>
+            style={[styles.container, {backgroundColor : Color.White}]}>
             <ScrollView showsVerticalScrollIndicator={false}>
               <Image
                 source={require('../../assets/Images/logo.png')}
@@ -174,6 +176,7 @@ const Login = ({navigation}) => {
           </KeyboardAvoidingView>
         </View>
       </View>
+    
     </SafeAreaView>
   );
 };
@@ -182,6 +185,7 @@ const styles = StyleSheet.create({
   textInput: {height: verticalScale(50), marginVertical: scale(15)},
   container: {
     flex: 1,
+    backgroundColor : '#0568F2'
   },
   TextOne: {
     color: '#fff',
@@ -223,6 +227,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   FPassCon: {
+    marginTop : 10,
     flexDirection: 'row',
     justifyContent: 'flex-end',
     // marginTop: scale(5),

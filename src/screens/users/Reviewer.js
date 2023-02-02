@@ -207,7 +207,7 @@ const Person = ({navigation}) => {
     </View>
   );
   return (
-    <SafeAreaView styles={styles.container}>
+    <SafeAreaView style={styles.container}>
       <BackAndLogo onPress={() => navigation.goBack()} />
       <View style={{height: '30%'}}>
         <LinearGradient
@@ -263,7 +263,7 @@ const Person = ({navigation}) => {
             title={'Leave Feedback'}
           />
           <Modal
-            onBackdropPress={() => isModalVisibleBubble(false)}
+            onBackdropPress={() => setModalVisibleBubble(false)}
             isVisible={isModalVisibleBubble}>
             <View style={styles.ModalMainBox}>
               <Text style={styles.Describe}>Describe our adjscter</Text>
@@ -381,7 +381,7 @@ const Person = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#1f1',
+    backgroundColor : '#045CD2'
   },
   linearGradient: {
     height: 200,

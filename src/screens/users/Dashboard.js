@@ -59,7 +59,7 @@ const Dashboard = ({navigation}) => {
         onPress_back={() => navigation.navigate('login')}
         onPress={() => navigation.openDrawer()}
       />
-      <View style={{flex: 1}}>
+      <View style={{flex: 1, backgroundColor : Color.BackgroundColor}}>
         <FlatList
           keyExtractor={item => item.id}
           data={DATA}
@@ -77,7 +77,7 @@ const Dashboard = ({navigation}) => {
 const styles = StyleSheet.create({
   Container: {
     flex: 1,
-    backgroundColor: Color.BackgroundColor,
+    backgroundColor: '#0568F2',
   },
   item: {
     padding: 20,

@@ -129,6 +129,7 @@ const styles = StyleSheet.create({
   textInput: {height: verticalScale(50), marginVertical: scale(15)},
   container: {
     flex: 1,
+    backgroundColor : '#0568F2'
   },
   TextOne: {
     color: '#fff',

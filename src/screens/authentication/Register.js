@@ -42,7 +42,7 @@ const Register = ({navigation}) => {
         <View style={styles.MainContainer}>
           <KeyboardAvoidingView
             behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-            style={styles.container}>
+            style={[styles.container, {backgroundColor : Color.White}]}>
             <ScrollView showsVerticalScrollIndicator={false}>
               <Image
                 source={require('../../assets/Images/logo.png')}
@@ -63,7 +63,7 @@ const Register = ({navigation}) => {
                   restyle={{
                     backgroundColor: Color.InputBackground,
                     color: '#000',
-                    paddingHorizontal: moderateScale(45),
+                    paddingHorizontal: moderateScale(30),
                   }}
                 />
                 <CustomInput
@@ -198,6 +198,7 @@ const styles = StyleSheet.create({
   textInput: {height: verticalScale(50), marginVertical: scale(5)},
   container: {
     flex: 1,
+    backgroundColor : '#0568F2'
   },
   TextOne: {
     color: '#fff',

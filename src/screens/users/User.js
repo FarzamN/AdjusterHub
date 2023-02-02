@@ -86,7 +86,7 @@ const User = ({navigation}) => {
       </View>
       <View
         style={{height: '70%', backgroundColor: Color.BackgroundColor}}></View>
-      <View style={{position: 'absolute', top: 100, width: '100%'}}>
+      <View style={{position: 'absolute', top: scale(100), width: '100%'}}>
         <View style={styles.InputBox}>
           <Image
             style={styles.SearchImg}
@@ -130,7 +130,7 @@ const User = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Color.BackgroundColor,
+    backgroundColor: Color.Main,
   },
   linearGradient: {
     height: verticalScale(200),
@@ -142,6 +142,9 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     flexDirection: 'row',
     height: verticalScale(50),
+    shadowColor : '#000000',
+    shadowOpacity : 0.3,
+    shadowOffset : [1,1]
   },
   SearchImg: {
     marginTop: scale(13),

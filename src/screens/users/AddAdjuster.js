@@ -146,7 +146,7 @@ const AddAdjuster = () => {
 
             <CustomButton
               onPress={toggleModal}
-              title={'CReAtE ADJUStER'}
+              title={'CReAtE ADJUSTER'}
               containerStyle={{
                 alignSelf: 'center',
                 width: '95%',
@@ -217,6 +217,7 @@ const styles = StyleSheet.create({
   textInput: {height: verticalScale(50), marginBottom: scale(30)},
   container: {
     flex: 1,
+    backgroundColor : '#045CD2'
   },
   TextOne: {
     color: '#fff',

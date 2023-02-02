@@ -52,6 +52,9 @@ const Profile = ({navigation}) => {
 
   const requestCameraPermission = async () => {
     try {
+      if(Platform.OS == 'ios'){
+        toggleModal3();
+      }else{
       const granted = await PermissionsAndroid.request(
         PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE,
         {
@@ -68,6 +71,7 @@ const Profile = ({navigation}) => {
       } else {
         console.log('Camera permission denied');
       }
+    }
     } catch (err) {
       console.warn(err);
     }
@@ -93,6 +97,7 @@ const Profile = ({navigation}) => {
       } else {
         setsaveimage(res.assets?.[0]?.uri);
         setShow(false);
+        setModalVisible3(false);
       }
     });
   };
@@ -104,9 +109,7 @@ const Profile = ({navigation}) => {
       },
     };
     launchCamera(options, res => {
-      const granted = PermissionsAndroid.request(
-        PermissionsAndroid.PERMISSIONS.CAMERA,
-      );
+      
       console.log('Response = ', res);
       if (res.didCancel) {
         console.log('User cancelled image picker');
@@ -122,7 +125,7 @@ const Profile = ({navigation}) => {
     });
   };
   return (
-    <SafeAreaView style={{flex: 1}}>
+    <SafeAreaView style={{flex: 1, backgroundColor:'#0568F2'}}>
       <BackWithMenu
         onPress={() => navigation.openDrawer()}
         onPress_back={() => navigation.goBack()}
@@ -133,7 +136,7 @@ const Profile = ({navigation}) => {
             <Image
               style={{width: '100%', height: '100%'}}
               resizeMode={'stretch'}
-              source={require('../../assets/Images/man.jpg')}
+              source={require('../../assets/Images/oldman.jpg')}
             />
           ) : (
             <Image
@@ -169,7 +172,7 @@ const Profile = ({navigation}) => {
               <TouchableOpacity
                 onPress={() => {
                   photosave();
-                  setModalVisible3(false);
+                  
                 }}
                 style={styles.ModalBtn}>
                 <Image
@@ -310,7 +313,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     position: 'absolute',
-    bottom: 55,
+    bottom: 95,
     right: 10,
   },
   MainContainer: {
@@ -342,6 +345,7 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 15,
     borderTopRightRadius: 15,
     flexDirection: 'row',
+    height : scale(100)
   },
   tinyLogo: {
     height: verticalScale(22),
