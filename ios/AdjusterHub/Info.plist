@@ -37,12 +37,12 @@
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Adjusters-Hub would like to access your location.</string>
-  <key>NSPhotoLibraryUsageDescription</key>
+	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Allow Adjusters-Hub to access media library.</string>
-  <key>NSCameraUsageDescription</key>
-  <string>Adjusters-Hub would like to acess to your camera.</string>
-  <key>NSPhotoLibraryAddUsageDescription</key>
-  <string>Allow Adjusters-Hub to access media library.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Adjusters-Hub would like to acess to your camera.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Allow Adjusters-Hub to access media library.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>fonts/AntDesign.ttf</string>
@@ -55,7 +55,6 @@
 		<string>fonts/FontAwesome5_Solid.ttf</string>
 		<string>fonts/Foundation.ttf</string>
 		<string>fonts/Fontisto.ttf</string>
-
 		<string>fonts/Ionicons.ttf</string>
 		<string>fonts/MaterialIcons.ttf</string>
 		<string>fonts/MaterialCommunityIcons.ttf</string>
@@ -64,8 +63,10 @@
 		<string>fonts/Inter-Bold.ttf</string>
 		<string>fonts/Inter-Regular.ttf</string>
 		<string>fonts/Inter-SemiBold.ttf</string>
+		<string>gazrg-bold.otf</string>
+		<string>Babylonica-Regular.ttf</string>
+		<string>Gaz-W00-Regular.ttf</string>
 	</array>
-	
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>

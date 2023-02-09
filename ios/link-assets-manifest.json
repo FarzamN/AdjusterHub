@@ -1,0 +1,17 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/Babylonica-Regular.ttf",
+      "sha1": "c31c71e667590d75105aca5520410b356546eaf0"
+    },
+    {
+      "path": "src/assets/fonts/Gaz-W00-Regular.ttf",
+      "sha1": "8d5189f31059b99b560870019826c707edd4632a"
+    },
+    {
+      "path": "src/assets/fonts/gazrg-bold.otf",
+      "sha1": "22aeadcf902d5bf4eed5e404c25124eed3b063aa"
+    }
+  ]
+}

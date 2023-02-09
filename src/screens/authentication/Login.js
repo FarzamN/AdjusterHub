@@ -35,7 +35,7 @@ const Login = ({navigation}) => {
     <SafeAreaView style={styles.container}>
       <View styles={{height: '100%'}}>
         <View style={styles.BlueBox}>
-          <Text style={[styles.TextOne, {fontFamily: Fonts.waves}]}>
+          <Text style={[styles.TextOne]}>
             WELCOME BACK
           </Text>
           <Text style={styles.TextTwo}>It's good to see you again!</Text>
@@ -201,7 +201,7 @@ const styles = StyleSheet.create({
   },
   TextOne: {
     color: '#fff',
-    fontFamily: Fonts.Gaz,
+    fontFamily: "Gaz-W00-Regular",
     fontWeight: '800',
     fontSize: scale(25),
     marginTop: scale(30),
