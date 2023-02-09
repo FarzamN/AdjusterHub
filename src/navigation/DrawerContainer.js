@@ -9,8 +9,11 @@ import {
 } from '@react-navigation/drawer';
 import {Color} from '../utils/Colors';
 import {scale} from 'react-native-size-matters';
+import {useNavigation} from '@react-navigation/native';
 
 const DrawerContainer = props => {
+  const navigation = useNavigation();
+
   return (
     <SafeAreaView style={{flex: 1}}>
       <LinearGradient
@@ -27,6 +30,7 @@ const DrawerContainer = props => {
             icon={() => <Entypo color={'#EF6464'} size={20} name={'log-out'} />}
             labelStyle={{color: '#1f1f1f', marginLeft: -15}}
             label="Log Out"
+            onPress={() => navigation.navigate('login')}
           />
         </DrawerContentScrollView>
         <Text
@@ -58,15 +62,13 @@ const DrawerContainer = props => {
 const styles = StyleSheet.create({
   linearGradient: {
     flex: 1,
-
-    borderRadius: 5,
+    borderBottomRightRadius: 50,
+    borderTopRightRadius: 15,
   },
   sideMenuProfileIcon: {
-    // resizeMode: 'center',
     width: 150,
     height: 150,
     marginTop: scale(20),
-    // borderRadius: 100 / 2,
     alignSelf: 'center',
   },
   iconStyle: {

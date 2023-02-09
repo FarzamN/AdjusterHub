@@ -5,5 +5,6 @@ export const Color = {
   placeholderTextColor: '#9EA0A3',
   InputBackground: '#EEEEEF',
   NmaeBackground: '#999B9E',
-  Black: '#000'
+  Black: '#000',
+  greyfont: '#414D5B',
 };

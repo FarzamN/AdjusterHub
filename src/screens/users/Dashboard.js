@@ -48,6 +48,7 @@ const Dashboard = ({navigation}) => {
   ];
   const Item = ({item, onPress}) => (
     <TouchableOpacity
+      activeOpacity={1}
       onPress={() => navigation.navigate('user')}
       style={styles.item}>
       <Image style={styles.Images} source={item.Image} />
@@ -59,7 +60,7 @@ const Dashboard = ({navigation}) => {
         onPress_back={() => navigation.navigate('login')}
         onPress={() => navigation.openDrawer()}
       />
-      <View style={{flex: 1, backgroundColor : Color.BackgroundColor}}>
+      <View style={{flex: 1, backgroundColor: Color.BackgroundColor}}>
         <FlatList
           keyExtractor={item => item.id}
           data={DATA}

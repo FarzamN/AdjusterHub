@@ -42,7 +42,7 @@ const Register = ({navigation}) => {
         <View style={styles.MainContainer}>
           <KeyboardAvoidingView
             behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-            style={[styles.container, {backgroundColor : Color.White}]}>
+            style={[styles.container, {backgroundColor: Color.White}]}>
             <ScrollView showsVerticalScrollIndicator={false}>
               <Image
                 source={require('../../assets/Images/logo.png')}
@@ -56,7 +56,7 @@ const Register = ({navigation}) => {
                     required: 'First Name is required',
                   }}
                   control={control}
-                  style={styles.textInput}
+                  style={[styles.textInput, {width: '49%'}]}
                   textStyle={styles.InputTextStyle}
                   placeholder={'First Name'}
                   keyboardType={'default'}
@@ -72,7 +72,7 @@ const Register = ({navigation}) => {
                     required: 'Last Name is required',
                   }}
                   control={control}
-                  style={styles.textInput}
+                  style={[styles.textInput, {width: '49%'}]}
                   textStyle={styles.InputTextStyle}
                   placeholder={'Last Name'}
                   keyboardType={'default'}
@@ -170,9 +170,10 @@ const Register = ({navigation}) => {
                     color: '#000',
                     fontStyle: 'normal',
                   }}>
-                  By taping `Register` you will accept our
+                  By taping 'Register' you will accept our
                 </Text>
-                <TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => navigation.navigate('termsandcondition')}>
                   <Text
                     style={{
                       fontSize: scale(14),
@@ -182,7 +183,7 @@ const Register = ({navigation}) => {
                       marginLeft: scale(5),
                       alignSelf: 'flex-end',
                     }}>
-                    Terms of Service
+                    Terms of Service.
                   </Text>
                 </TouchableOpacity>
               </View>
@@ -198,7 +199,7 @@ const styles = StyleSheet.create({
   textInput: {height: verticalScale(50), marginVertical: scale(5)},
   container: {
     flex: 1,
-    backgroundColor : '#0568F2'
+    backgroundColor: '#0568F2',
   },
   TextOne: {
     color: '#fff',

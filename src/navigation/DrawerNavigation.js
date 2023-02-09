@@ -26,6 +26,10 @@ export const DrawerNavigation = () => {
         drawerLabelStyle: {
           marginLeft: -15,
         },
+        drawerStyle: {
+          borderBottomRightRadius: 50,
+          borderTopRightRadius: 20,
+        },
       }}
       initialRouteName="Dashboard"
       drawerContent={props => <DrawerContainer {...props} />}>

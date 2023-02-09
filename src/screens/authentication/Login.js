@@ -17,7 +17,7 @@ import Validation from '../../components/Validation';
 import {useForm} from 'react-hook-form';
 import CustomInput from '../../components/CustomInput';
 import CustomButton from '../../components/CustomButton';
-import { Color } from '../../utils/Colors';
+import {Color} from '../../utils/Colors';
 
 const Login = ({navigation}) => {
   const [password, setPassword] = useState('');
@@ -31,18 +31,20 @@ const Login = ({navigation}) => {
     formState: {errors, isValid},
   } = useForm({mode: 'all'});
   return (
-    <SafeAreaView style={styles.container} >
+    <SafeAreaView style={styles.container}>
       <View styles={{height: '100%'}}>
         <View style={styles.BlueBox}>
-          <Text style={styles.TextOne}>WELCOME BACK</Text>
-          <Text style={styles.TextTwo}>Its good to see you agaon!</Text>
+          <Text style={[styles.TextOne, {fontFamily: 'Babylonica-Regular'}]}>
+            WELCOME BACK
+          </Text>
+          <Text style={styles.TextTwo}>It's good to see you again!</Text>
         </View>
         <View style={styles.GreyBox}></View>
 
         <View style={styles.MainContainer}>
           <KeyboardAvoidingView
             behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-            style={[styles.container, {backgroundColor : Color.White}]}>
+            style={[styles.container, {backgroundColor: Color.White}]}>
             <ScrollView showsVerticalScrollIndicator={false}>
               <Image
                 source={require('../../assets/Images/logo.png')}
@@ -111,7 +113,6 @@ const Login = ({navigation}) => {
                     position: 'absolute',
                     right: scale(15),
                     top: scale(50),
-                    // justifyContent: 'flex-end',
                   }}
                   onPress={() => setIsPasswordSecure(prevCheck => !prevCheck)}>
                   <Text style={styles.viewText}>
@@ -119,7 +120,7 @@ const Login = ({navigation}) => {
                   </Text>
                 </TouchableOpacity>
               </View>
-              <View style={[styles.FPassCon, {marginTop: scale(10)}]}>
+              <View style={[styles.FPassCon, {marginTop: scale(15)}]}>
                 <Text
                   style={{
                     fontSize: scale(14),
@@ -127,7 +128,7 @@ const Login = ({navigation}) => {
                     color: '#000',
                     fontStyle: 'normal',
                   }}>
-                  Forget Password?
+                  Forgot Password?
                 </Text>
                 <TouchableOpacity
                   onPress={() => navigation.navigate('changePass')}>
@@ -139,11 +140,12 @@ const Login = ({navigation}) => {
                       fontStyle: 'normal',
                       marginLeft: scale(5),
                     }}>
-                    Reset Here
+                    Reset Here.
                   </Text>
                 </TouchableOpacity>
               </View>
               <CustomButton
+                containerStyle={{marginTop: scale(20)}}
                 onPress={() => navigation.navigate('DrawerNavigation')}
                 title={'LOGIN'}
                 textStyle={{fontSize: scale(27)}}
@@ -156,7 +158,7 @@ const Login = ({navigation}) => {
                     color: '#000',
                     fontStyle: 'normal',
                   }}>
-                  Dont have an account?
+                  Don't have an account?
                 </Text>
                 <TouchableOpacity
                   onPress={() => navigation.navigate('register')}>
@@ -168,7 +170,7 @@ const Login = ({navigation}) => {
                       fontStyle: 'normal',
                       marginLeft: scale(5),
                     }}>
-                    Register
+                    Register.
                   </Text>
                 </TouchableOpacity>
               </View>
@@ -176,19 +178,22 @@ const Login = ({navigation}) => {
           </KeyboardAvoidingView>
         </View>
       </View>
-    
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  textInput: {height: verticalScale(50), marginVertical: scale(15)},
+  textInput: {
+    height: verticalScale(45),
+    marginVertical: scale(15),
+  },
   container: {
     flex: 1,
-    backgroundColor : '#0568F2'
+    backgroundColor: '#0568F2',
   },
   TextOne: {
     color: '#fff',
+    // fontFamily: 'Babylonica-Regular',
     fontWeight: '800',
     fontSize: scale(25),
     marginTop: scale(30),
@@ -196,6 +201,7 @@ const styles = StyleSheet.create({
   TextTwo: {
     color: '#fff',
     fontSize: scale(17),
+    marginTop: scale(-8),
   },
   BlueBox: {
     backgroundColor: '#0568F2',
@@ -218,8 +224,8 @@ const styles = StyleSheet.create({
   },
   logo: {
     alignSelf: 'center',
-    width: 250,
-    height: 180,
+    width: 230,
+    height: 170,
   },
   viewText: {
     color: '#0568F2',
@@ -227,7 +233,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   FPassCon: {
-    marginTop : 10,
+    marginTop: 10,
     flexDirection: 'row',
     justifyContent: 'flex-end',
     // marginTop: scale(5),

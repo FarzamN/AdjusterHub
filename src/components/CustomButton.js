@@ -1,7 +1,6 @@
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {scale, moderateScale} from 'react-native-size-matters';
-
 const CustomButtton = props => {
   return props.withToggle ? (
     <View>
@@ -34,7 +33,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#0568F2',
-    // marginHorizontal: scale(20),
     marginTop: scale(10),
     borderRadius: 10,
   },
@@ -42,7 +40,7 @@ const styles = StyleSheet.create({
   font: {
     color: '#fff',
     fontSize: scale(20),
-    fontFamily: 'Inter-Bold',
+    fontFamily: 'gazrg-bold',
     fontWeight: '700',
     textTransform: 'uppercase',
   },

@@ -7,6 +7,7 @@ import {
   Image,
   TouchableOpacity,
   FlatList,
+  Platform,
 } from 'react-native';
 import BackAndLogo from '../../components/BackAndLogo';
 import {Color} from '../../utils/Colors';
@@ -50,7 +51,7 @@ const Person = ({navigation}) => {
     },
     {
       id: '3',
-      name: 'communicative',
+      name: 'educated',
       selected: false,
     },
     {
@@ -266,7 +267,7 @@ const Person = ({navigation}) => {
             onBackdropPress={() => setModalVisibleBubble(false)}
             isVisible={isModalVisibleBubble}>
             <View style={styles.ModalMainBox}>
-              <Text style={styles.Describe}>Describe our adjscter</Text>
+              <Text style={styles.Describe}>Describe your adjuster</Text>
               <View>
                 <FlatList
                   numColumns={3}
@@ -381,7 +382,7 @@ const Person = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor : '#045CD2'
+    backgroundColor: '#045CD2',
   },
   linearGradient: {
     height: 200,
@@ -462,7 +463,19 @@ const styles = StyleSheet.create({
     backgroundColor: Color.BackgroundColor,
     paddingVertical: moderateScale(7),
     paddingHorizontal: scale(13),
-    borderRadius: 25,
+    ...Platform.select({
+      ios: {
+        borderRadius: 25,
+      },
+      android: {
+        borderRadius: 25,
+      },
+      default: {
+        // other platforms, web for example
+        borderRadius: 25,
+      },
+    }),
+
     color: Color.Black,
     textAlign: 'center',
     margin: scale(3),
@@ -483,10 +496,9 @@ const styles = StyleSheet.create({
     textTransform: 'capitalize',
   },
   ModalBubbleBox: {
-    flexWrap: 'wrap',
-    flexDirection: 'row',
     marginTop: scale(2),
-    marginLeft: scale(7),
+    paddingRight: moderateScale(5),
+    paddingLeft: scale(5),
   },
 });
 

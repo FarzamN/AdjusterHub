@@ -99,7 +99,7 @@ const ChangePass = ({navigation}) => {
                 style={{
                   position: 'absolute',
                   right: scale(15),
-                  top: scale(50),
+                  top: scale(45),
                   // justifyContent: 'flex-end',
                 }}
                 onPress={() => setIsPasswordSecure(prevCheck => !prevCheck)}>
@@ -110,11 +110,11 @@ const ChangePass = ({navigation}) => {
             </View>
             <View>
               <CustomInput
-                secureTextEntry={isPasswordSecure2}
+                secureTextEntry={isPasswordSecure}
                 textContentType={'password'}
                 value={password}
-                onChangeText={text => setPassword2(text)}
-                name="ConfirmPassword"
+                onChangeText={text => setPassword(text)}
+                name="c_password"
                 rules={{
                   required: 'Password is required',
                 }}
@@ -136,17 +136,16 @@ const ChangePass = ({navigation}) => {
                   left: scale(12),
                 }}
                 onPress={() => {
-                  isPasswordSecure2
-                    ? setIsPasswordSecure2(false)
-                    : setIsPasswordSecure2(true);
+                  isPasswordSecure
+                    ? setIsPasswordSecure(false)
+                    : setIsPasswordSecure(true);
                 }}
               />
               <TouchableOpacity
                 style={{
                   position: 'absolute',
                   right: scale(15),
-                  top: scale(50),
-                  // justifyContent: 'flex-end',
+                  top: scale(45),
                 }}
                 onPress={() => setIsPasswordSecure(prevCheck => !prevCheck)}>
                 <Text style={styles.viewText}>
@@ -154,10 +153,9 @@ const ChangePass = ({navigation}) => {
                 </Text>
               </TouchableOpacity>
             </View>
-
             <CustomButton
               onPress={() => navigation.navigate('login')}
-              containerStyle={{marginTop: scale(25)}}
+              containerStyle={{marginTop: scale(50)}}
               title={'Confirm'}
               textStyle={{fontSize: scale(27)}}
             />
@@ -170,23 +168,22 @@ const ChangePass = ({navigation}) => {
 
 const styles = StyleSheet.create({
   textInput: {
-    height: verticalScale(50),
-    marginVertical: scale(10),
-    // backgroundColor: 'red',
+    height: verticalScale(45),
+    marginVertical: scale(7),
   },
   container: {
     flex: 1,
-    backgroundColor :'#0568F2'
+    backgroundColor: '#0568F2',
   },
   TextOne: {
     color: '#fff',
     fontWeight: '800',
-    fontSize: scale(25),
+    fontSize: scale(23),
     marginTop: scale(30),
   },
   TextTwo: {
     color: '#fff',
-    fontSize: scale(17),
+    fontSize: scale(16),
     fontWeight: '600',
   },
   BlueBox: {
@@ -203,15 +200,15 @@ const styles = StyleSheet.create({
     width: '90%',
     alignSelf: 'center',
     position: 'absolute',
-    top: '22%',
+    top: '25%',
     paddingHorizontal: 20,
-    paddingVertical: scale(20),
+    paddingVertical: scale(35),
     borderRadius: 20,
   },
   logo: {
     alignSelf: 'center',
-    width: 250,
-    height: 180,
+    width: 240,
+    height: 185,
   },
   viewText: {
     color: '#0568F2',
@@ -226,7 +223,7 @@ const styles = StyleSheet.create({
   arrow: {
     backgroundColor: Color.White,
     width: scale(32),
-    height: verticalScale(32),
+    height: scale(32),
     borderRadius: 5,
     alignItems: 'center',
   },
