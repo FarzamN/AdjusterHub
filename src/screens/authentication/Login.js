@@ -18,6 +18,7 @@ import {useForm} from 'react-hook-form';
 import CustomInput from '../../components/CustomInput';
 import CustomButton from '../../components/CustomButton';
 import {Color} from '../../utils/Colors';
+import {Fonts} from '../../utils/Fonts';
 
 const Login = ({navigation}) => {
   const [password, setPassword] = useState('');
@@ -34,7 +35,7 @@ const Login = ({navigation}) => {
     <SafeAreaView style={styles.container}>
       <View styles={{height: '100%'}}>
         <View style={styles.BlueBox}>
-          <Text style={[styles.TextOne, {fontFamily: 'Babylonica-Regular'}]}>
+          <Text style={[styles.TextOne, {fontFamily: Fonts.waves}]}>
             WELCOME BACK
           </Text>
           <Text style={styles.TextTwo}>It's good to see you again!</Text>
@@ -145,10 +146,17 @@ const Login = ({navigation}) => {
                 </TouchableOpacity>
               </View>
               <CustomButton
-                containerStyle={{marginTop: scale(20)}}
-                onPress={() => navigation.navigate('DrawerNavigation')}
-                title={'LOGIN'}
-                textStyle={{fontSize: scale(27)}}
+                onPress={() => navigation.navigate('register')}
+                title={'login'}
+                textStyle={{
+                  fontSize: scale(20),
+                  fontWeight: '700',
+                  fontFamily: Fonts.Gaz,
+                }}
+                containerStyle={{
+                  marginTop: scale(40),
+                  height: verticalScale(50),
+                }}
               />
               <View style={styles.FPassCon}>
                 <Text
@@ -193,7 +201,7 @@ const styles = StyleSheet.create({
   },
   TextOne: {
     color: '#fff',
-    // fontFamily: 'Babylonica-Regular',
+    fontFamily: Fonts.Gaz,
     fontWeight: '800',
     fontSize: scale(25),
     marginTop: scale(30),

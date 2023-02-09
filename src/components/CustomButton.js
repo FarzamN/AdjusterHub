@@ -1,6 +1,8 @@
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {scale, moderateScale} from 'react-native-size-matters';
+import {Fonts} from '../utils/Fonts';
+
 const CustomButtton = props => {
   return props.withToggle ? (
     <View>
@@ -40,7 +42,7 @@ const styles = StyleSheet.create({
   font: {
     color: '#fff',
     fontSize: scale(20),
-    fontFamily: 'gazrg-bold',
+    fontFamily: Fonts.Gaz,
     fontWeight: '700',
     textTransform: 'uppercase',
   },

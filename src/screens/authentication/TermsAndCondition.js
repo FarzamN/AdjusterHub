@@ -31,7 +31,7 @@ const TermsAndCondition = ({navigation}) => {
           Aldus PageMaker including versions of Lorem Ipsum.
         </Text>
         <CustomButton
-          onPress={() => navigation.goBack()}
+          onPress={() => navigation.navigate('login')}
           title="Accept and Continue"
           textStyle={{textAlign: 'center', fontWeight: 'bold'}}
           containerStyle={{
