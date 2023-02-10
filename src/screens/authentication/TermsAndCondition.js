@@ -10,9 +10,12 @@ const TermsAndCondition = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.Container}>
       <LinearGradient
-        start={{ x: 0, y: 1 }}
-        end={{ x: 0, y: 0 }}
-        colors={['#056DFE', '#056BF9', '#034EAC', '#024391']}
+        start={{ x: 1, y: 0 }}
+        end={{ x: 0, y: 1 }}
+        colors={['#056BF9', '#056DFE', '#034EAC']}
+
+        // colors={['#056DFE', '#056BF9', '#034EAC', '#024391']}
+
         style={styles.mainView}>
         <View style={styles.firstView}>
 
