@@ -4,45 +4,55 @@ import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
 
 import CustomButton from '../../components/CustomButton';
 import { Color } from '../../utils/Colors';
+import LinearGradient from 'react-native-linear-gradient';
 
 const TermsAndCondition = ({ navigation }) => {
   return (
-    <SafeAreaView style={styles.mainView}>
-      <View style={styles.firstView}>
-        <Image
-          style={{
-            alignSelf: 'center',
-            marginTop: scale(20),
-            width: 237,
-            height: 180,
-          }}
-          source={require('../../assets/Images/logo.png')}
-        />
-        <Text style={styles.accept}>Terms and Condition</Text>
-        <Text style={styles.lorem}>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry&rsquo;s standard dummy
-          text ever since the 1500s, when an unknown printer took a galley of
-          type and scrambled it to make a type specimen book. It has survived
-          not only five centuries, but also the leap into electronic
-          typesetting, remaining essentially unchanged. It was popularised in
-          the 1960s with the release of Letraset sheets containing Lorem Ipsum
-          passages, and more recently with desktop publishing software like
-          Aldus PageMaker including versions of Lorem Ipsum.
-        </Text>
-        <CustomButton
-          onPress={() => navigation.navigate('login')}
-          title="Accept and Continue"
-          textStyle={{ textAlign: 'center' }}
-          containerStyle={{
-            // marginTop: scale(20),
-            width: '85%',
-            alignSelf: 'center',
-            position: 'absolute',
-            bottom: 20
-          }}
-        />
-      </View>
+    <SafeAreaView style={styles.Container}>
+      <LinearGradient
+        start={{ x: 0, y: 1 }}
+        end={{ x: 0, y: 0 }}
+        colors={['#056DFE', '#056BF9', '#034EAC', '#024391']}
+        style={styles.mainView}>
+        <View style={styles.firstView}>
+
+
+          <Image
+            style={{
+              alignSelf: 'center',
+              marginTop: scale(20),
+              width: 237,
+              height: 180,
+            }}
+            source={require('../../assets/Images/logo.png')}
+          />
+          <Text style={styles.accept}>Terms and Condition</Text>
+          <Text style={styles.lorem}>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry&rsquo;s standard dummy
+            text ever since the 1500s, when an unknown printer took a galley of
+            type and scrambled it to make a type specimen book. It has survived
+            not only five centuries, but also the leap into electronic
+            typesetting, remaining essentially unchanged. It was popularised in
+            the 1960s with the release of Letraset sheets containing Lorem Ipsum
+            passages, and more recently with desktop publishing software like
+            Aldus PageMaker including versions of Lorem Ipsum.
+          </Text>
+          <CustomButton
+            onPress={() => navigation.navigate('login')}
+            title="Accept and Continue"
+            textStyle={{ textAlign: 'center' }}
+            containerStyle={{
+              // marginTop: scale(20),
+              width: '85%',
+              alignSelf: 'center',
+              position: 'absolute',
+              bottom: 20
+            }}
+          />
+        </View>
+      </LinearGradient>
+
     </SafeAreaView>
   );
 };
@@ -50,9 +60,11 @@ const TermsAndCondition = ({ navigation }) => {
 export default TermsAndCondition;
 
 const styles = StyleSheet.create({
+  Container: {
+    flex: 1,
+  },
   mainView: {
     flex: 1,
-    backgroundColor: Color.Main,
     justifyContent: 'center',
     alignItems: 'center',
   },
