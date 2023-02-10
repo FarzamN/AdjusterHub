@@ -1,11 +1,11 @@
 import React from 'react';
-import {SafeAreaView, StyleSheet, Text, View, Image} from 'react-native';
-import {scale, verticalScale, moderateScale} from 'react-native-size-matters';
+import { SafeAreaView, StyleSheet, Text, View, Image } from 'react-native';
+import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
 
 import CustomButton from '../../components/CustomButton';
-import {Color} from '../../utils/Colors';
+import { Color } from '../../utils/Colors';
 
-const TermsAndCondition = ({navigation}) => {
+const TermsAndCondition = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.mainView}>
       <View style={styles.firstView}>
@@ -13,8 +13,8 @@ const TermsAndCondition = ({navigation}) => {
           style={{
             alignSelf: 'center',
             marginTop: scale(20),
-            width: 200,
-            height: 150,
+            width: 237,
+            height: 180,
           }}
           source={require('../../assets/Images/logo.png')}
         />
@@ -33,11 +33,13 @@ const TermsAndCondition = ({navigation}) => {
         <CustomButton
           onPress={() => navigation.navigate('login')}
           title="Accept and Continue"
-          textStyle={{textAlign: 'center', fontWeight: 'bold'}}
+          textStyle={{ textAlign: 'center' }}
           containerStyle={{
-            marginTop: scale(20),
-            width: '90%',
+            // marginTop: scale(20),
+            width: '85%',
             alignSelf: 'center',
+            position: 'absolute',
+            bottom: 20
           }}
         />
       </View>
@@ -61,25 +63,21 @@ const styles = StyleSheet.create({
     color: '#353535',
     fontFamily: 'Inter',
     fontWeight: 'bold',
-    // textDecorationLine: 'underline',
-    // textDecorationColor: Color.Main,
   },
 
   lorem: {
     textAlign: 'center',
-    marginLeft: scale(30),
-    marginRight: scale(30),
+    marginHorizontal: scale(20),
+    // marginRight: scale(30),
     marginTop: scale(10),
     color: Color.greyfont,
-    fontFamily: 'Inter',
-    fontWeight: 'bold',
-    fontSize: scale(13),
+    fontSize: scale(12),
   },
 
   firstView: {
-    width: '85%',
+    width: '90%',
     height: '85%',
     backgroundColor: Color.White,
-    borderRadius: 35,
+    borderRadius: 30,
   },
 });

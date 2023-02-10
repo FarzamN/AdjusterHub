@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   StyleSheet,
   Text,
@@ -10,18 +10,18 @@ import {
   Platform,
 } from 'react-native';
 import BackAndLogo from '../../components/BackAndLogo';
-import {Color} from '../../utils/Colors';
-import {verticalScale, scale, moderateScale} from 'react-native-size-matters';
+import { Color } from '../../utils/Colors';
+import { verticalScale, scale, moderateScale } from 'react-native-size-matters';
 import LinearGradient from 'react-native-linear-gradient';
 import Entypo from 'react-native-vector-icons/Entypo';
 import CustomButton from '../../components/CustomButton';
 import Modal from 'react-native-modal';
 import LottieView from 'lottie-react-native';
 import StarRating from 'react-native-star-rating';
-import {useForm} from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import NewCustomInput from '../../components/NewCustomInput';
 
-const Person = ({navigation}) => {
+const Person = ({ navigation }) => {
   const [rating, setRating] = useState(0);
   const [isModalVisibleBubble, setModalVisibleBubble] = useState(false);
   const toggleModalBubble = () => {
@@ -36,8 +36,8 @@ const Person = ({navigation}) => {
   const {
     control,
     handleSubmit,
-    formState: {errors, isValid},
-  } = useForm({mode: 'all'});
+    formState: { errors, isValid },
+  } = useForm({ mode: 'all' });
   const params = [
     {
       id: '1',
@@ -181,7 +181,7 @@ const Person = ({navigation}) => {
   const handleChange = value => {
     const newitem = data.map(val => {
       if (val.id === value.id) {
-        return {...val, selected: !val.selected};
+        return { ...val, selected: !val.selected };
       } else {
         return val;
       }
@@ -189,7 +189,7 @@ const Person = ({navigation}) => {
     setData(newitem);
   };
 
-  const renderItem = ({item}) => (
+  const renderItem = ({ item }) => (
     <View style={styles.ModalBubbleBox}>
       <TouchableOpacity activeOpacity={0.3} onPress={() => handleChange(item)}>
         <Text
@@ -210,16 +210,16 @@ const Person = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
       <BackAndLogo onPress={() => navigation.goBack()} />
-      <View style={{height: '30%'}}>
+      <View style={{ height: '30%' }}>
         <LinearGradient
-          start={{x: 0, y: 0}}
-          end={{x: 1, y: 0}}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 0 }}
           colors={['#056DFE', '#045CD2', '#056DFE', '#045CD2']}
-          style={{flex: 1}}></LinearGradient>
+          style={{ flex: 1 }}></LinearGradient>
       </View>
       <View
-        style={{height: '70%', backgroundColor: Color.BackgroundColor}}></View>
-      <View style={{position: 'absolute', top: 100, width: '100%'}}>
+        style={{ height: '70%', backgroundColor: Color.BackgroundColor }}></View>
+      <View style={{ position: 'absolute', top: 100, width: '100%' }}>
         <View style={styles.MainBox}>
           <Image
             style={styles.Photo}
@@ -231,7 +231,7 @@ const Person = ({navigation}) => {
           />
           <View style={styles.name}>
             <Text style={styles.Text_Name}>John Smith</Text>
-            <View style={{flexDirection: 'row'}}>
+            <View style={{ flexDirection: 'row' }}>
               <Text style={styles.number}>634</Text>
               <Text style={[styles.number, styles.MarWOrd]}>{rating}</Text>
               <Entypo
@@ -241,7 +241,7 @@ const Person = ({navigation}) => {
                 size={20}
               />
             </View>
-            <View style={{flexDirection: 'row'}}>
+            <View style={{ flexDirection: 'row' }}>
               <Text style={styles.rating}>Reviews</Text>
               <Text style={[styles.rating, styles.MarNum]}>Rating</Text>
             </View>
@@ -260,7 +260,7 @@ const Person = ({navigation}) => {
           </View>
           <CustomButton
             onPress={toggleModalBubble}
-            containerStyle={{width: '80%', alignSelf: 'center'}}
+            containerStyle={{ width: '80%', alignSelf: 'center' }}
             title={'Leave Feedback'}
           />
           <Modal
@@ -341,14 +341,14 @@ const Person = ({navigation}) => {
                   <View>
                     <Text
                       style={{
-                        fontWeight: '600',
+                        fontFamily: 'gazrg-bold',
                         color: Color.Main,
                         fontSize: scale(16),
                         textTransform: 'uppercase',
                       }}>
                       FeedBack Added
                     </Text>
-                    <Text style={{color: Color.Main, fontSize: scale(15)}}>
+                    <Text style={{ color: Color.Main, fontSize: scale(15) }}>
                       Thanks for your FeedBack
                     </Text>
                   </View>
@@ -369,7 +369,7 @@ const Person = ({navigation}) => {
                   />
                 </View>
               </Modal>
-              <View style={{height: 20}}></View>
+              <View style={{ height: 20 }}></View>
               {/* </ScrollView> */}
             </View>
           </Modal>
@@ -406,10 +406,10 @@ const styles = StyleSheet.create({
   Describe: {
     color: Color.Main,
     marginVertical: scale(5),
-    fontSize: scale(22),
+    fontSize: scale(25),
     textTransform: 'uppercase',
     textAlign: 'center',
-    fontWeight: '600',
+    fontFamily: 'gazrg-bold'
   },
 
   topContaintor: {
@@ -427,8 +427,8 @@ const styles = StyleSheet.create({
     borderWidth: 2,
   },
   companyLogo: {
-    width: scale(200),
-    height: verticalScale(40),
+    width: '70%',
+    height: verticalScale(29),
     alignSelf: 'center',
     marginVertical: scale(10),
   },
@@ -437,8 +437,8 @@ const styles = StyleSheet.create({
   },
   Text_Name: {
     color: Color.Black,
-    fontSize: scale(30),
-    fontWeight: '600',
+    fontSize: scale(35),
+    fontFamily: 'gazrg-bold'
   },
   number: {
     fontSize: scale(23),
@@ -447,6 +447,7 @@ const styles = StyleSheet.create({
   rating: {
     fontSize: scale(15),
     color: 'black',
+    fontFamily: 'Gaz-W00-Regular'
   },
   MarWOrd: {
     marginLeft: scale(40),

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -11,16 +11,16 @@ import {
   Platform,
   StatusBar,
 } from 'react-native';
-import {scale, moderateScale, verticalScale} from 'react-native-size-matters';
+import { scale, moderateScale, verticalScale } from 'react-native-size-matters';
 
 import Validation from '../../components/Validation';
-import {useForm} from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import CustomInput from '../../components/CustomInput';
 import CustomButton from '../../components/CustomButton';
-import {Color} from '../../utils/Colors';
-import {Fonts} from '../../utils/Fonts';
+import { Color } from '../../utils/Colors';
+import { Fonts } from '../../utils/Fonts';
 
-const Login = ({navigation}) => {
+const Login = ({ navigation }) => {
   const [password, setPassword] = useState('');
   const [isPasswordSecure, setIsPasswordSecure] = useState(true);
   const [isEnabled, setIsEnabled] = useState(true);
@@ -29,13 +29,13 @@ const Login = ({navigation}) => {
   const {
     control,
     handleSubmit,
-    formState: {errors, isValid},
-  } = useForm({mode: 'all'});
+    formState: { errors, isValid },
+  } = useForm({ mode: 'all' });
   return (
     <SafeAreaView style={styles.container}>
-      <View styles={{height: '100%'}}>
+      <View styles={{ height: '100%' }}>
         <View style={styles.BlueBox}>
-          <Text style={[styles.TextOne]}>
+          <Text style={[styles.TextOne, { fontFamily: 'gazrg-bold' }]}>
             WELCOME BACK
           </Text>
           <Text style={styles.TextTwo}>It's good to see you again!</Text>
@@ -45,7 +45,7 @@ const Login = ({navigation}) => {
         <View style={styles.MainContainer}>
           <KeyboardAvoidingView
             behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-            style={[styles.container, {backgroundColor: Color.White}]}>
+            style={[styles.container, { backgroundColor: Color.White }]}>
             <ScrollView showsVerticalScrollIndicator={false}>
               <Image
                 source={require('../../assets/Images/logo.png')}
@@ -71,7 +71,7 @@ const Login = ({navigation}) => {
                 PIcolor={'#999B9E'}
                 PIstylye={{
                   position: 'absolute',
-                  bottom: scale(18),
+                  bottom: scale(15),
                   left: scale(12),
                 }}
               />
@@ -100,7 +100,7 @@ const Login = ({navigation}) => {
                   PIcolor2={'#999B9E'}
                   PIstylye2={{
                     position: 'absolute',
-                    bottom: scale(34),
+                    bottom: scale(35),
                     left: scale(12),
                   }}
                   onPress={() => {
@@ -121,7 +121,7 @@ const Login = ({navigation}) => {
                   </Text>
                 </TouchableOpacity>
               </View>
-              <View style={[styles.FPassCon, {marginTop: scale(15)}]}>
+              <View style={[styles.FPassCon, { marginTop: scale(15) }]}>
                 <Text
                   style={{
                     fontSize: scale(14),
@@ -146,12 +146,10 @@ const Login = ({navigation}) => {
                 </TouchableOpacity>
               </View>
               <CustomButton
-                onPress={() => navigation.navigate('register')}
+                onPress={() => navigation.navigate('DrawerNavigation')}
                 title={'login'}
                 textStyle={{
-                  fontSize: scale(20),
-                  fontWeight: '700',
-                  fontFamily: Fonts.Gaz,
+                  fontSize: scale(30),
                 }}
                 containerStyle={{
                   marginTop: scale(40),
@@ -201,8 +199,7 @@ const styles = StyleSheet.create({
   },
   TextOne: {
     color: '#fff',
-    fontFamily: "Gaz-W00-Regular",
-    fontWeight: '800',
+    // fontWeight: '800',
     fontSize: scale(25),
     marginTop: scale(30),
   },
@@ -232,8 +229,8 @@ const styles = StyleSheet.create({
   },
   logo: {
     alignSelf: 'center',
-    width: 230,
-    height: 170,
+    width: 237,
+    height: 180,
   },
   viewText: {
     color: '#0568F2',

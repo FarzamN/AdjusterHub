@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -7,11 +7,11 @@ import {
   FlatList,
   Image,
 } from 'react-native';
-import {verticalScale, scale} from 'react-native-size-matters';
+import { verticalScale, scale } from 'react-native-size-matters';
 import BackWithMenu from '../../components/BackWithMenu';
-import {Color} from '../../utils/Colors';
+import { Color } from '../../utils/Colors';
 
-const Dashboard = ({navigation}) => {
+const Dashboard = ({ navigation }) => {
   const DATA = [
     {
       id: '1',
@@ -45,8 +45,40 @@ const Dashboard = ({navigation}) => {
       id: '8',
       Image: require('../../assets/Images/eight.png'),
     },
+    {
+      id: '9',
+      Image: require('../../assets/Images/nine.png'),
+    },
+    {
+      id: '10',
+      Image: require('../../assets/Images/ten.png'),
+    },
+    {
+      id: '11',
+      Image: require('../../assets/Images/eleven.png'),
+    },
+    {
+      id: '12',
+      Image: require('../../assets/Images/twelve.png'),
+    },
+    {
+      id: '13',
+      Image: require('../../assets/Images/tharteen.png'),
+    },
+    {
+      id: '14',
+      Image: require('../../assets/Images/fourteen.png'),
+    },
+    {
+      id: '15',
+      Image: require('../../assets/Images/fifteen.png'),
+    },
+    {
+      id: '16',
+      Image: require('../../assets/Images/sixten.png'),
+    },
   ];
-  const Item = ({item, onPress}) => (
+  const Item = ({ item, onPress }) => (
     <TouchableOpacity
       activeOpacity={1}
       onPress={() => navigation.navigate('user')}
@@ -60,16 +92,16 @@ const Dashboard = ({navigation}) => {
         onPress_back={() => navigation.navigate('login')}
         onPress={() => navigation.openDrawer()}
       />
-      <View style={{flex: 1, backgroundColor: Color.BackgroundColor}}>
+      <View style={{ flex: 1, backgroundColor: Color.BackgroundColor }}>
         <FlatList
           keyExtractor={item => item.id}
           data={DATA}
           renderItem={Item}
           horizontal={false}
           numColumns={2}
-          columnWrapperStyle={{marginTop: scale(10)}}
+          columnWrapperStyle={{ marginTop: scale(10) }}
         />
-        <View style={{height: verticalScale(10)}}></View>
+        <View style={{ height: verticalScale(10) }}></View>
       </View>
     </SafeAreaView>
   );
@@ -90,7 +122,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 5,
   },
-  Images: {},
+  Images: {
+    width: '100%',
+    height: '100%',
+    resizeMode: 'contain'
+  },
 });
 
 export default Dashboard;

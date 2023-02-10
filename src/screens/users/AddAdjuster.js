@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -9,17 +9,17 @@ import {
   ScrollView,
 } from 'react-native';
 import LottieView from 'lottie-react-native';
-import {scale, moderateScale, verticalScale} from 'react-native-size-matters';
+import { scale, moderateScale, verticalScale } from 'react-native-size-matters';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import LinearGradient from 'react-native-linear-gradient';
 import Validation from '../../components/Validation';
-import {useForm} from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import CustomButton from '../../components/CustomButton';
-import {Color} from '../../utils/Colors';
+import { Color } from '../../utils/Colors';
 import NewCustomInput from '../../components/NewCustomInput';
 import Modal from 'react-native-modal';
 
-import {launchImageLibrary} from 'react-native-image-picker';
+import { launchImageLibrary } from 'react-native-image-picker';
 const AddAdjuster = () => {
   const [isModalVisible, setModalVisible] = useState(false);
   const toggleModal = () => {
@@ -34,7 +34,7 @@ const AddAdjuster = () => {
       errors,
       //  isValid
     },
-  } = useForm({mode: 'all'});
+  } = useForm({ mode: 'all' });
 
   const photosave = () => {
     let options = {
@@ -62,16 +62,16 @@ const AddAdjuster = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View styles={{height: '100%'}}>
-        <View style={{height: '35%'}}>
+      <View styles={{ height: '100%' }}>
+        <View style={{ height: '35%' }}>
           <LinearGradient
-            start={{x: 0, y: 1}}
-            end={{x: 0, y: 0}}
+            start={{ x: 0, y: 1 }}
+            end={{ x: 0, y: 0 }}
             colors={['#056DFE', '#045CD2', '#056DFE', '#045CD2']}
-            style={{flex: 1, paddingLeft: moderateScale(20)}}>
+            style={{ flex: 1, paddingLeft: moderateScale(20) }}>
             <Text style={styles.TextOne}>Add adjuster</Text>
             <Text style={styles.TextTwo}>
-              Don`t see your Adjuster? Add them!
+              Don't see your Adjuster? Add them!
             </Text>
           </LinearGradient>
         </View>
@@ -87,7 +87,7 @@ const AddAdjuster = () => {
               style={styles.logo}
             />
             <View
-              style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+              style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
               <NewCustomInput
                 name="First Name"
                 rules={{
@@ -135,6 +135,7 @@ const AddAdjuster = () => {
               restyle={{
                 backgroundColor: Color.InputBackground,
                 color: '#000',
+                marginTop: scale(-10)
               }}
             />
             {errors.FirstName && <Validation title={errors.email.message} />}
@@ -151,8 +152,10 @@ const AddAdjuster = () => {
                 alignSelf: 'center',
                 width: '95%',
                 height: verticalScale(50),
+                marginTop: scale(20),
+
               }}
-              textStyle={{fontSize: scale(20), fontWeight: '700'}}
+              textStyle={{ fontSize: scale(20) }}
             />
             <Modal
               testID={'modal'}
@@ -176,14 +179,14 @@ const AddAdjuster = () => {
                 <View>
                   <Text
                     style={{
-                      fontWeight: '700',
+                      fontFamily: 'gazrg-bold',
                       color: Color.Main,
                       fontSize: scale(16),
                       textTransform: 'uppercase',
                     }}>
                     New Adjuster Added
                   </Text>
-                  <Text style={{color: Color.Main, fontSize: scale(15)}}>
+                  <Text style={{ color: Color.Main, fontSize: scale(15) }}>
                     Thanks for your input
                   </Text>
                 </View>
@@ -213,15 +216,15 @@ const AddAdjuster = () => {
 };
 
 const styles = StyleSheet.create({
-  nameinput: {width: '49%', paddingLeft: 0},
-  textInput: {height: verticalScale(50), marginBottom: scale(30)},
+  nameinput: { width: '49%', paddingLeft: 0 },
+  textInput: { height: verticalScale(50), marginBottom: scale(30) },
   container: {
     flex: 1,
-    backgroundColor : '#045CD2'
+    backgroundColor: '#045CD2'
   },
   TextOne: {
     color: '#fff',
-    fontWeight: '800',
+    fontFamily: 'gazrg-bold',
     fontSize: scale(25),
     marginTop: scale(30),
     textTransform: 'uppercase',
@@ -229,10 +232,9 @@ const styles = StyleSheet.create({
   TextTwo: {
     color: '#fff',
     fontSize: scale(17),
+    marginTop: scale(-8),
   },
   BlueBox: {
-    // backgroundColor: '#0568F2',
-
     height: '35%',
     padding: moderateScale(20),
   },
@@ -252,9 +254,9 @@ const styles = StyleSheet.create({
   },
   logo: {
     alignSelf: 'center',
-    width: 250,
-    marginTop: scale(30),
+    width: 237,
     height: 180,
+    marginTop: scale(30)
   },
   Add: {
     backgroundColor: '#545456',
@@ -265,7 +267,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     borderRadius: 10,
     flexDirection: 'row',
-    marginTop: scale(10),
+    marginTop: scale(-10),
   },
   Add_Text: {
     color: Color.White,

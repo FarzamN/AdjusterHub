@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -9,18 +9,16 @@ import {
   TouchableOpacity,
   ScrollView,
 } from 'react-native';
-import {scale, moderateScale, verticalScale} from 'react-native-size-matters';
-import Zocial from 'react-native-vector-icons/Zocial';
-import Fontisto from 'react-native-vector-icons/Fontisto';
+import { scale, moderateScale, verticalScale } from 'react-native-size-matters';
 
 import Validation from '../../components/Validation';
-import {useForm} from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import CustomInput from '../../components/CustomInput';
 import CustomButton from '../../components/CustomButton';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import {Color} from '../../utils/Colors';
+import { Color } from '../../utils/Colors';
 
-const ChangePass = ({navigation}) => {
+const ChangePass = ({ navigation }) => {
   const [password, setPassword] = useState('');
   const [isPasswordSecure, setIsPasswordSecure] = useState(true);
   const [isEnabled, setIsEnabled] = useState(true);
@@ -34,11 +32,11 @@ const ChangePass = ({navigation}) => {
   const {
     control,
     handleSubmit,
-    formState: {errors, isValid},
-  } = useForm({mode: 'all'});
+    formState: { errors, isValid },
+  } = useForm({ mode: 'all' });
   return (
     <SafeAreaView style={styles.container}>
-      <View styles={{height: '100%'}}>
+      <View styles={{ height: '100%' }}>
         <View style={styles.BlueBox}>
           <TouchableOpacity
             onPress={() => navigation.goBack()}
@@ -51,7 +49,7 @@ const ChangePass = ({navigation}) => {
               color={Color.Main}
             />
           </TouchableOpacity>
-          <Text style={styles.TextOne}>CREATE NEW PASSWORD</Text>
+          <Text style={[styles.TextOne, { fontFamily: 'gazrg-bold' }]}>CREATE NEW PASSWORD</Text>
           <Text style={styles.TextTwo}>Make it unique!</Text>
         </View>
         <View style={styles.GreyBox}></View>
@@ -155,9 +153,9 @@ const ChangePass = ({navigation}) => {
             </View>
             <CustomButton
               onPress={() => navigation.navigate('login')}
-              containerStyle={{marginTop: scale(50)}}
+              containerStyle={{ marginTop: scale(50) }}
               title={'Confirm'}
-              textStyle={{fontSize: scale(27)}}
+              textStyle={{ fontSize: scale(27) }}
             />
           </ScrollView>
         </View>
@@ -177,14 +175,14 @@ const styles = StyleSheet.create({
   },
   TextOne: {
     color: '#fff',
-    fontWeight: '800',
+    // fontWeight: '800',
     fontSize: scale(23),
     marginTop: scale(30),
   },
   TextTwo: {
     color: '#fff',
-    fontSize: scale(16),
-    fontWeight: '600',
+    fontSize: scale(17),
+    marginTop: scale(-8),
   },
   BlueBox: {
     backgroundColor: '#0568F2',
@@ -207,8 +205,8 @@ const styles = StyleSheet.create({
   },
   logo: {
     alignSelf: 'center',
-    width: 240,
-    height: 185,
+    width: 237,
+    height: 180,
   },
   viewText: {
     color: '#0568F2',
@@ -225,11 +223,14 @@ const styles = StyleSheet.create({
     width: scale(32),
     height: scale(32),
     borderRadius: 5,
+    justifyContent: 'center',
     alignItems: 'center',
   },
   FontAwesomeArrow: {
-    marginRight: scale(5),
-    marginBottom: scale(5),
+    marginRight: 3,
+    marginTop: -2,
+    // backgroundColor: 'red'
+    alignSelf: 'center'
   },
 });
 export default ChangePass;

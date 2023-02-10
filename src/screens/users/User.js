@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   StyleSheet,
   Text,
@@ -10,13 +10,13 @@ import {
   FlatList,
   ScrollView,
 } from 'react-native';
-import {verticalScale, scale, moderateScale} from 'react-native-size-matters';
+import { verticalScale, scale, moderateScale } from 'react-native-size-matters';
 import BackAndLogo from '../../components/BackAndLogo';
-import {Color} from '../../utils/Colors';
+import { Color } from '../../utils/Colors';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import LinearGradient from 'react-native-linear-gradient';
 
-const User = ({navigation}) => {
+const User = ({ navigation }) => {
   const [search, setSearch] = useState('');
   const [filteredDataSource, setFilteredDataSource] = useState([]);
   const [masterDataSource, setMasterDataSource] = useState([]);
@@ -53,7 +53,7 @@ const User = ({navigation}) => {
       setSearch(text);
     }
   };
-  const ItemView = ({item}) => (
+  const ItemView = ({ item }) => (
     <TouchableOpacity
       onPress={() => navigation.navigate('reviewer')}
       style={styles.names}>
@@ -77,16 +77,16 @@ const User = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
       <BackAndLogo onPress={() => navigation.goBack()} />
-      <View style={{height: '30%'}}>
+      <View style={{ height: '30%' }}>
         <LinearGradient
-          start={{x: 0, y: 0}}
-          end={{x: 1, y: 0}}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 0 }}
           colors={['#056DFE', '#045CD2', '#056DFE', '#045CD2']}
-          style={{flex: 1}}></LinearGradient>
+          style={{ flex: 1 }}></LinearGradient>
       </View>
       <View
-        style={{height: '70%', backgroundColor: Color.BackgroundColor}}></View>
-      <View style={{position: 'absolute', top: scale(100), width: '100%'}}>
+        style={{ height: '70%', backgroundColor: Color.BackgroundColor }}></View>
+      <View style={{ position: 'absolute', top: scale(100), width: '100%' }}>
         <View style={styles.InputBox}>
           <Image
             style={styles.SearchImg}
@@ -96,16 +96,16 @@ const User = ({navigation}) => {
             onChangeText={text => searchFilterFunction(text)}
             value={search}
             style={styles.search}
-            placeholder="search adjuster's names here"
+            placeholder="search adjuster's name here"
             placeholderTextColor={Color.placeholderTextColor}
           />
         </View>
         <View style={styles.nameBox}>
           <Image
             style={styles.companyLogo}
-            source={require('../../assets/Images/four.png')}
+            source={require('../../assets/Images/one.png')}
           />
-          <View style={{height: verticalScale(380)}}>
+          <View style={{ height: verticalScale(380) }}>
             <FlatList
               showsVerticalScrollIndicator={false}
               data={filteredDataSource}
@@ -115,7 +115,7 @@ const User = ({navigation}) => {
             />
           </View>
         </View>
-        <View style={{height: verticalScale(100)}}></View>
+        <View style={{ height: verticalScale(100) }}></View>
       </View>
 
       <TouchableOpacity
@@ -142,13 +142,16 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     flexDirection: 'row',
     height: verticalScale(50),
-    shadowColor : '#000000',
-    shadowOpacity : 0.3,
-    shadowOffset : [1,1]
+    shadowColor: '#000000',
+    shadowOpacity: 0.3,
+    shadowOffset: [1, 1],
+    // justifyContent: 'center',
+    alignItems: 'center',
+    paddingLeft: scale(15)
   },
   SearchImg: {
-    marginTop: scale(13),
-    marginHorizontal: 10,
+    marginTop: scale(7),
+    // marginHorizontal: 10,
   },
   search: {
     color: 'black',
@@ -163,11 +166,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: moderateScale(20),
   },
   companyLogo: {
-    width: scale(200),
-    height: verticalScale(40),
+    width: '100%',
+    height: '10%',
+    resizeMode: 'contain',
     alignSelf: 'center',
     marginBottom: scale(20),
   },
+
   names: {
     height: verticalScale(50),
     width: '100%',

@@ -1,10 +1,10 @@
 import React from 'react';
-import {StyleSheet, Image, TouchableOpacity, View} from 'react-native';
-import {scale, verticalScale} from 'react-native-size-matters';
+import { StyleSheet, Image, TouchableOpacity, View } from 'react-native';
+import { scale, verticalScale } from 'react-native-size-matters';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
 
-import {Color} from '../utils/Colors';
+import { Color } from '../utils/Colors';
 
 const BackAndLogo = props => {
   return (
@@ -13,10 +13,14 @@ const BackAndLogo = props => {
         onPress={props.onPress}
         activeOpacity={0.5}
         style={styles.arrow}>
-        <FontAwesome name={'angle-left'} size={35} color={Color.White} />
+        <FontAwesome style={styles.FontAwesomeArrow} name={'angle-left'} size={30} color={Color.White} />
       </TouchableOpacity>
       <View>
-        <Image source={require('../assets/Images/minilogo.png')} />
+        <Image style={{
+          width: 120,
+          height: 30,
+          resizeMode: 'contain'
+        }} source={require('../assets/Images/minilogo.png')} />
       </View>
       <View style={styles.Menu}>
         <Feather name={'menu'} size={30} color={Color.White} />
@@ -35,10 +39,16 @@ const styles = StyleSheet.create({
   arrow: {
     backgroundColor: Color.Main,
     width: scale(32),
-    height: verticalScale(32),
+    height: scale(32),
     borderRadius: 5,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  FontAwesomeArrow: {
+    marginRight: 3,
+    marginTop: -2,
+    // backgroundColor: 'red'
+    alignSelf: 'center'
   },
 });
 
