@@ -259,7 +259,7 @@ const Person = ({ navigation }) => {
             </View>
           </View>
           <CustomButton
-            onPress={toggleModalBubble}
+            onPress={() => toggleModalBubble(true)}
             containerStyle={{ width: '80%', alignSelf: 'center' }}
             title={'Leave Feedback'}
           />
@@ -308,8 +308,8 @@ const Person = ({ navigation }) => {
               />
               <CustomButton
                 onPress={() => {
-                  toggleModalLottie();
-                  toggleModalBubble();
+                  toggleModalBubble(false);
+                  setModalVisibleLottie(true);
                 }}
                 title={'Submit'}
                 containerStyle={{
@@ -322,7 +322,8 @@ const Person = ({ navigation }) => {
               <Modal
                 onBackdropPress={() => setModalVisibleLottie(false)}
                 testID={'modal'}
-                isVisible={isModalVisibleLottie}>
+                isVisible={isModalVisibleLottie}
+              >
                 <View
                   style={{
                     backgroundColor: '#fff',

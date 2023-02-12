@@ -189,12 +189,12 @@ const Profile = ({ navigation }) => {
                   backgroundColor: Color.Main,
                   justifyContent: 'center',
                   alignItems: 'center',
-                  width: scale(21),
-                  height: scale(21),
-                  borderRadius: 20,
-                  marginTop: scale(-10),
+                  width: scale(30),
+                  height: scale(30),
+                  borderRadius: 50,
+                  marginTop: scale(-15),
                 }}>
-                <Entypo name={'cross'} size={20} color={'#fff'} />
+                <Entypo name={'cross'} size={25} color={'#fff'} />
               </TouchableOpacity>
               <TouchableOpacity
                 onPress={() => {
