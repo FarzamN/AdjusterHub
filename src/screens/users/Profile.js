@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import {
   StyleSheet,
   Text,
@@ -11,7 +11,7 @@ import {
   KeyboardAvoidingView,
   Platform,
 } from 'react-native';
-import { scale, moderateScale, verticalScale } from 'react-native-size-matters';
+import {scale, moderateScale, verticalScale} from 'react-native-size-matters';
 import Modal from 'react-native-modal';
 import {
   launchCamera,
@@ -24,14 +24,14 @@ import BackWithMenu from '../../components/BackWithMenu';
 import Entypo from 'react-native-vector-icons/Entypo';
 
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import { Color } from '../../utils/Colors';
+import {Color} from '../../utils/Colors';
 import Validation from '../../components/Validation';
-import { useForm } from 'react-hook-form';
+import {useForm} from 'react-hook-form';
 import CustomButton from '../../components/CustomButton';
 import NewCustomInput from '../../components/NewCustomInput';
-import { color } from 'react-native-reanimated';
+import {color} from 'react-native-reanimated';
 
-const Profile = ({ navigation }) => {
+const Profile = ({navigation}) => {
   const [isModalVisible3, setModalVisible3] = useState(false);
   const [saveimage, setsaveimage] = useState();
   const [show, setShow] = useState(true);
@@ -43,8 +43,8 @@ const Profile = ({ navigation }) => {
   const {
     control,
     handleSubmit,
-    formState: { errors, isValid },
-  } = useForm({ mode: 'all' });
+    formState: {errors, isValid},
+  } = useForm({mode: 'all'});
 
   const onSubmit = data => {
     console.log(data);
@@ -91,7 +91,7 @@ const Profile = ({ navigation }) => {
       if (res.didCancel) {
         console.log('image picker');
       } else if (res.error) {
-        console.log('image picker zindabad');
+        console.log('image picker ezpz');
       } else if (res.customButton) {
         alert(res.customButton);
       } else {
@@ -109,7 +109,6 @@ const Profile = ({ navigation }) => {
       },
     };
     launchCamera(options, res => {
-
       console.log('Response = ', res);
       if (res.didCancel) {
         console.log('User cancelled image picker');
@@ -121,11 +120,12 @@ const Profile = ({ navigation }) => {
       } else {
         setsaveimage(res.assets?.[0]?.uri);
         setShow(false);
+        // setModalVisible3(false);
       }
     });
   };
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: '#0568F2' }}>
+    <SafeAreaView style={{flex: 1, backgroundColor: '#0568F2'}}>
       <BackWithMenu
         onPress={() => navigation.openDrawer()}
         onPress_back={() => navigation.goBack()}
@@ -134,15 +134,15 @@ const Profile = ({ navigation }) => {
         <View>
           {show ? (
             <Image
-              style={{ width: '100%', height: '100%' }}
+              style={{width: '100%', height: '100%'}}
               resizeMode={'stretch'}
               source={require('../../assets/Images/oldman.jpg')}
             />
           ) : (
             <Image
-              style={{ width: '100%', height: '100%' }}
+              style={{width: '100%', height: '100%'}}
               resizeMode={'stretch'}
-              source={{ uri: saveimage }}
+              source={{uri: saveimage}}
             />
           )}
         </View>
@@ -172,7 +172,6 @@ const Profile = ({ navigation }) => {
               <TouchableOpacity
                 onPress={() => {
                   photosave();
-
                 }}
                 style={styles.ModalBtn}>
                 <Image
@@ -217,7 +216,7 @@ const Profile = ({ navigation }) => {
       <View style={styles.MainContainer}>
         <KeyboardAvoidingView
           behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-          style={{ height: verticalScale(350) }}>
+          style={{height: verticalScale(350)}}>
           <ScrollView showsVerticalScrollIndicator={false}>
             <NewCustomInput
               name="first_name"
@@ -285,8 +284,12 @@ const Profile = ({ navigation }) => {
 
             <CustomButton
               title={'save changes'}
-              containerStyle={{ marginTop: scale(20), width: '100%' }}
-              textStyle={{ fontSize: scale(23) }}
+              containerStyle={{
+                marginTop: scale(20),
+                width: '100%',
+                paddingVertical: moderateScale(10),
+              }}
+              textStyle={{fontSize: scale(23)}}
               onPress={handleSubmit(onSubmit)}
             />
           </ScrollView>
@@ -345,7 +348,7 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 15,
     borderTopRightRadius: 15,
     flexDirection: 'row',
-    height: scale(100)
+    // height: scale(100),
   },
   tinyLogo: {
     height: scale(32),

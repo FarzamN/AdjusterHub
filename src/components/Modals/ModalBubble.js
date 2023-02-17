@@ -3,29 +3,29 @@ import {
   StyleSheet,
   Text,
   View,
-  SafeAreaView,
-  Image,
   TouchableOpacity,
+  FlatList,
   Platform,
 } from 'react-native';
-import BackAndLogo from '../../components/BackAndLogo';
-import {Color} from '../../utils/Colors';
 import {verticalScale, scale, moderateScale} from 'react-native-size-matters';
-import LinearGradient from 'react-native-linear-gradient';
-import Entypo from 'react-native-vector-icons/Entypo';
-import CustomButton from '../../components/CustomButton';
 import Modal from 'react-native-modal';
-import LottieView from 'lottie-react-native';
+import StarRating from 'react-native-star-rating';
 import {useForm} from 'react-hook-form';
-import ModalBubble from '../../components/Modals/ModalBubble';
+import {Color} from '../../utils/Colors';
+import CustomButtton from '../CustomButton';
+import NewCustomInput from '../NewCustomInput';
 
-const Person = ({navigation}) => {
+const ModalBubble = props => {
   const [rating, setRating] = useState(0);
   const [isModalVisibleBubble, setModalVisibleBubble] = useState(false);
   const toggleModalBubble = () => {
     setModalVisibleBubble(true);
   };
-
+  const {
+    control,
+    handleSubmit,
+    formState: {errors, isValid},
+  } = useForm({mode: 'all'});
   const [isModalVisibleLottie, setModalVisibleLottie] = useState(false);
 
   const toggleModalLottie = () => {
@@ -37,12 +37,6 @@ const Person = ({navigation}) => {
     setModalVisibleBubble(false);
     toggleModalLottie(true);
   };
-
-  const {
-    control,
-    handleSubmit,
-    formState: {errors, isValid},
-  } = useForm({mode: 'all'});
   const params = [
     {
       id: '1',
@@ -213,125 +207,62 @@ const Person = ({navigation}) => {
     </View>
   );
   return (
-    <SafeAreaView style={styles.container}>
-      <BackAndLogo onPress={() => navigation.goBack()} />
-      <View style={{height: '30%'}}>
-        <LinearGradient
-          start={{x: 0, y: 0}}
-          end={{x: 1, y: 0}}
-          colors={['#056DFE', '#045CD2', '#056DFE', '#045CD2']}
-          style={{flex: 1}}></LinearGradient>
-      </View>
-      <View
-        style={{height: '70%', backgroundColor: Color.BackgroundColor}}></View>
-      <View style={{position: 'absolute', top: 100, width: '100%'}}>
-        <View style={styles.MainBox}>
-          <Image
-            style={styles.Photo}
-            source={require('../../assets/Images/oldman.jpg')}
+    <Modal onBackdropPress={props.onBackdropPress} isVisible={props.isVisible}>
+      <View style={styles.ModalMainBox}>
+        <Text style={styles.Describe}>Describe your adjuster</Text>
+        <View>
+          <FlatList
+            numColumns={3}
+            data={data}
+            keyExtractor={item => item.id}
+            renderItem={renderItem}
           />
-          <Image
-            style={styles.companyLogo}
-            source={require('../../assets/Images/four.png')}
-          />
-          <View style={styles.name}>
-            <Text style={styles.Text_Name}>John Smith</Text>
-            <View style={{flexDirection: 'row'}}>
-              <Text style={styles.number}>634</Text>
-              <Text style={[styles.number, styles.MarWOrd]}>{rating}</Text>
-              <Entypo
-                style={styles.star}
-                name={'star'}
-                color={'black'}
-                size={20}
-              />
-            </View>
-            <View style={{flexDirection: 'row'}}>
-              <Text style={styles.rating}>Reviews</Text>
-              <Text style={[styles.rating, styles.MarNum]}>Rating</Text>
-            </View>
-            <Text style={styles.topContaintor}>Top Containtor Comments</Text>
-            <View style={styles.bubbleBox}>
-              <Text style={styles.bubbles}>meticulous</Text>
-              <Text style={styles.bubbles}>talkative</Text>
-              <Text style={styles.bubbles}>relaxed</Text>
-              <Text style={styles.bubbles}>communicative</Text>
-              <Text style={styles.bubbles}>friendly</Text>
-              <Text style={styles.bubbles}>lenient</Text>
-              <Text style={styles.bubbles}>educated</Text>
-              <Text style={styles.bubbles}>on Time</Text>
-              <Text style={styles.bubbles}>flexible</Text>
-            </View>
-          </View>
-          <CustomButton
-            onPress={toggleModalBubble}
-            containerStyle={{
-              width: '80%',
-              alignSelf: 'center',
-
-              paddingVertical: moderateScale(10),
-            }}
-            title={'Leave Feedback'}
-          />
-
-          <ModalBubble
-            onPress={showData}
-            onBackdropPress={() => setModalVisibleBubble(false)}
-            isVisible={isModalVisibleBubble}
-          />
-          <Modal
-            onBackdropPress={() => setModalVisibleLottie(false)}
-            testID={'modal'}
-            isVisible={isModalVisibleLottie}>
-            <View
-              style={{
-                backgroundColor: '#fff',
-                position: 'absolute',
-                top: 100,
-                width: '90%',
-                flexDirection: 'row',
-                borderWidth: 1,
-                justifyContent: 'center',
-                alignItems: 'center',
-                borderRadius: 20,
-                alignSelf: 'center',
-                borderColor: Color.Main,
-                paddingLeft: 20,
-              }}>
-              <View>
-                <Text
-                  style={{
-                    fontFamily: 'gazrg-bold',
-                    color: Color.Main,
-                    fontSize: scale(16),
-                    textTransform: 'uppercase',
-                  }}>
-                  FeedBack Added
-                </Text>
-                <Text style={{color: Color.Main, fontSize: scale(15)}}>
-                  Thanks for your FeedBack
-                </Text>
-              </View>
-              <LottieView
-                style={{
-                  width: 100,
-                  height: 100,
-                }}
-                source={require('../../assets/Lottie/thanks.json')}
-                colorFilters={[
-                  {
-                    keypath: 'button',
-                    color: '#E94057',
-                  },
-                ]}
-                autoPlay
-                loop
-              />
-            </View>
-          </Modal>
         </View>
+        <View
+          style={{
+            width: '50%',
+            alignSelf: 'center',
+            marginTop: scale(10),
+          }}>
+          <StarRating
+            halfStarEnabled={true}
+            fullStarColor={Color.Main}
+            starSize={30}
+            disabled={false}
+            maxStars={5}
+            rating={rating}
+            selectedStar={setRating}
+          />
+        </View>
+        <NewCustomInput
+          name="clame"
+          control={control}
+          style={styles.textInput}
+          textStyle={styles.InputTextStyle}
+          placeholder={'Clame#'}
+          keyboardType={'default'}
+          restyle={{
+            width: '80%',
+            alignSelf: 'center',
+            backgroundColor: '#F4F5F5',
+            color: '#000',
+          }}
+        />
+        <CustomButtton
+          onPress={props.onPress}
+          title={'Submit'}
+          containerStyle={{
+            width: '80%',
+            alignSelf: 'center',
+            marginTop: scale(30),
+            height: verticalScale(50),
+          }}
+        />
+
+        <View style={{height: 20}}></View>
+        {/* </ScrollView> */}
       </View>
-    </SafeAreaView>
+    </Modal>
   );
 };
 
@@ -458,5 +389,4 @@ const styles = StyleSheet.create({
     paddingLeft: scale(5),
   },
 });
-
-export default Person;
+export default ModalBubble;
