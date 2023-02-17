@@ -150,10 +150,12 @@ const Login = ({ navigation }) => {
                 title={'login'}
                 textStyle={{
                   fontSize: scale(30),
+                  
                 }}
                 containerStyle={{
                   marginTop: scale(40),
                   height: verticalScale(50),
+                  
                 }}
               />
               <View style={styles.FPassCon}>
@@ -222,7 +224,7 @@ const styles = StyleSheet.create({
     width: '90%',
     alignSelf: 'center',
     position: 'absolute',
-    top: '22%',
+    top: '17%',
     paddingHorizontal: 20,
     paddingVertical: scale(20),
     borderRadius: 20,

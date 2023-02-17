@@ -31,11 +31,11 @@ export default CustomButtton;
 
 const styles = StyleSheet.create({
   containerStyle: {
-    padding: moderateScale(10),
+    // padding: moderasteScale(10),
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#0568F2',
-    marginTop: scale(10),
+    // marginTop: scale(10),
     borderRadius: 10,
   },
 

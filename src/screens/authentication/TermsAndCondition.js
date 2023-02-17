@@ -50,7 +50,9 @@ const TermsAndCondition = ({ navigation }) => {
               width: '85%',
               alignSelf: 'center',
               position: 'absolute',
-              bottom: 20
+              bottom: 20,
+              padding: moderateScale(10)
+            
             }}
           />
         </View>
