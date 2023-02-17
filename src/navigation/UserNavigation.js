@@ -3,12 +3,12 @@ import {} from 'react-native';
 import Dashboard from '../screens/users/Dashboard';
 import Reviewer from '../screens/users/Reviewer';
 import User from '../screens/users/User';
-import Bubbles from '../screens/users/Bubbles';
 import AddAdjusters from '../screens/users/AddAdjuster';
 import Profile from '../screens/users/Profile';
 
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import 'react-native-gesture-handler';
+import Bubbles from '../screens/users/Bubbles';
 
 const Stack = createNativeStackNavigator();
 const UserNavigation = () => {
@@ -19,9 +19,9 @@ const UserNavigation = () => {
       <Stack.Screen name="dashboard1" component={Dashboard} />
       <Stack.Screen name="user" component={User} />
       <Stack.Screen name="reviewer" component={Reviewer} />
-      <Stack.Screen name="bubbles" component={Bubbles} />
       <Stack.Screen name="addadjusters" component={AddAdjusters} />
       <Stack.Screen name="profile" component={Profile} />
+      <Stack.Screen name="bubbles" component={Bubbles} />
     </Stack.Navigator>
   );
 };

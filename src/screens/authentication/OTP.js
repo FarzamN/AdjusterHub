@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -14,16 +14,16 @@ import {
   useBlurOnFulfill,
   useClearByFocusCell,
 } from 'react-native-confirmation-code-field';
-import { scale, moderateScale, verticalScale } from 'react-native-size-matters';
+import {scale, moderateScale, verticalScale} from 'react-native-size-matters';
 
 import CustomButton from '../../components/CustomButton';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import { Color } from '../../utils/Colors';
+import {Color} from '../../utils/Colors';
 
 const CELL_COUNT = 4;
-const OTP = ({ navigation }) => {
+const OTP = ({navigation}) => {
   const [value, setValue] = useState('');
-  const ref = useBlurOnFulfill({ value, cellCount: CELL_COUNT });
+  const ref = useBlurOnFulfill({value, cellCount: CELL_COUNT});
   const [props, getCellOnLayoutHandler] = useClearByFocusCell({
     value,
     setValue,
@@ -47,7 +47,7 @@ const OTP = ({ navigation }) => {
   }, []);
   return (
     <SafeAreaView style={styles.container}>
-      <View styles={{ height: '100%' }}>
+      <View styles={{height: '100%'}}>
         <View style={styles.BlueBox}>
           <TouchableOpacity
             onPress={() => navigation.goBack()}
@@ -60,7 +60,9 @@ const OTP = ({ navigation }) => {
               color={Color.Main}
             />
           </TouchableOpacity>
-          <Text style={[styles.TextOne, { fontFamily: 'gazrg-bold' }]}>VERIFY CODE</Text>
+          <Text style={[styles.TextOne, {fontFamily: 'gazrg-bold'}]}>
+            VERIFY CODE
+          </Text>
           <Text style={styles.TextTwo}>Let`s be secure!</Text>
         </View>
         <View style={styles.GreyBox}></View>
@@ -80,7 +82,7 @@ const OTP = ({ navigation }) => {
               rootStyle={styles.codeFieldRoot}
               keyboardType="number-pad"
               textContentType="oneTimeCode"
-              renderCell={({ index, symbol, isFocused }) => (
+              renderCell={({index, symbol, isFocused}) => (
                 <Text
                   key={index}
                   style={[styles.cell, isFocused && styles.focusCell]}
@@ -91,9 +93,12 @@ const OTP = ({ navigation }) => {
             />
             <CustomButton
               onPress={() => navigation.navigate('login')}
-              containerStyle={{ marginTop: scale(20) }}
+              containerStyle={{marginTop: scale(20)}}
               title={'Verify'}
-              textStyle={{ fontSize: scale(25) }}
+              textStyle={{
+                fontSize: scale(25),
+                paddingVertical: moderateScale(10),
+              }}
             />
             <View style={styles.FPassCon}>
               <Text
@@ -126,10 +131,10 @@ const OTP = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  textInput: { height: verticalScale(50), marginVertical: scale(15) },
+  textInput: {height: verticalScale(50), marginVertical: scale(15)},
   container: {
     flex: 1,
-    backgroundColor: '#0568F2'
+    backgroundColor: '#0568F2',
   },
   TextOne: {
     color: '#fff',
@@ -144,21 +149,21 @@ const styles = StyleSheet.create({
   },
   BlueBox: {
     backgroundColor: '#0568F2',
-    height: '35%',
+    height: verticalScale(200),
     padding: moderateScale(20),
   },
   GreyBox: {
     backgroundColor: '#DDDEDF',
-    height: '65%',
+    height: '100%',
   },
   MainContainer: {
     backgroundColor: '#fff',
     width: '90%',
     alignSelf: 'center',
     position: 'absolute',
-    top: '22%',
+    top: '17%',
     paddingHorizontal: 20,
-    paddingVertical: scale(20),
+    paddingVertical: scale(35),
     borderRadius: 20,
   },
   logo: {
@@ -188,9 +193,9 @@ const styles = StyleSheet.create({
     marginRight: 3,
     marginTop: -2,
     // backgroundColor: 'red'
-    alignSelf: 'center'
+    alignSelf: 'center',
   },
-  codeFieldRoot: { marginTop: scale(20) },
+  codeFieldRoot: {marginTop: scale(20)},
   cell: {
     width: scale(65),
     height: scale(65),

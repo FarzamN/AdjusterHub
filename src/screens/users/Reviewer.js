@@ -7,6 +7,7 @@ import {
   Image,
   TouchableOpacity,
   Platform,
+  ScrollView,
 } from 'react-native';
 import BackAndLogo from '../../components/BackAndLogo';
 import {Color} from '../../utils/Colors';
@@ -214,123 +215,122 @@ const Person = ({navigation}) => {
   );
   return (
     <SafeAreaView style={styles.container}>
-      <BackAndLogo onPress={() => navigation.goBack()} />
-      <View style={{height: '30%'}}>
-        <LinearGradient
-          start={{x: 0, y: 0}}
-          end={{x: 1, y: 0}}
-          colors={['#056DFE', '#045CD2', '#056DFE', '#045CD2']}
-          style={{flex: 1}}></LinearGradient>
-      </View>
-      <View
-        style={{height: '70%', backgroundColor: Color.BackgroundColor}}></View>
-      <View style={{position: 'absolute', top: 100, width: '100%'}}>
-        <View style={styles.MainBox}>
-          <Image
-            style={styles.Photo}
-            source={require('../../assets/Images/oldman.jpg')}
-          />
-          <Image
-            style={styles.companyLogo}
-            source={require('../../assets/Images/four.png')}
-          />
-          <View style={styles.name}>
-            <Text style={styles.Text_Name}>John Smith</Text>
-            <View style={{flexDirection: 'row'}}>
-              <Text style={styles.number}>634</Text>
-              <Text style={[styles.number, styles.MarWOrd]}>{rating}</Text>
-              <Entypo
-                style={styles.star}
-                name={'star'}
-                color={'black'}
-                size={20}
-              />
-            </View>
-            <View style={{flexDirection: 'row'}}>
-              <Text style={styles.rating}>Reviews</Text>
-              <Text style={[styles.rating, styles.MarNum]}>Rating</Text>
-            </View>
-            <Text style={styles.topContaintor}>Top Containtor Comments</Text>
-            <View style={styles.bubbleBox}>
-              <Text style={styles.bubbles}>meticulous</Text>
-              <Text style={styles.bubbles}>talkative</Text>
-              <Text style={styles.bubbles}>relaxed</Text>
-              <Text style={styles.bubbles}>communicative</Text>
-              <Text style={styles.bubbles}>friendly</Text>
-              <Text style={styles.bubbles}>lenient</Text>
-              <Text style={styles.bubbles}>educated</Text>
-              <Text style={styles.bubbles}>on Time</Text>
-              <Text style={styles.bubbles}>flexible</Text>
-            </View>
-          </View>
-          <CustomButton
-            onPress={toggleModalBubble}
-            containerStyle={{
-              width: '80%',
-              alignSelf: 'center',
-
-              paddingVertical: moderateScale(10),
-            }}
-            title={'Leave Feedback'}
-          />
-
-          <ModalBubble
-            onPress={showData}
-            onBackdropPress={() => setModalVisibleBubble(false)}
-            isVisible={isModalVisibleBubble}
-          />
-          <Modal
-            onBackdropPress={() => setModalVisibleLottie(false)}
-            testID={'modal'}
-            isVisible={isModalVisibleLottie}>
-            <View
-              style={{
-                backgroundColor: '#fff',
-                position: 'absolute',
-                top: 100,
-                width: '90%',
-                flexDirection: 'row',
-                borderWidth: 1,
-                justifyContent: 'center',
-                alignItems: 'center',
-                borderRadius: 20,
-                alignSelf: 'center',
-                borderColor: Color.Main,
-                paddingLeft: 20,
-              }}>
-              <View>
-                <Text
-                  style={{
-                    fontFamily: 'gazrg-bold',
-                    color: Color.Main,
-                    fontSize: scale(16),
-                    textTransform: 'uppercase',
-                  }}>
-                  FeedBack Added
-                </Text>
-                <Text style={{color: Color.Main, fontSize: scale(15)}}>
-                  Thanks for your FeedBack
-                </Text>
-              </View>
-              <LottieView
-                style={{
-                  width: 100,
-                  height: 100,
-                }}
-                source={require('../../assets/Lottie/thanks.json')}
-                colorFilters={[
-                  {
-                    keypath: 'button',
-                    color: '#E94057',
-                  },
-                ]}
-                autoPlay
-                loop
-              />
-            </View>
-          </Modal>
+      <ScrollView style={{flex: 1}} showsVerticalScrollIndicator={false}>
+        <BackAndLogo onPress={() => navigation.goBack()} />
+        <View style={{height: verticalScale(200)}}>
+          <LinearGradient
+            start={{x: 0, y: 0}}
+            end={{x: 1, y: 0}}
+            colors={['#056DFE', '#045CD2', '#056DFE', '#045CD2']}
+            style={{flex: 1}}></LinearGradient>
         </View>
-      </View>
+        <View
+          style={{
+            height: verticalScale(400),
+            backgroundColor: Color.BackgroundColor,
+          }}></View>
+        <View style={{position: 'absolute', top: '10%', width: '100%'}}>
+          <View style={styles.MainBox}>
+            <Image
+              style={styles.Photo}
+              source={require('../../assets/Images/oldman.jpg')}
+            />
+            <Image
+              style={styles.companyLogo}
+              source={require('../../assets/Images/four.png')}
+            />
+            <View style={styles.name}>
+              <Text style={styles.Text_Name}>John Smith</Text>
+              <View style={{flexDirection: 'row'}}>
+                <Text style={styles.number}>634</Text>
+                <Text style={[styles.number, styles.MarWOrd]}>{rating}</Text>
+                <Entypo
+                  style={styles.star}
+                  name={'star'}
+                  color={'black'}
+                  size={20}
+                />
+              </View>
+              <View style={{flexDirection: 'row'}}>
+                <Text style={styles.rating}>Reviews</Text>
+                <Text style={[styles.rating, styles.MarNum]}>Rating</Text>
+              </View>
+              <Text style={styles.topContaintor}>Top Containtor Comments</Text>
+              <View style={styles.bubbleBox}>
+                <Text style={styles.bubbles}>meticulous</Text>
+                <Text style={styles.bubbles}>talkative</Text>
+                <Text style={styles.bubbles}>relaxed</Text>
+                <Text style={styles.bubbles}>communicative</Text>
+                <Text style={styles.bubbles}>friendly</Text>
+                <Text style={styles.bubbles}>lenient</Text>
+                <Text style={styles.bubbles}>educated</Text>
+                <Text style={styles.bubbles}>on Time</Text>
+                <Text style={styles.bubbles}>flexible</Text>
+              </View>
+            </View>
+            <CustomButton
+              onPress={() => navigation.navigate('bubbles')}
+              containerStyle={{
+                width: '80%',
+                alignSelf: 'center',
+                paddingVertical: moderateScale(10),
+              }}
+              title={'Leave Feedback'}
+            />
+
+            <Modal
+              onBackdropPress={() => setModalVisibleLottie(false)}
+              testID={'modal'}
+              isVisible={isModalVisibleLottie}>
+              <View
+                style={{
+                  backgroundColor: '#fff',
+                  position: 'absolute',
+                  top: 100,
+                  width: '90%',
+                  flexDirection: 'row',
+                  borderWidth: 1,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  borderRadius: 20,
+                  alignSelf: 'center',
+                  borderColor: Color.Main,
+                  paddingLeft: 20,
+                }}>
+                <View>
+                  <Text
+                    style={{
+                      fontFamily: 'gazrg-bold',
+                      color: Color.Main,
+                      fontSize: scale(16),
+                      textTransform: 'uppercase',
+                    }}>
+                    FeedBack Added
+                  </Text>
+                  <Text style={{color: Color.Main, fontSize: scale(15)}}>
+                    Thanks for your FeedBack
+                  </Text>
+                </View>
+                <LottieView
+                  style={{
+                    width: 100,
+                    height: 100,
+                  }}
+                  source={require('../../assets/Lottie/thanks.json')}
+                  colorFilters={[
+                    {
+                      keypath: 'button',
+                      color: '#E94057',
+                    },
+                  ]}
+                  autoPlay
+                  loop
+                />
+              </View>
+            </Modal>
+          </View>
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
@@ -338,13 +338,14 @@ const Person = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#045CD2',
+    backgroundColor: '#DDDEDF',
   },
   linearGradient: {
     height: 200,
   },
   MainBox: {
     width: '90%',
+    height: scale(450),
     alignSelf: 'center',
     backgroundColor: Color.White,
     marginTop: scale(95),

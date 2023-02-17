@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -11,16 +11,16 @@ import {
   KeyboardAvoidingView,
   Platform,
 } from 'react-native';
-import { scale, moderateScale, verticalScale } from 'react-native-size-matters';
+import {scale, moderateScale, verticalScale} from 'react-native-size-matters';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 import Validation from '../../components/Validation';
 import CustomInput from '../../components/CustomInput';
-import { useForm } from 'react-hook-form';
+import {useForm} from 'react-hook-form';
 import CustomButton from '../../components/CustomButton';
-import { Color } from '../../utils/Colors';
+import {Color} from '../../utils/Colors';
 
-const Register = ({ navigation }) => {
+const Register = ({navigation}) => {
   const [password, setPassword] = useState('');
   const [isPasswordSecure, setIsPasswordSecure] = useState(true);
   const [isEnabled, setIsEnabled] = useState(true);
@@ -28,36 +28,38 @@ const Register = ({ navigation }) => {
   const {
     control,
     handleSubmit,
-    formState: { errors, isValid },
-  } = useForm({ mode: 'all' });
+    formState: {errors, isValid},
+  } = useForm({mode: 'all'});
   return (
     <SafeAreaView style={styles.container}>
-      <View styles={{ height: '100%' }}>
-        <View style={styles.BlueBox}>
-          <Text style={[styles.TextOne, { fontFamily: 'gazrg-bold' }]}>
-            Register</Text>
-          <Text style={styles.TextTwo}>Welcome!</Text>
-        </View>
-        <View style={styles.GreyBox}></View>
+      <ScrollView showsVerticalScrollIndicator={false} styles={{flex: 1}}>
+        <View styles={{height: '100%'}}>
+          <View style={styles.BlueBox}>
+            <Text style={[styles.TextOne, {fontFamily: 'gazrg-bold'}]}>
+              Register
+            </Text>
+            <Text style={styles.TextTwo}>Welcome!</Text>
+          </View>
+          <View style={styles.GreyBox}></View>
 
-        <View style={styles.MainContainer}>
-          <KeyboardAvoidingView
-            behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-            style={[styles.container, { backgroundColor: Color.White }]}>
-            <ScrollView showsVerticalScrollIndicator={false}>
+          <View style={styles.MainContainer}>
+            <KeyboardAvoidingView
+              behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+              style={[styles.container, {backgroundColor: Color.White}]}>
+              {/* <ScrollView showsVerticalScrollIndicator={false}> */}
               <Image
                 source={require('../../assets/Images/logo.png')}
                 style={styles.logo}
               />
               <View
-                style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                style={{flexDirection: 'row', justifyContent: 'space-between'}}>
                 <CustomInput
                   name="First Name"
                   rules={{
                     required: 'First Name is required',
                   }}
                   control={control}
-                  style={[styles.textInput, { width: '49%' }]}
+                  style={[styles.textInput, {width: '49%'}]}
                   textStyle={styles.InputTextStyle}
                   placeholder={'First Name'}
                   keyboardType={'default'}
@@ -73,7 +75,7 @@ const Register = ({ navigation }) => {
                     required: 'Last Name is required',
                   }}
                   control={control}
-                  style={[styles.textInput, { width: '49%' }]}
+                  style={[styles.textInput, {width: '49%'}]}
                   textStyle={styles.InputTextStyle}
                   placeholder={'Last Name'}
                   keyboardType={'default'}
@@ -104,7 +106,7 @@ const Register = ({ navigation }) => {
                 PIcolor={'#999B9E'}
                 PIstylye={{
                   position: 'absolute',
-                  bottom: scale(15),
+                  bottom: scale(18),
                   left: scale(12),
                 }}
               />
@@ -157,7 +159,7 @@ const Register = ({ navigation }) => {
               <CustomButton
                 onPress={() => navigation.navigate('otp')}
                 title={'register'}
-                textStyle={{ fontSize: scale(30) }}
+                textStyle={{fontSize: scale(30)}}
                 containerStyle={{
                   marginTop: scale(40),
                   height: verticalScale(50),
@@ -188,16 +190,17 @@ const Register = ({ navigation }) => {
                   </Text>
                 </TouchableOpacity>
               </View>
-            </ScrollView>
-          </KeyboardAvoidingView>
+              {/* </ScrollView> */}
+            </KeyboardAvoidingView>
+          </View>
         </View>
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  textInput: { height: verticalScale(50), marginVertical: scale(5) },
+  textInput: {height: verticalScale(50), marginVertical: scale(7)},
   container: {
     flex: 1,
     backgroundColor: '#0568F2',
@@ -215,22 +218,23 @@ const styles = StyleSheet.create({
   },
   BlueBox: {
     backgroundColor: '#0568F2',
-    height: '35%',
+    height: verticalScale(200),
     padding: moderateScale(20),
   },
   GreyBox: {
     backgroundColor: '#DDDEDF',
-    height: '65%',
+    height: verticalScale(500),
   },
   MainContainer: {
     backgroundColor: '#fff',
     width: '90%',
     alignSelf: 'center',
     position: 'absolute',
-    top: '17%',
+    top: '15%',
     paddingHorizontal: 20,
-    paddingVertical: scale(20),
+    paddingVertical: scale(25),
     borderRadius: 20,
+    height: scale(500),
   },
   logo: {
     alignSelf: 'center',

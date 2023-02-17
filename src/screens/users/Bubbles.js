@@ -4,7 +4,6 @@ import {
   Text,
   View,
   SafeAreaView,
-  Image,
   ScrollView,
   TouchableOpacity,
   FlatList,
@@ -201,120 +200,126 @@ const Bubbles = ({navigation}) => {
   );
   return (
     <SafeAreaView styles={styles.container}>
-      <BackAndLogo onPress={() => navigation.goBack()} />
-      <View style={{height: '30%'}}>
-        <LinearGradient
-          start={{x: 0, y: 0}}
-          end={{x: 1, y: 0}}
-          colors={['#056DFE', '#045CD2', '#056DFE', '#045CD2']}
-          style={{flex: 1}}></LinearGradient>
-      </View>
-      <View
-        style={{height: '70%', backgroundColor: Color.BackgroundColor}}></View>
-      <View style={{position: 'absolute', top: 80, width: '100%'}}>
-        <View style={styles.MainBox}>
-          {/* <ScrollView> */}
-          <Text style={styles.topContaintor}>Describe our adjecter</Text>
-          <View>
-            <FlatList
-              numColumns={3}
-              data={data}
-              keyExtractor={item => item.id}
-              renderItem={renderItem}
-            />
-          </View>
-          <View
-            style={{width: '50%', alignSelf: 'center', marginTop: scale(10)}}>
-            <StarRating
-              fullStarColor={Color.Main}
-              starSize={30}
-              disabled={false}
-              maxStars={5}
-              rating={rating}
-              selectedStar={setRating}
-            />
-          </View>
-          <NewCustomInput
-            name="clame"
-            control={control}
-            style={styles.textInput}
-            textStyle={styles.InputTextStyle}
-            placeholder={'Clame#'}
-            keyboardType={'default'}
-            restyle={{
-              width: '80%',
-              alignSelf: 'center',
-              backgroundColor: '#F4F5F5',
-              color: '#000',
-            }}
-          />
-          <CustomButton
-            onPress={() => {
-              // navigation.navigate('reviewer');
-              toggleModal();
-            }}
-            title={'Submit'}
-            containerStyle={{
-              width: '80%',
-              alignSelf: 'center',
-              marginTop: scale(30),
-              height: verticalScale(50),
-            }}
-          />
-          <Modal
-            onBackdropPress={() => setModalVisible(false)}
-            testID={'modal'}
-            isVisible={isModalVisible}>
-            <View
-              style={{
-                backgroundColor: '#fff',
-                position: 'absolute',
-                top: 100,
-                width: '90%',
-                flexDirection: 'row',
-                borderWidth: 1,
-                justifyContent: 'center',
-                alignItems: 'center',
-                borderRadius: 20,
-                alignSelf: 'center',
-                borderColor: Color.Main,
-                paddingLeft: 20,
-              }}>
-              <View>
-                <Text
-                  style={{
-                    fontWeight: '600',
-                    color: Color.Main,
-                    fontSize: scale(16),
-                    textTransform: 'uppercase',
-                  }}>
-                  FeedBack Added
-                </Text>
-                <Text style={{color: Color.Main, fontSize: scale(15)}}>
-                  Thanks for your FeedBack
-                </Text>
-              </View>
-              <LottieView
-                style={{
-                  width: 100,
-                  height: 100,
-                }}
-                source={require('../../assets/Lottie/thanks.json')}
-                colorFilters={[
-                  {
-                    keypath: 'button',
-                    color: '#E94057',
-                  },
-                ]}
-                autoPlay
-                loop
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <BackAndLogo onPress={() => navigation.goBack()} />
+        <View style={{height: verticalScale(200)}}>
+          <LinearGradient
+            start={{x: 0, y: 0}}
+            end={{x: 1, y: 0}}
+            colors={['#056DFE', '#045CD2', '#056DFE', '#045CD2']}
+            style={{flex: 1}}></LinearGradient>
+        </View>
+        <View
+          style={{
+            height: verticalScale(400),
+            backgroundColor: Color.BackgroundColor,
+          }}></View>
+        <View style={{position: 'absolute', top: 80, width: '100%'}}>
+          <View style={styles.MainBox}>
+            {/* <ScrollView> */}
+            <Text style={styles.Describe}>Describe our adjecter</Text>
+            <View>
+              <FlatList
+                numColumns={3}
+                data={data}
+                keyExtractor={item => item.id}
+                renderItem={renderItem}
               />
             </View>
-          </Modal>
-          <View style={{height: 20}}></View>
-          {/* </ScrollView> */}
+            <View
+              style={{width: '50%', alignSelf: 'center', marginTop: scale(10)}}>
+              <StarRating
+                fullStarColor={Color.Main}
+                starSize={30}
+                halfStarEnabled={true}
+                disabled={false}
+                maxStars={5}
+                rating={rating}
+                selectedStar={setRating}
+              />
+            </View>
+            <NewCustomInput
+              name="clame"
+              control={control}
+              style={styles.textInput}
+              textStyle={styles.InputTextStyle}
+              placeholder={'Clame#'}
+              keyboardType={'default'}
+              restyle={{
+                width: '80%',
+                alignSelf: 'center',
+                backgroundColor: '#F4F5F5',
+                color: '#000',
+              }}
+            />
+            <CustomButton
+              onPress={() => {
+                // navigation.navigate('reviewer');
+                toggleModal();
+              }}
+              title={'Submit'}
+              containerStyle={{
+                width: '80%',
+                alignSelf: 'center',
+                marginTop: scale(30),
+                height: verticalScale(50),
+              }}
+            />
+            <Modal
+              onBackdropPress={() => setModalVisible(false)}
+              testID={'modal'}
+              isVisible={isModalVisible}>
+              <View
+                style={{
+                  backgroundColor: '#fff',
+                  position: 'absolute',
+                  top: 100,
+                  width: '90%',
+                  flexDirection: 'row',
+                  borderWidth: 1,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  borderRadius: 20,
+                  alignSelf: 'center',
+                  borderColor: Color.Main,
+                  paddingLeft: 20,
+                }}>
+                <View>
+                  <Text
+                    style={{
+                      fontWeight: '600',
+                      color: Color.Main,
+                      fontSize: scale(16),
+                      textTransform: 'uppercase',
+                    }}>
+                    FeedBack Added
+                  </Text>
+                  <Text style={{color: Color.Main, fontSize: scale(15)}}>
+                    Thanks for your FeedBack
+                  </Text>
+                </View>
+                <LottieView
+                  style={{
+                    width: 100,
+                    height: 100,
+                  }}
+                  source={require('../../assets/Lottie/thanks.json')}
+                  colorFilters={[
+                    {
+                      keypath: 'button',
+                      color: '#E94057',
+                    },
+                  ]}
+                  autoPlay
+                  loop
+                />
+              </View>
+            </Modal>
+            <View style={{height: 20}}></View>
+            {/* </ScrollView> */}
+          </View>
         </View>
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
@@ -333,15 +338,16 @@ const styles = StyleSheet.create({
     backgroundColor: Color.White,
     marginTop: scale(20),
     borderRadius: 20,
-    paddingTop: verticalScale(15),
+    paddingTop: verticalScale(10),
+    height: scale(550),
   },
-  topContaintor: {
+  Describe: {
     color: Color.Main,
     marginVertical: scale(5),
-    fontSize: scale(22),
+    fontSize: scale(25),
     textTransform: 'uppercase',
     textAlign: 'center',
-    fontWeight: '600',
+    fontFamily: 'gazrg-bold',
   },
   bubbles: {
     paddingVertical: moderateScale(6),

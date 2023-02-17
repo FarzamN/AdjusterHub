@@ -1,25 +1,22 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet, Text, View, Image } from 'react-native';
-import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
+import {SafeAreaView, StyleSheet, Text, View, Image} from 'react-native';
+import {scale, verticalScale, moderateScale} from 'react-native-size-matters';
 
 import CustomButton from '../../components/CustomButton';
-import { Color } from '../../utils/Colors';
+import {Color} from '../../utils/Colors';
 import LinearGradient from 'react-native-linear-gradient';
 
-const TermsAndCondition = ({ navigation }) => {
+const TermsAndCondition = ({navigation}) => {
   return (
     <SafeAreaView style={styles.Container}>
       <LinearGradient
-        start={{ x: 1, y: 0 }}
-        end={{ x: 0, y: 1 }}
+        start={{x: 1, y: 0}}
+        end={{x: 0, y: 1}}
         colors={['#056BF9', '#056DFE', '#034EAC']}
-
         // colors={['#056DFE', '#056BF9', '#034EAC', '#024391']}
 
         style={styles.mainView}>
         <View style={styles.firstView}>
-
-
           <Image
             style={{
               alignSelf: 'center',
@@ -44,20 +41,18 @@ const TermsAndCondition = ({ navigation }) => {
           <CustomButton
             onPress={() => navigation.navigate('login')}
             title="Accept and Continue"
-            textStyle={{ textAlign: 'center' }}
+            textStyle={{textAlign: 'center'}}
             containerStyle={{
               // marginTop: scale(20),
               width: '85%',
               alignSelf: 'center',
               position: 'absolute',
               bottom: 20,
-              padding: moderateScale(10)
-            
+              padding: moderateScale(15),
             }}
           />
         </View>
       </LinearGradient>
-
     </SafeAreaView>
   );
 };

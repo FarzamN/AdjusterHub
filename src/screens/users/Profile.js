@@ -302,11 +302,11 @@ const Profile = ({navigation}) => {
 const styles = StyleSheet.create({
   // textInput: {height: verticalScale(50), marginVertical: scale(15)},
   BlueBox: {
-    height: '35%',
+    height: verticalScale(230),
   },
   GreyBox: {
     backgroundColor: '#DDDEDF',
-    height: '65%',
+    height: '100%',
   },
   editBox: {
     width: scale(35),

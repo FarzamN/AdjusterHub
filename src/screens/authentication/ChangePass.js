@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -9,16 +9,16 @@ import {
   TouchableOpacity,
   ScrollView,
 } from 'react-native';
-import { scale, moderateScale, verticalScale } from 'react-native-size-matters';
+import {scale, moderateScale, verticalScale} from 'react-native-size-matters';
 
 import Validation from '../../components/Validation';
-import { useForm } from 'react-hook-form';
+import {useForm} from 'react-hook-form';
 import CustomInput from '../../components/CustomInput';
 import CustomButton from '../../components/CustomButton';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import { Color } from '../../utils/Colors';
+import {Color} from '../../utils/Colors';
 
-const ChangePass = ({ navigation }) => {
+const ChangePass = ({navigation}) => {
   const [password, setPassword] = useState('');
   const [isPasswordSecure, setIsPasswordSecure] = useState(true);
   const [isEnabled, setIsEnabled] = useState(true);
@@ -32,11 +32,11 @@ const ChangePass = ({ navigation }) => {
   const {
     control,
     handleSubmit,
-    formState: { errors, isValid },
-  } = useForm({ mode: 'all' });
+    formState: {errors, isValid},
+  } = useForm({mode: 'all'});
   return (
     <SafeAreaView style={styles.container}>
-      <View styles={{ height: '100%' }}>
+      <ScrollView styles={{flex: 1}} showsVerticalScrollIndicator={false}>
         <View style={styles.BlueBox}>
           <TouchableOpacity
             onPress={() => navigation.goBack()}
@@ -49,117 +49,120 @@ const ChangePass = ({ navigation }) => {
               color={Color.Main}
             />
           </TouchableOpacity>
-          <Text style={[styles.TextOne, { fontFamily: 'gazrg-bold' }]}>CREATE NEW PASSWORD</Text>
+          <Text style={[styles.TextOne, {fontFamily: 'gazrg-bold'}]}>
+            CREATE NEW PASSWORD
+          </Text>
           <Text style={styles.TextTwo}>Make it unique!</Text>
         </View>
         <View style={styles.GreyBox}></View>
 
         <View style={styles.MainContainer}>
-          <ScrollView showsVerticalScrollIndicator={false}>
-            <Image
-              source={require('../../assets/Images/logo.png')}
-              style={styles.logo}
+          <Image
+            source={require('../../assets/Images/logo.png')}
+            style={styles.logo}
+          />
+          <View>
+            <CustomInput
+              secureTextEntry={isPasswordSecure}
+              textContentType={'password'}
+              value={password}
+              onChangeText={text => setPassword(text)}
+              name="Password"
+              rules={{
+                required: 'Password is required',
+              }}
+              control={control}
+              style={styles.textInput}
+              textStyle={styles.InputTextStyle}
+              placeholder={'Password'}
+              keyboardType={'default'}
+              restyle={{
+                backgroundColor: '#F4F5F5',
+                color: '#000',
+              }}
+              PIname2={'locked'}
+              PIsize2={18}
+              PIcolor2={'#999B9E'}
+              PIstylye2={{
+                position: 'absolute',
+                bottom: scale(34),
+                left: scale(12),
+              }}
+              onPress={() => {
+                isPasswordSecure
+                  ? setIsPasswordSecure(false)
+                  : setIsPasswordSecure(true);
+              }}
             />
-            <View>
-              <CustomInput
-                secureTextEntry={isPasswordSecure}
-                textContentType={'password'}
-                value={password}
-                onChangeText={text => setPassword(text)}
-                name="Password"
-                rules={{
-                  required: 'Password is required',
-                }}
-                control={control}
-                style={styles.textInput}
-                textStyle={styles.InputTextStyle}
-                placeholder={'Password'}
-                keyboardType={'default'}
-                restyle={{
-                  backgroundColor: '#F4F5F5',
-                  color: '#000',
-                }}
-                PIname2={'locked'}
-                PIsize2={18}
-                PIcolor2={'#999B9E'}
-                PIstylye2={{
-                  position: 'absolute',
-                  bottom: scale(34),
-                  left: scale(12),
-                }}
-                onPress={() => {
-                  isPasswordSecure
-                    ? setIsPasswordSecure(false)
-                    : setIsPasswordSecure(true);
-                }}
-              />
-              <TouchableOpacity
-                style={{
-                  position: 'absolute',
-                  right: scale(15),
-                  top: scale(45),
-                  // justifyContent: 'flex-end',
-                }}
-                onPress={() => setIsPasswordSecure(prevCheck => !prevCheck)}>
-                <Text style={styles.viewText}>
-                  {isPasswordSecure ? 'SHOW' : 'HIDE'}
-                </Text>
-              </TouchableOpacity>
-            </View>
-            <View>
-              <CustomInput
-                secureTextEntry={isPasswordSecure}
-                textContentType={'password'}
-                value={password}
-                onChangeText={text => setPassword(text)}
-                name="c_password"
-                rules={{
-                  required: 'Password is required',
-                }}
-                control={control}
-                style={styles.textInput}
-                textStyle={styles.InputTextStyle}
-                placeholder={'Confirm Password'}
-                keyboardType={'default'}
-                restyle={{
-                  backgroundColor: '#F4F5F5',
-                  color: '#000',
-                }}
-                PIname2={'locked'}
-                PIsize2={18}
-                PIcolor2={'#999B9E'}
-                PIstylye2={{
-                  position: 'absolute',
-                  bottom: scale(34),
-                  left: scale(12),
-                }}
-                onPress={() => {
-                  isPasswordSecure
-                    ? setIsPasswordSecure(false)
-                    : setIsPasswordSecure(true);
-                }}
-              />
-              <TouchableOpacity
-                style={{
-                  position: 'absolute',
-                  right: scale(15),
-                  top: scale(45),
-                }}
-                onPress={() => setIsPasswordSecure(prevCheck => !prevCheck)}>
-                <Text style={styles.viewText}>
-                  {isPasswordSecure ? 'SHOW' : 'HIDE'}
-                </Text>
-              </TouchableOpacity>
-            </View>
-            <CustomButton
-              onPress={() => navigation.navigate('login')}
-              containerStyle={{ marginTop: scale(50) }}
-              title={'Confirm'}
-              textStyle={{ fontSize: scale(27) }}
+            <TouchableOpacity
+              style={{
+                position: 'absolute',
+                right: scale(15),
+                top: scale(45),
+                // justifyContent: 'flex-end',
+              }}
+              onPress={() => setIsPasswordSecure(prevCheck => !prevCheck)}>
+              <Text style={styles.viewText}>
+                {isPasswordSecure ? 'SHOW' : 'HIDE'}
+              </Text>
+            </TouchableOpacity>
+          </View>
+          <View>
+            <CustomInput
+              secureTextEntry={isPasswordSecure}
+              textContentType={'password'}
+              value={password}
+              onChangeText={text => setPassword(text)}
+              name="c_password"
+              rules={{
+                required: 'Password is required',
+              }}
+              control={control}
+              style={styles.textInput}
+              textStyle={styles.InputTextStyle}
+              placeholder={'Confirm Password'}
+              keyboardType={'default'}
+              restyle={{
+                backgroundColor: '#F4F5F5',
+                color: '#000',
+              }}
+              PIname2={'locked'}
+              PIsize2={18}
+              PIcolor2={'#999B9E'}
+              PIstylye2={{
+                position: 'absolute',
+                bottom: scale(34),
+                left: scale(12),
+              }}
+              onPress={() => {
+                isPasswordSecure
+                  ? setIsPasswordSecure(false)
+                  : setIsPasswordSecure(true);
+              }}
             />
-          </ScrollView>
+            <TouchableOpacity
+              style={{
+                position: 'absolute',
+                right: scale(15),
+                top: scale(45),
+              }}
+              onPress={() => setIsPasswordSecure(prevCheck => !prevCheck)}>
+              <Text style={styles.viewText}>
+                {isPasswordSecure ? 'SHOW' : 'HIDE'}
+              </Text>
+            </TouchableOpacity>
+          </View>
+          <CustomButton
+            onPress={() => navigation.navigate('login')}
+            containerStyle={{
+              marginTop: scale(50),
+              paddingVertical: moderateScale(10),
+            }}
+            title={'Confirm'}
+            textStyle={{fontSize: scale(27)}}
+          />
         </View>
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
@@ -167,11 +170,11 @@ const ChangePass = ({ navigation }) => {
 const styles = StyleSheet.create({
   textInput: {
     height: verticalScale(45),
-    marginVertical: scale(7),
+    marginVertical: scale(10),
   },
   container: {
     flex: 1,
-    backgroundColor: '#0568F2',
+    backgroundColor: '#DDDEDF',
   },
   TextOne: {
     color: '#fff',
@@ -186,22 +189,23 @@ const styles = StyleSheet.create({
   },
   BlueBox: {
     backgroundColor: '#0568F2',
-    height: '35%',
+    height: verticalScale(200),
     padding: moderateScale(20),
   },
   GreyBox: {
-    backgroundColor: '#DDDEDF',
-    height: '65%',
+    height: verticalScale(500),
   },
   MainContainer: {
     backgroundColor: '#fff',
     width: '90%',
+    height: scale(450),
     alignSelf: 'center',
     position: 'absolute',
-    top: '25%',
+    top: '22%',
     paddingHorizontal: 20,
-    paddingVertical: scale(35),
+    paddingTop: scale(35),
     borderRadius: 20,
+    // paddingBottom: scale(3),
   },
   logo: {
     alignSelf: 'center',
@@ -230,7 +234,7 @@ const styles = StyleSheet.create({
     marginRight: 3,
     marginTop: -2,
     // backgroundColor: 'red'
-    alignSelf: 'center'
+    alignSelf: 'center',
   },
 });
 export default ChangePass;

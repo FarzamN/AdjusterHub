@@ -79,11 +79,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFF',
     color: 'black',
   },
-  Circle: {
-    height: scale(10),
-    width: scale(10),
-    backgroundColor: 'red',
-  },
+
   TextStyle: {
     fontFamily: 'open sans',
     fontSize: moderateScale(14),

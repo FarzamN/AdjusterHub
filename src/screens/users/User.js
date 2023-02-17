@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   StyleSheet,
   Text,
@@ -10,13 +10,13 @@ import {
   FlatList,
   ScrollView,
 } from 'react-native';
-import { verticalScale, scale, moderateScale } from 'react-native-size-matters';
+import {verticalScale, scale, moderateScale} from 'react-native-size-matters';
 import BackAndLogo from '../../components/BackAndLogo';
-import { Color } from '../../utils/Colors';
+import {Color} from '../../utils/Colors';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import LinearGradient from 'react-native-linear-gradient';
 
-const User = ({ navigation }) => {
+const User = ({navigation}) => {
   const [search, setSearch] = useState('');
   const [filteredDataSource, setFilteredDataSource] = useState([]);
   const [masterDataSource, setMasterDataSource] = useState([]);
@@ -53,7 +53,7 @@ const User = ({ navigation }) => {
       setSearch(text);
     }
   };
-  const ItemView = ({ item }) => (
+  const ItemView = ({item}) => (
     <TouchableOpacity
       onPress={() => navigation.navigate('reviewer')}
       style={styles.names}>
@@ -76,17 +76,21 @@ const User = ({ navigation }) => {
 
   return (
     <SafeAreaView style={styles.container}>
+      {/* <ScrollView style={{flex: 1}} showsVerticalScrollIndicator={false}> */}
       <BackAndLogo onPress={() => navigation.goBack()} />
-      <View style={{ height: '30%' }}>
+      <View style={{height: verticalScale(200)}}>
         <LinearGradient
-          start={{ x: 0, y: 0 }}
-          end={{ x: 1, y: 0 }}
+          start={{x: 0, y: 0}}
+          end={{x: 1, y: 0}}
           colors={['#056DFE', '#045CD2', '#056DFE', '#045CD2']}
-          style={{ flex: 1 }}></LinearGradient>
+          style={{flex: 1}}></LinearGradient>
       </View>
       <View
-        style={{ height: '70%', backgroundColor: Color.BackgroundColor }}></View>
-      <View style={{ position: 'absolute', top: scale(100), width: '100%' }}>
+        style={{
+          height: verticalScale(400),
+          backgroundColor: Color.BackgroundColor,
+        }}></View>
+      <View style={{position: 'absolute', top: scale(70), width: '100%'}}>
         <View style={styles.InputBox}>
           <Image
             style={styles.SearchImg}
@@ -105,7 +109,7 @@ const User = ({ navigation }) => {
             style={styles.companyLogo}
             source={require('../../assets/Images/one.png')}
           />
-          <View style={{ height: verticalScale(380) }}>
+          <View style={{height: verticalScale(380)}}>
             <FlatList
               showsVerticalScrollIndicator={false}
               data={filteredDataSource}
@@ -115,7 +119,7 @@ const User = ({ navigation }) => {
             />
           </View>
         </View>
-        <View style={{ height: verticalScale(100) }}></View>
+        <View style={{height: verticalScale(100)}}></View>
       </View>
 
       <TouchableOpacity
@@ -123,6 +127,7 @@ const User = ({ navigation }) => {
         style={styles.PlusBox}>
         <FontAwesome5 name={'plus'} size={30} color={Color.White} />
       </TouchableOpacity>
+      {/* </ScrollView> */}
     </SafeAreaView>
   );
 };
@@ -147,7 +152,7 @@ const styles = StyleSheet.create({
     shadowOffset: [1, 1],
     // justifyContent: 'center',
     alignItems: 'center',
-    paddingLeft: scale(15)
+    paddingLeft: scale(15),
   },
   SearchImg: {
     marginTop: scale(7),
@@ -160,7 +165,7 @@ const styles = StyleSheet.create({
     width: '85%',
     alignSelf: 'center',
     backgroundColor: Color.White,
-    marginTop: scale(20),
+    marginTop: scale(15),
     borderRadius: 20,
     paddingTop: verticalScale(30),
     paddingHorizontal: moderateScale(20),
