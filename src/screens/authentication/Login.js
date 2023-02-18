@@ -51,7 +51,7 @@ const Login = ({navigation}) => {
             style={[styles.container, {backgroundColor: Color.White}]}>
             <View
               style={{
-                height: scale(height * 0.18),
+                height: verticalScale(155),
                 width: scale(200),
                 alignSelf: 'center',
               }}>
