@@ -161,7 +161,7 @@ const Login = ({navigation}) => {
                 fontSize: scale(25),
               }}
               containerStyle={{
-                marginTop: scale(40),
+                marginTop: scale(height * .03),
                 height: verticalScale(45),
               }}
             />
@@ -224,7 +224,7 @@ const styles = StyleSheet.create({
   },
   MainContainer: {
     elevation: 5,
-    height: scale(height * 0.67),
+    height: scale(height * 0.60),
     backgroundColor: '#fff',
     width: '90%',
     alignSelf: 'center',
