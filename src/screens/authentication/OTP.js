@@ -60,10 +60,10 @@ const OTP = ({navigation}) => {
               color={Color.Main}
             />
           </TouchableOpacity>
-          <Text style={[styles.TextOne, {fontFamily: 'gazrg-bold'}]}>
+          <Text style={[styles.TextOne, {fontFamily: 'Evogria'}]}>
             VERIFY CODE
           </Text>
-          <Text style={styles.TextTwo}>Let`s be secure!</Text>
+          <Text style={styles.TextTwo}>Let's be secure!</Text>
         </View>
         <View style={styles.GreyBox}></View>
 
@@ -104,9 +104,8 @@ const OTP = ({navigation}) => {
               <Text
                 style={{
                   fontSize: scale(14),
-                  fontWeight: '500',
                   color: '#000',
-                  fontStyle: 'normal',
+                  fontFamily: 'MyriadPro-Regular',
                 }}>
                 Wait {time} more secounds to
               </Text>
@@ -114,9 +113,8 @@ const OTP = ({navigation}) => {
                 <Text
                   style={{
                     fontSize: scale(14),
-                    fontWeight: '500',
+                    fontFamily: 'MyriadPro-Regular',
                     color: '#0568F2',
-                    fontStyle: 'normal',
                     marginLeft: scale(5),
                   }}>
                   Resend.
@@ -146,6 +144,7 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: scale(17),
     marginTop: scale(-8),
+    fontFamily: 'MyriadPro-Regular',
   },
   BlueBox: {
     backgroundColor: '#0568F2',
@@ -163,8 +162,10 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: '17%',
     paddingHorizontal: 20,
-    paddingVertical: scale(35),
+    paddingVertical: scale(50),
     borderRadius: 20,
+    height: scale(450),
+    elevation: 5,
   },
   logo: {
     alignSelf: 'center',
@@ -195,7 +196,10 @@ const styles = StyleSheet.create({
     // backgroundColor: 'red'
     alignSelf: 'center',
   },
-  codeFieldRoot: {marginTop: scale(20)},
+  codeFieldRoot: {
+    marginTop: scale(20),
+    // backgroundColor: '#DDDEDF',
+  },
   cell: {
     width: scale(65),
     height: scale(65),

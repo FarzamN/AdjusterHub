@@ -46,7 +46,6 @@ const Register = ({navigation}) => {
             <KeyboardAvoidingView
               behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
               style={[styles.container, {backgroundColor: Color.White}]}>
-              {/* <ScrollView showsVerticalScrollIndicator={false}> */}
               <Image
                 source={require('../../assets/Images/logo.png')}
                 style={styles.logo}
@@ -172,24 +171,23 @@ const Register = ({navigation}) => {
                     color: '#000',
                     fontFamily: 'MyriadPro-Regular',
                   }}>
-                  By taping "Register" you will accept our
+                  By taping "Register" you accept our
                 </Text>
                 <TouchableOpacity
                   onPress={() => navigation.navigate('termsandcondition')}>
                   <Text
                     style={{
-                      fontSize: scale(14),
-                      fontWeight: '500',
+                      fontSize: scale(13),
                       color: '#0568F2',
                       fontStyle: 'normal',
                       marginLeft: scale(5),
                       alignSelf: 'flex-end',
+                      fontFamily: 'MyriadPro-Regular',
                     }}>
                     Terms of Service.
                   </Text>
                 </TouchableOpacity>
               </View>
-              {/* </ScrollView> */}
             </KeyboardAvoidingView>
           </View>
         </View>
@@ -199,7 +197,10 @@ const Register = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
-  textInput: {height: verticalScale(50), marginVertical: scale(7)},
+  textInput: {
+    height: verticalScale(50),
+    marginVertical: scale(10),
+  },
   container: {
     flex: 1,
     backgroundColor: '#0568F2',
@@ -236,7 +237,7 @@ const styles = StyleSheet.create({
     paddingTop: scale(25),
     paddingBottom: moderateScale(30),
     borderRadius: 20,
-    height: scale(520),
+    height: scale(540),
   },
   logo: {
     alignSelf: 'center',
@@ -254,13 +255,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginTop: scale(20),
   },
-  Add_Text: {
-    color: Color.White,
-  },
+
   viewText: {
     color: '#0568F2',
     fontSize: scale(15),
-    fontWeight: '600',
+    fontFamily: 'MyriadPro-Regular',
+    // fontWeight: '600',
   },
   FPassCon: {
     marginTop: scale(5),

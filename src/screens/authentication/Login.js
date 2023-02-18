@@ -61,16 +61,16 @@ const Login = ({navigation}) => {
               placeholder={'Email@gmail.com'}
               keyboardType={'default'}
               restyle={{
-                marginTop: scale(15),
+                // marginTop: scale(15),
                 backgroundColor: '#F4F5F5',
                 color: '#000',
               }}
               PIname={'email'}
-              PIsize={20}
+              PIsize={22}
               PIcolor={'#999B9E'}
               PIstylye={{
                 position: 'absolute',
-                bottom: scale(17),
+                bottom: scale(19),
                 left: scale(12),
               }}
             />
@@ -91,11 +91,12 @@ const Login = ({navigation}) => {
                 placeholder={'Password'}
                 keyboardType={'default'}
                 restyle={{
+                  marginTop: scale(-15),
                   backgroundColor: '#F4F5F5',
                   color: '#000',
                 }}
                 PIname2={'locked'}
-                PIsize2={18}
+                PIsize2={20}
                 PIcolor2={'#999B9E'}
                 PIstylye2={{
                   position: 'absolute',
@@ -112,7 +113,8 @@ const Login = ({navigation}) => {
                 style={{
                   position: 'absolute',
                   right: scale(15),
-                  top: scale(50),
+                  // top: scale(50),
+                  bottom: scale(20),
                 }}
                 onPress={() => setIsPasswordSecure(prevCheck => !prevCheck)}>
                 <Text style={styles.viewText}>
@@ -120,7 +122,7 @@ const Login = ({navigation}) => {
                 </Text>
               </TouchableOpacity>
             </View>
-            <View style={[styles.FPassCon, {marginTop: scale(15)}]}>
+            <View style={[styles.FPassCon, {marginTop: scale(0)}]}>
               <Text
                 style={{
                   fontSize: scale(14),
@@ -159,9 +161,8 @@ const Login = ({navigation}) => {
               <Text
                 style={{
                   fontSize: scale(14),
-                  fontWeight: '500',
                   color: '#000',
-                  fontStyle: 'normal',
+                  fontFamily: 'MyriadPro-Regular',
                 }}>
                 Don't have an account?
               </Text>
@@ -169,9 +170,8 @@ const Login = ({navigation}) => {
                 <Text
                   style={{
                     fontSize: scale(14),
-                    fontWeight: '500',
                     color: '#0568F2',
-                    fontStyle: 'normal',
+                    fontFamily: 'MyriadPro-Regular',
                     marginLeft: scale(5),
                   }}>
                   Register.
@@ -187,7 +187,7 @@ const Login = ({navigation}) => {
 const styles = StyleSheet.create({
   textInput: {
     height: verticalScale(45),
-    marginVertical: scale(17),
+    marginVertical: scale(20),
   },
   container: {
     flex: 1,
@@ -202,6 +202,7 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: scale(17),
     marginTop: scale(-8),
+    fontFamily: 'MyriadPro-Regular',
   },
   BlueBox: {
     backgroundColor: '#0568F2',

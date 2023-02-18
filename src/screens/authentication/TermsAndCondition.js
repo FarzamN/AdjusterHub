@@ -47,7 +47,7 @@ const TermsAndCondition = ({navigation}) => {
               width: '85%',
               alignSelf: 'center',
               position: 'absolute',
-              bottom: 20,
+              bottom: 30,
               padding: moderateScale(15),
             }}
           />
@@ -73,14 +73,12 @@ const styles = StyleSheet.create({
     marginTop: scale(15),
     fontSize: scale(22),
     color: '#353535',
-    fontFamily: 'Inter',
-    fontWeight: 'bold',
+    fontFamily: 'Evogria',
   },
 
   lorem: {
     textAlign: 'center',
     marginHorizontal: scale(20),
-    // marginRight: scale(30),
     marginTop: scale(10),
     color: Color.greyfont,
     fontSize: scale(12),
@@ -88,7 +86,7 @@ const styles = StyleSheet.create({
 
   firstView: {
     width: '90%',
-    height: '85%',
+    height: '90%',
     backgroundColor: Color.White,
     borderRadius: 30,
   },

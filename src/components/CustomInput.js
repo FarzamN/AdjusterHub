@@ -72,22 +72,11 @@ const CustomInput = forwardRef((props, ref) => {
 
 const styles = StyleSheet.create({
   InputStyles: {
-    height: scale(55),
+    height: scale(57),
     borderRadius: 12,
     alignItems: 'center',
     paddingHorizontal: scale(35),
-    backgroundColor: '#FFF',
-    color: 'black',
-  },
-
-  TextStyle: {
-    fontFamily: 'open sans',
-    fontSize: moderateScale(14),
-    fontStyle: 'normal',
-    fontWeight: '600',
-    zIndex: 10,
-    color: 'grey',
-    marginLeft: scale(20),
+    fontSize: scale(20),
   },
 });
 export default CustomInput;
