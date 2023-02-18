@@ -35,7 +35,7 @@ const Register = ({navigation}) => {
       <ScrollView showsVerticalScrollIndicator={false} styles={{flex: 1}}>
         <View styles={{height: '100%'}}>
           <View style={styles.BlueBox}>
-            <Text style={[styles.TextOne, {fontFamily: 'gazrg-bold'}]}>
+            <Text style={[styles.TextOne, {fontFamily: 'Evogria'}]}>
               Register
             </Text>
             <Text style={styles.TextTwo}>Welcome!</Text>
@@ -168,12 +168,11 @@ const Register = ({navigation}) => {
               <View style={styles.FPassCon}>
                 <Text
                   style={{
-                    fontSize: scale(14),
-                    fontWeight: '500',
+                    fontSize: scale(13),
                     color: '#000',
-                    fontStyle: 'normal',
+                    fontFamily: 'MyriadPro-Regular',
                   }}>
-                  By taping 'Register' you will accept our
+                  By taping "Register" you will accept our
                 </Text>
                 <TouchableOpacity
                   onPress={() => navigation.navigate('termsandcondition')}>
@@ -214,7 +213,8 @@ const styles = StyleSheet.create({
   TextTwo: {
     color: '#fff',
     fontSize: scale(17),
-    marginTop: scale(-8),
+    marginTop: scale(-5),
+    fontFamily: 'MyriadPro-Regular',
   },
   BlueBox: {
     backgroundColor: '#0568F2',
@@ -223,23 +223,25 @@ const styles = StyleSheet.create({
   },
   GreyBox: {
     backgroundColor: '#DDDEDF',
-    height: verticalScale(500),
+    height: verticalScale(480),
   },
   MainContainer: {
+    elevation: 5,
     backgroundColor: '#fff',
     width: '90%',
     alignSelf: 'center',
     position: 'absolute',
-    top: '15%',
+    top: '17%',
     paddingHorizontal: 20,
-    paddingVertical: scale(25),
+    paddingTop: scale(25),
+    paddingBottom: moderateScale(30),
     borderRadius: 20,
-    height: scale(500),
+    height: scale(520),
   },
   logo: {
     alignSelf: 'center',
-    width: 237,
-    height: 180,
+    width: scale(205),
+    height: verticalScale(160),
   },
   Add: {
     backgroundColor: '#545456',
