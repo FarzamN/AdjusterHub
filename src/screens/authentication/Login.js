@@ -199,7 +199,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    // backgroundColor: '#DDDEDF',
+    backgroundColor: '#DDDEDF',
   },
   TextOne: {
     color: '#fff',
