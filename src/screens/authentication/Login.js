@@ -51,7 +51,7 @@ const Login = ({navigation}) => {
             style={[styles.container, {backgroundColor: Color.White}]}>
               <View
               style={{
-                height: verticalScale(155),
+                height: scale(height * 0.2),
                 width: scale(200),
                 alignSelf: 'center',
               }}>
@@ -214,17 +214,17 @@ const styles = StyleSheet.create({
   },
   BlueBox: {
     backgroundColor: '#0568F2',
-    height: verticalScale(200),
+    height: scale(height * 0.25),
     padding: moderateScale(20),
   },
   GreyBox: {
     backgroundColor: '#DDDEDF',
-    height: verticalScale(500),
+    height:scale(height * 0.7),
     // flex: 1,
   },
   MainContainer: {
     elevation: 5,
-    height: scale(height * 0.60),
+    height: scale(height * 0.65),
     backgroundColor: '#fff',
     width: '90%',
     alignSelf: 'center',
