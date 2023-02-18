@@ -49,10 +49,17 @@ const Login = ({navigation}) => {
           <KeyboardAvoidingView
             behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
             style={[styles.container, {backgroundColor: Color.White}]}>
+              <View
+              style={{
+                height: verticalScale(155),
+                width: scale(200),
+                alignSelf: 'center',
+              }}>
             <Image
               source={require('../../assets/Images/logo.png')}
               style={styles.logo}
             />
+            </View>
             <CustomInput
               name="Email"
               rules={{
@@ -151,11 +158,11 @@ const Login = ({navigation}) => {
               onPress={() => navigation.navigate('DrawerNavigation')}
               title={'login'}
               textStyle={{
-                fontSize: scale(30),
+                fontSize: scale(25),
               }}
               containerStyle={{
                 marginTop: scale(40),
-                height: verticalScale(50),
+                height: verticalScale(45),
               }}
             />
             <View style={styles.FPassCon}>
@@ -191,7 +198,7 @@ const styles = StyleSheet.create({
     marginVertical: scale(20),
   },
   container: {
-    flex: 1,
+    flex: 1
     // backgroundColor: '#DDDEDF',
   },
   TextOne: {
@@ -217,7 +224,7 @@ const styles = StyleSheet.create({
   },
   MainContainer: {
     elevation: 5,
-    height: scale(height * 0.56),
+    height: scale(height * 0.67),
     backgroundColor: '#fff',
     width: '90%',
     alignSelf: 'center',
@@ -228,9 +235,8 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
   logo: {
-    alignSelf: 'center',
-    width: 237,
-    height: 180,
+    width: '100%',
+    height: '100%',
   },
   viewText: {
     color: '#0568F2',
