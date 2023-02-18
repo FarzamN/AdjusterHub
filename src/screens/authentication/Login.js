@@ -49,16 +49,16 @@ const Login = ({navigation}) => {
           <KeyboardAvoidingView
             behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
             style={[styles.container, {backgroundColor: Color.White}]}>
-              <View
+            <View
               style={{
-                height: scale(height * 0.2),
+                height: scale(height * 0.18),
                 width: scale(200),
                 alignSelf: 'center',
               }}>
-            <Image
-              source={require('../../assets/Images/logo.png')}
-              style={styles.logo}
-            />
+              <Image
+                source={require('../../assets/Images/logo.png')}
+                style={styles.logo}
+              />
             </View>
             <CustomInput
               name="Email"
@@ -161,7 +161,7 @@ const Login = ({navigation}) => {
                 fontSize: scale(25),
               }}
               containerStyle={{
-                marginTop: scale(height * .03),
+                marginTop: scale(height * 0.03),
                 height: verticalScale(45),
               }}
             />
@@ -198,7 +198,7 @@ const styles = StyleSheet.create({
     marginVertical: scale(20),
   },
   container: {
-    flex: 1
+    flex: 1,
     // backgroundColor: '#DDDEDF',
   },
   TextOne: {
@@ -219,12 +219,11 @@ const styles = StyleSheet.create({
   },
   GreyBox: {
     backgroundColor: '#DDDEDF',
-    height:scale(height * 0.7),
-    // flex: 1,
+    height: scale(height * 0.55),
   },
   MainContainer: {
     elevation: 5,
-    height: scale(height * 0.65),
+    height: scale(height * 0.6),
     backgroundColor: '#fff',
     width: '90%',
     alignSelf: 'center',
