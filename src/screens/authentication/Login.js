@@ -214,7 +214,7 @@ const styles = StyleSheet.create({
   },
   MainContainer: {
     elevation: 5,
-    height: scale(500),
+    height: scale(530),
     backgroundColor: '#fff',
     width: '90%',
     alignSelf: 'center',
