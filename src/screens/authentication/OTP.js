@@ -47,7 +47,7 @@ const OTP = ({navigation}) => {
   }, []);
   return (
     <SafeAreaView style={styles.container}>
-      <View styles={{height: '100%'}}>
+      <ScrollView showsVerticalScrollIndicator={false} style={{flex: 1}}>
         <View style={styles.BlueBox}>
           <TouchableOpacity
             onPress={() => navigation.goBack()}
@@ -68,62 +68,60 @@ const OTP = ({navigation}) => {
         <View style={styles.GreyBox}></View>
 
         <View style={styles.MainContainer}>
-          <ScrollView showsVerticalScrollIndicator={false}>
-            <Image
-              source={require('../../assets/Images/logo.png')}
-              style={styles.logo}
-            />
+          <Image
+            source={require('../../assets/Images/logo.png')}
+            style={styles.logo}
+          />
 
-            <CodeField
-              ref={ref}
-              value={value}
-              onChangeText={setValue}
-              cellCount={CELL_COUNT}
-              rootStyle={styles.codeFieldRoot}
-              keyboardType="number-pad"
-              textContentType="oneTimeCode"
-              renderCell={({index, symbol, isFocused}) => (
-                <Text
-                  key={index}
-                  style={[styles.cell, isFocused && styles.focusCell]}
-                  onLayout={getCellOnLayoutHandler(index)}>
-                  {symbol || (isFocused ? <Cursor /> : null)}
-                </Text>
-              )}
-            />
-            <CustomButton
-              onPress={() => navigation.navigate('login')}
-              containerStyle={{marginTop: scale(20)}}
-              title={'Verify'}
-              textStyle={{
-                fontSize: scale(25),
-                paddingVertical: moderateScale(10),
-              }}
-            />
-            <View style={styles.FPassCon}>
+          <CodeField
+            ref={ref}
+            value={value}
+            onChangeText={setValue}
+            cellCount={CELL_COUNT}
+            rootStyle={styles.codeFieldRoot}
+            keyboardType="number-pad"
+            textContentType="oneTimeCode"
+            renderCell={({index, symbol, isFocused}) => (
+              <Text
+                key={index}
+                style={[styles.cell, isFocused && styles.focusCell]}
+                onLayout={getCellOnLayoutHandler(index)}>
+                {symbol || (isFocused ? <Cursor /> : null)}
+              </Text>
+            )}
+          />
+          <CustomButton
+            onPress={() => navigation.navigate('login')}
+            containerStyle={{marginTop: scale(20)}}
+            title={'Verify'}
+            textStyle={{
+              fontSize: scale(25),
+              paddingVertical: moderateScale(10),
+            }}
+          />
+          <View style={styles.FPassCon}>
+            <Text
+              style={{
+                fontSize: scale(14),
+                color: '#000',
+                fontFamily: 'MyriadPro-Regular',
+              }}>
+              Wait {time} more secounds to
+            </Text>
+            <TouchableOpacity>
               <Text
                 style={{
                   fontSize: scale(14),
-                  color: '#000',
                   fontFamily: 'MyriadPro-Regular',
+                  color: '#0568F2',
+                  marginLeft: scale(5),
                 }}>
-                Wait {time} more secounds to
+                Resend.
               </Text>
-              <TouchableOpacity>
-                <Text
-                  style={{
-                    fontSize: scale(14),
-                    fontFamily: 'MyriadPro-Regular',
-                    color: '#0568F2',
-                    marginLeft: scale(5),
-                  }}>
-                  Resend.
-                </Text>
-              </TouchableOpacity>
-            </View>
-          </ScrollView>
+            </TouchableOpacity>
+          </View>
         </View>
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
@@ -132,7 +130,7 @@ const styles = StyleSheet.create({
   textInput: {height: verticalScale(50), marginVertical: scale(15)},
   container: {
     flex: 1,
-    backgroundColor: '#0568F2',
+    backgroundColor: '#DDDEDF',
   },
   TextOne: {
     color: '#fff',
@@ -153,14 +151,14 @@ const styles = StyleSheet.create({
   },
   GreyBox: {
     backgroundColor: '#DDDEDF',
-    height: '100%',
+    height: verticalScale(450),
   },
   MainContainer: {
     backgroundColor: '#fff',
     width: '90%',
     alignSelf: 'center',
     position: 'absolute',
-    top: '17%',
+    top: '22%',
     paddingHorizontal: 20,
     paddingVertical: scale(50),
     borderRadius: 20,

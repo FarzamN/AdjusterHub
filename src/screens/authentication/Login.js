@@ -34,7 +34,7 @@ const Login = ({navigation}) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView style={{flex: 1}}>
+      <ScrollView showsVerticalScrollIndicator={false} style={{flex: 1}}>
         <View style={styles.BlueBox}>
           <Text style={[styles.TextOne, {fontFamily: 'Evogria'}]}>
             WELCOME BACK
@@ -126,9 +126,8 @@ const Login = ({navigation}) => {
               <Text
                 style={{
                   fontSize: scale(14),
-                  fontWeight: '500',
+                  fontFamily: 'MyriadPro-Regular',
                   color: '#000',
-                  fontStyle: 'normal',
                 }}>
                 Forgot Password?
               </Text>
@@ -137,10 +136,9 @@ const Login = ({navigation}) => {
                 <Text
                   style={{
                     fontSize: scale(14),
-                    fontWeight: '500',
                     color: '#0568F2',
-                    fontStyle: 'normal',
                     marginLeft: scale(5),
+                    fontFamily: 'MyriadPro-Regular',
                   }}>
                   Reset Here.
                 </Text>

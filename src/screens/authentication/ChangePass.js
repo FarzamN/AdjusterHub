@@ -98,7 +98,8 @@ const ChangePass = ({navigation}) => {
               style={{
                 position: 'absolute',
                 right: scale(15),
-                top: scale(45),
+                bottom: scale(0),
+
                 // justifyContent: 'flex-end',
               }}
               onPress={() => setIsPasswordSecure(prevCheck => !prevCheck)}>
@@ -144,7 +145,7 @@ const ChangePass = ({navigation}) => {
               style={{
                 position: 'absolute',
                 right: scale(15),
-                top: scale(45),
+                bottom: scale(0),
               }}
               onPress={() => setIsPasswordSecure(prevCheck => !prevCheck)}>
               <Text style={styles.viewText}>
