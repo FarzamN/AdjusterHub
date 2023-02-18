@@ -10,6 +10,7 @@ import {
   KeyboardAvoidingView,
   Platform,
   StatusBar,
+  Dimensions,
 } from 'react-native';
 import {scale, moderateScale, verticalScale} from 'react-native-size-matters';
 
@@ -32,6 +33,8 @@ const Login = ({navigation}) => {
     formState: {errors, isValid},
   } = useForm({mode: 'all'});
 
+  const height = Dimensions.get('screen').height;
+  console.log('++++++++++++++++++++>', height);
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false} style={{flex: 1}}>
@@ -214,7 +217,7 @@ const styles = StyleSheet.create({
   },
   MainContainer: {
     elevation: 5,
-    height: scale(530),
+    height: scale(550),
     backgroundColor: '#fff',
     width: '90%',
     alignSelf: 'center',
