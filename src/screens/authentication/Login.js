@@ -21,6 +21,7 @@ import CustomButton from '../../components/CustomButton';
 import {Color} from '../../utils/Colors';
 import {Fonts} from '../../utils/Fonts';
 
+const height = Dimensions.get('screen').height;
 const Login = ({navigation}) => {
   const [password, setPassword] = useState('');
   const [isPasswordSecure, setIsPasswordSecure] = useState(true);
@@ -33,7 +34,6 @@ const Login = ({navigation}) => {
     formState: {errors, isValid},
   } = useForm({mode: 'all'});
 
-  const height = Dimensions.get('screen').height;
   console.log('++++++++++++++++++++>', height);
   return (
     <SafeAreaView style={styles.container}>
@@ -217,7 +217,7 @@ const styles = StyleSheet.create({
   },
   MainContainer: {
     elevation: 5,
-    height: scale(540),
+    height: scale(height * 0.56),
     backgroundColor: '#fff',
     width: '90%',
     alignSelf: 'center',
