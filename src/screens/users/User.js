@@ -90,7 +90,7 @@ const User = ({navigation}) => {
           height: verticalScale(400),
           backgroundColor: Color.BackgroundColor,
         }}></View>
-      <View style={{position: 'absolute', top: scale(70), width: '100%'}}>
+      <View style={{position: 'absolute', top: scale(95), width: '100%'}}>
         <View style={styles.InputBox}>
           <Image
             style={styles.SearchImg}
@@ -100,7 +100,7 @@ const User = ({navigation}) => {
             onChangeText={text => searchFilterFunction(text)}
             value={search}
             style={styles.search}
-            placeholder="search adjuster's name here"
+            placeholder="Search adjuster's name here"
             placeholderTextColor={Color.placeholderTextColor}
           />
         </View>
@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
     width: '80%',
     alignSelf: 'center',
     backgroundColor: Color.White,
-    borderRadius: 10,
+    borderRadius: 7,
     flexDirection: 'row',
     height: verticalScale(50),
     shadowColor: '#000000',
@@ -160,19 +160,21 @@ const styles = StyleSheet.create({
   },
   search: {
     color: 'black',
+    marginTop:5
   },
   nameBox: {
-    width: '85%',
+    height:scale(485),
+    width: '80%',
     alignSelf: 'center',
     backgroundColor: Color.White,
     marginTop: scale(15),
-    borderRadius: 20,
+    borderRadius: scale(15),
     paddingTop: verticalScale(30),
     paddingHorizontal: moderateScale(20),
   },
   companyLogo: {
-    width: '100%',
-    height: '10%',
+    width: scale(100),
+    height: scale(45),
     resizeMode: 'contain',
     alignSelf: 'center',
     marginBottom: scale(20),

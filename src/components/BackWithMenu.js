@@ -22,8 +22,8 @@ const BackWithMenu = props => {
       </TouchableOpacity>
       <View>
         <Image style={{
-          width: 120,
-          height: 30,
+          width: scale(120),
+          height: scale(50),
           resizeMode: 'contain'
         }} source={require('../assets/Images/minilogo.png')} />
       </View>
