@@ -46,10 +46,17 @@ const Register = ({navigation}) => {
             <KeyboardAvoidingView
               behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
               style={[styles.container, {backgroundColor: Color.White}]}>
-              <Image
-                source={require('../../assets/Images/logo.png')}
-                style={styles.logo}
-              />
+              <View
+                style={{
+                  height: verticalScale(152),
+                  width: scale(200),
+                  alignSelf: 'center',
+                }}>
+                <Image
+                  source={require('../../assets/Images/logo.png')}
+                  style={styles.logo}
+                />
+              </View>
               <View
                 style={{flexDirection: 'row', justifyContent: 'space-between'}}>
                 <CustomInput
@@ -203,7 +210,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    backgroundColor: '#0568F2',
+    backgroundColor: '#DDDEDF',
   },
   TextOne: {
     color: '#fff',
@@ -240,9 +247,8 @@ const styles = StyleSheet.create({
     height: scale(540),
   },
   logo: {
-    alignSelf: 'center',
-    width: scale(205),
-    height: verticalScale(160),
+    width: '100%',
+    height: '100%',
   },
   Add: {
     backgroundColor: '#545456',
@@ -260,7 +266,6 @@ const styles = StyleSheet.create({
     color: '#0568F2',
     fontSize: scale(15),
     fontFamily: 'MyriadPro-Regular',
-    // fontWeight: '600',
   },
   FPassCon: {
     marginTop: scale(5),

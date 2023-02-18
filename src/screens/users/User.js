@@ -34,12 +34,8 @@ const User = ({navigation}) => {
   }, []);
 
   const searchFilterFunction = text => {
-    // Check if searched text is not blank
     if (text) {
-      // Inserted text is not blank
-      // Filter the masterDataSource and update FilteredDataSource
       const newData = masterDataSource.filter(function (item) {
-        // Applying filter for the inserted text in search bar
         const itemData = item.title
           ? item.title.toUpperCase()
           : ''.toUpperCase();
@@ -63,7 +59,6 @@ const User = ({navigation}) => {
 
   const ItemSeparatorView = () => {
     return (
-      // Flat List Item Separator
       <View
         style={{
           height: 0.5,
@@ -76,58 +71,57 @@ const User = ({navigation}) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      {/* <ScrollView style={{flex: 1}} showsVerticalScrollIndicator={false}> */}
-      <BackAndLogo onPress={() => navigation.goBack()} />
-      <View style={{height: verticalScale(200)}}>
-        <LinearGradient
-          start={{x: 0, y: 0}}
-          end={{x: 1, y: 0}}
-          colors={['#056DFE', '#045CD2', '#056DFE', '#045CD2']}
-          style={{flex: 1}}></LinearGradient>
-      </View>
-      <View
-        style={{
-          height: verticalScale(400),
-          backgroundColor: Color.BackgroundColor,
-        }}></View>
-      <View style={{position: 'absolute', top: scale(95), width: '100%'}}>
-        <View style={styles.InputBox}>
-          <Image
-            style={styles.SearchImg}
-            source={require('../../assets/Images/search.png')}
-          />
-          <TextInput
-            onChangeText={text => searchFilterFunction(text)}
-            value={search}
-            style={styles.search}
-            placeholder="Search adjuster's name here"
-            placeholderTextColor={Color.placeholderTextColor}
-          />
+      <ScrollView style={{flex: 1}} showsVerticalScrollIndicator={false}>
+        <BackAndLogo onPress={() => navigation.goBack()} />
+        <View style={{height: verticalScale(200)}}>
+          <LinearGradient
+            start={{x: 0, y: 0}}
+            end={{x: 1, y: 0}}
+            colors={['#056DFE', '#045CD2', '#056DFE', '#045CD2']}
+            style={{flex: 1}}></LinearGradient>
         </View>
-        <View style={styles.nameBox}>
-          <Image
-            style={styles.companyLogo}
-            source={require('../../assets/Images/one.png')}
-          />
-          <View style={{height: verticalScale(380)}}>
-            <FlatList
-              showsVerticalScrollIndicator={false}
-              data={filteredDataSource}
-              keyExtractor={(item, index) => index.toString()}
-              ItemSeparatorComponent={ItemSeparatorView}
-              renderItem={ItemView}
+        <View
+          style={{
+            height: verticalScale(400),
+            backgroundColor: Color.BackgroundColor,
+          }}></View>
+        <View style={{position: 'absolute', top: scale(95), width: '100%'}}>
+          <View style={styles.InputBox}>
+            <Image
+              style={styles.SearchImg}
+              source={require('../../assets/Images/search.png')}
+            />
+            <TextInput
+              onChangeText={text => searchFilterFunction(text)}
+              value={search}
+              style={styles.search}
+              placeholder="Search adjuster's name here"
+              placeholderTextColor={Color.placeholderTextColor}
             />
           </View>
+          <View style={styles.nameBox}>
+            <Image
+              style={styles.companyLogo}
+              source={require('../../assets/Images/one.png')}
+            />
+            <View style={{height: verticalScale(380)}}>
+              <FlatList
+                showsVerticalScrollIndicator={false}
+                data={filteredDataSource}
+                keyExtractor={(item, index) => index.toString()}
+                ItemSeparatorComponent={ItemSeparatorView}
+                renderItem={ItemView}
+              />
+            </View>
+          </View>
+          <View style={{height: verticalScale(100)}}></View>
         </View>
-        <View style={{height: verticalScale(100)}}></View>
-      </View>
-
+      </ScrollView>
       <TouchableOpacity
         onPress={() => navigation.navigate('addadjusters')}
         style={styles.PlusBox}>
         <FontAwesome5 name={'plus'} size={30} color={Color.White} />
       </TouchableOpacity>
-      {/* </ScrollView> */}
     </SafeAreaView>
   );
 };
@@ -160,10 +154,10 @@ const styles = StyleSheet.create({
   },
   search: {
     color: 'black',
-    marginTop:5
+    marginTop: 5,
   },
   nameBox: {
-    height:scale(485),
+    height: scale(485),
     width: '80%',
     alignSelf: 'center',
     backgroundColor: Color.White,
@@ -188,6 +182,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginBottom: scale(10),
     paddingHorizontal: moderateScale(15),
+    borderWidth: 0,
   },
   Text_Name: {
     color: Color.placeholderTextColor,

@@ -51,7 +51,7 @@ const Login = ({navigation}) => {
             style={[styles.container, {backgroundColor: Color.White}]}>
             <View
               style={{
-                height: verticalScale(155),
+                height: verticalScale(152),
                 width: scale(200),
                 alignSelf: 'center',
               }}>
@@ -246,7 +246,6 @@ const styles = StyleSheet.create({
     marginTop: 10,
     flexDirection: 'row',
     justifyContent: 'flex-end',
-    // marginTop: scale(5),
   },
 });
 export default Login;
