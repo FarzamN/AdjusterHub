@@ -49,7 +49,7 @@ const ChangePass = ({navigation}) => {
               color={Color.Main}
             />
           </TouchableOpacity>
-          <Text style={[styles.TextOne, {fontFamily: 'gazrg-bold'}]}>
+          <Text style={[styles.TextOne, {fontFamily: 'Evogria'}]}>
             CREATE NEW PASSWORD
           </Text>
           <Text style={styles.TextTwo}>Make it unique!</Text>
@@ -187,6 +187,7 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: scale(17),
     marginTop: scale(-8),
+    fontFamily: 'MyriadPro-Regular',
   },
   BlueBox: {
     backgroundColor: '#0568F2',

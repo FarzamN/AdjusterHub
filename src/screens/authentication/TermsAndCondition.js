@@ -82,6 +82,7 @@ const styles = StyleSheet.create({
     marginTop: scale(10),
     color: Color.greyfont,
     fontSize: scale(12),
+    fontFamily: 'MyriadPro-Regular',
   },
 
   firstView: {

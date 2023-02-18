@@ -229,7 +229,7 @@ const Person = ({navigation}) => {
             height: verticalScale(400),
             backgroundColor: Color.BackgroundColor,
           }}></View>
-        <View style={{position: 'absolute', top: '10%', width: '100%'}}>
+        <View style={{position: 'absolute', top: '12%', width: '100%'}}>
           <View style={styles.MainBox}>
             <Image
               style={styles.Photo}

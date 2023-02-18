@@ -339,7 +339,7 @@ const styles = StyleSheet.create({
     marginTop: scale(20),
     borderRadius: 20,
     paddingTop: verticalScale(10),
-    height: scale(550),
+    height: scale(570),
   },
   Describe: {
     color: Color.Main,
@@ -347,7 +347,7 @@ const styles = StyleSheet.create({
     fontSize: scale(25),
     textTransform: 'uppercase',
     textAlign: 'center',
-    fontFamily: 'gazrg-bold',
+    fontFamily: 'Evogria',
   },
   bubbles: {
     paddingVertical: moderateScale(6),

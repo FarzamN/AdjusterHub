@@ -125,99 +125,99 @@ const Profile = ({navigation}) => {
     });
   };
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor: '#0568F2'}}>
-      <BackWithMenu
-        onPress={() => navigation.openDrawer()}
-        onPress_back={() => navigation.goBack()}
-      />
-      <View style={styles.BlueBox}>
-        <View>
-          {show ? (
-            <Image
-              style={{width: '100%', height: '100%'}}
-              resizeMode={'stretch'}
-              source={require('../../assets/Images/oldman.jpg')}
-            />
-          ) : (
-            <Image
-              style={{width: '100%', height: '100%'}}
-              resizeMode={'stretch'}
-              source={{uri: saveimage}}
-            />
-          )}
-        </View>
-
-        <TouchableOpacity
-          onPress={requestCameraPermission}
-          style={styles.editBox}>
-          <FontAwesome name={'pencil'} size={22} color={Color.Black} />
-        </TouchableOpacity>
-        <Modal
-          backdropOpacity={0.2}
-          onBackdropPress={() => setModalVisible3(false)}
-          isVisible={isModalVisible3}
-          style={{
-            width: '100%',
-            position: 'relative',
-            right: scale(18),
-            top: scale(20),
-          }}>
-          <View
-            style={{
-              flex: 1,
-              justifyContent: 'flex-end',
-              alignItems: 'center',
-            }}>
-            <View style={styles.SecCon}>
-              <TouchableOpacity
-                onPress={() => {
-                  photosave();
-                }}
-                style={styles.ModalBtn}>
-                <Image
-                  style={styles.tinyLogo}
-                  source={require('../../assets/Images/photo.png')}
-                />
-                <Text style={styles.Text1}>Upload picture</Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                onPress={() => {
-                  setModalVisible3(false);
-                }}
-                style={{
-                  backgroundColor: Color.Main,
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  width: scale(30),
-                  height: scale(30),
-                  borderRadius: 50,
-                  marginTop: scale(-15),
-                }}>
-                <Entypo name={'cross'} size={25} color={'#fff'} />
-              </TouchableOpacity>
-              <TouchableOpacity
-                onPress={() => {
-                  cameraLaunch();
-                  setModalVisible3(false);
-                }}
-                style={styles.ModalBtn}>
-                <Image
-                  style={styles.tinyLogo2}
-                  source={require('../../assets/Images/camera.png')}
-                />
-                <Text style={styles.Text1}>Take a picture</Text>
-              </TouchableOpacity>
-            </View>
+    <SafeAreaView style={{flex: 1, backgroundColor: '#DDDEDF'}}>
+      <ScrollView style={{flex: 1}} showsVerticalScrollIndicator={false}>
+        <BackWithMenu
+          onPress={() => navigation.openDrawer()}
+          onPress_back={() => navigation.goBack()}
+        />
+        <View style={styles.BlueBox}>
+          <View>
+            {show ? (
+              <Image
+                style={{width: '100%', height: '100%'}}
+                resizeMode={'stretch'}
+                source={require('../../assets/Images/oldman.jpg')}
+              />
+            ) : (
+              <Image
+                style={{width: '100%', height: '100%'}}
+                resizeMode={'stretch'}
+                source={{uri: saveimage}}
+              />
+            )}
           </View>
-        </Modal>
-      </View>
-      <View style={styles.GreyBox}></View>
 
-      <View style={styles.MainContainer}>
-        <KeyboardAvoidingView
-          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-          style={{height: verticalScale(350)}}>
-          <ScrollView showsVerticalScrollIndicator={false}>
+          <TouchableOpacity
+            onPress={requestCameraPermission}
+            style={styles.editBox}>
+            <FontAwesome name={'pencil'} size={22} color={Color.Black} />
+          </TouchableOpacity>
+          <Modal
+            backdropOpacity={0.2}
+            onBackdropPress={() => setModalVisible3(false)}
+            isVisible={isModalVisible3}
+            style={{
+              width: '100%',
+              position: 'relative',
+              right: scale(18),
+              top: scale(20),
+            }}>
+            <View
+              style={{
+                flex: 1,
+                justifyContent: 'flex-end',
+                alignItems: 'center',
+              }}>
+              <View style={styles.SecCon}>
+                <TouchableOpacity
+                  onPress={() => {
+                    photosave();
+                  }}
+                  style={styles.ModalBtn}>
+                  <Image
+                    style={styles.tinyLogo}
+                    source={require('../../assets/Images/photo.png')}
+                  />
+                  <Text style={styles.Text1}>Upload picture</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => {
+                    setModalVisible3(false);
+                  }}
+                  style={{
+                    backgroundColor: Color.Main,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    width: scale(30),
+                    height: scale(30),
+                    borderRadius: 50,
+                    marginTop: scale(-15),
+                  }}>
+                  <Entypo name={'cross'} size={25} color={'#fff'} />
+                </TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => {
+                    cameraLaunch();
+                    setModalVisible3(false);
+                  }}
+                  style={styles.ModalBtn}>
+                  <Image
+                    style={styles.tinyLogo2}
+                    source={require('../../assets/Images/camera.png')}
+                  />
+                  <Text style={styles.Text1}>Take a picture</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          </Modal>
+        </View>
+        <View style={styles.GreyBox}></View>
+
+        <View style={styles.MainContainer}>
+          <KeyboardAvoidingView
+            behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+            style={{height: verticalScale(350)}}>
             <NewCustomInput
               name="first_name"
               rules={{
@@ -292,9 +292,9 @@ const Profile = ({navigation}) => {
               textStyle={{fontSize: scale(23)}}
               onPress={handleSubmit(onSubmit)}
             />
-          </ScrollView>
-        </KeyboardAvoidingView>
-      </View>
+          </KeyboardAvoidingView>
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
@@ -306,7 +306,7 @@ const styles = StyleSheet.create({
   },
   GreyBox: {
     backgroundColor: '#DDDEDF',
-    height: '100%',
+    height: verticalScale(380),
   },
   editBox: {
     width: scale(35),
@@ -320,12 +320,12 @@ const styles = StyleSheet.create({
     right: 10,
   },
   MainContainer: {
-    // height: verticalScale(350),
+    height: verticalScale(350),
     width: '90%',
     backgroundColor: '#fff',
     alignSelf: 'center',
     position: 'absolute',
-    top: '40%',
+    top: scale(300),
     paddingHorizontal: 20,
     borderRadius: 20,
   },

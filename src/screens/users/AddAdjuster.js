@@ -164,7 +164,7 @@ const AddAdjuster = () => {
               <View>
                 <Text
                   style={{
-                    fontFamily: 'gazrg-bold',
+                    fontFamily: 'Evogria',
                     color: Color.Main,
                     fontSize: scale(16),
                     textTransform: 'uppercase',
@@ -209,7 +209,7 @@ const styles = StyleSheet.create({
   },
   TextOne: {
     color: '#fff',
-    fontFamily: 'gazrg-bold',
+    fontFamily: 'Evogria',
     fontSize: scale(25),
     marginTop: scale(30),
     textTransform: 'uppercase',
@@ -218,6 +218,7 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: scale(17),
     marginTop: scale(-8),
+    fontFamily: 'MyriadPro-Regular',
   },
   BlueBox: {
     height: verticalScale(200),
@@ -225,14 +226,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#045CD2',
   },
   GreyBox: {
-    height: verticalScale(500),
+    height: verticalScale(460),
   },
   MainContainer: {
     backgroundColor: '#fff',
     width: '90%',
     alignSelf: 'center',
     position: 'absolute',
-    top: '15%',
+    top: '17%',
     paddingHorizontal: 20,
     borderRadius: 20,
   },
@@ -256,6 +257,7 @@ const styles = StyleSheet.create({
   Add_Text: {
     color: Color.White,
     fontSize: scale(15),
+    fontFamily: 'MyriadPro-Regular',
   },
 });
 export default AddAdjuster;

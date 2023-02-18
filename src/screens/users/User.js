@@ -71,52 +71,52 @@ const User = ({navigation}) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView style={{flex: 1}} showsVerticalScrollIndicator={false}>
-        <BackAndLogo onPress={() => navigation.goBack()} />
-        <View style={{height: verticalScale(200)}}>
-          <LinearGradient
-            start={{x: 0, y: 0}}
-            end={{x: 1, y: 0}}
-            colors={['#056DFE', '#045CD2', '#056DFE', '#045CD2']}
-            style={{flex: 1}}></LinearGradient>
+      {/* <ScrollView style={{flex: 1}} showsVerticalScrollIndicator={false}> */}
+      <BackAndLogo onPress={() => navigation.goBack()} />
+      <View style={{height: verticalScale(200)}}>
+        <LinearGradient
+          start={{x: 0, y: 0}}
+          end={{x: 1, y: 0}}
+          colors={['#056DFE', '#045CD2', '#056DFE', '#045CD2']}
+          style={{flex: 1}}></LinearGradient>
+      </View>
+      <View
+        style={{
+          height: verticalScale(400),
+          backgroundColor: Color.BackgroundColor,
+        }}></View>
+      <View style={{position: 'absolute', top: scale(95), width: '100%'}}>
+        <View style={styles.InputBox}>
+          <Image
+            style={styles.SearchImg}
+            source={require('../../assets/Images/search.png')}
+          />
+          <TextInput
+            onChangeText={text => searchFilterFunction(text)}
+            value={search}
+            style={styles.search}
+            placeholder="Search adjuster's name here"
+            placeholderTextColor={Color.placeholderTextColor}
+          />
         </View>
-        <View
-          style={{
-            height: verticalScale(400),
-            backgroundColor: Color.BackgroundColor,
-          }}></View>
-        <View style={{position: 'absolute', top: scale(95), width: '100%'}}>
-          <View style={styles.InputBox}>
-            <Image
-              style={styles.SearchImg}
-              source={require('../../assets/Images/search.png')}
-            />
-            <TextInput
-              onChangeText={text => searchFilterFunction(text)}
-              value={search}
-              style={styles.search}
-              placeholder="Search adjuster's name here"
-              placeholderTextColor={Color.placeholderTextColor}
+        <View style={styles.nameBox}>
+          <Image
+            style={styles.companyLogo}
+            source={require('../../assets/Images/one.png')}
+          />
+          <View style={{height: verticalScale(380)}}>
+            <FlatList
+              showsVerticalScrollIndicator={false}
+              data={filteredDataSource}
+              keyExtractor={(item, index) => index.toString()}
+              ItemSeparatorComponent={ItemSeparatorView}
+              renderItem={ItemView}
             />
           </View>
-          <View style={styles.nameBox}>
-            <Image
-              style={styles.companyLogo}
-              source={require('../../assets/Images/one.png')}
-            />
-            <View style={{height: verticalScale(380)}}>
-              <FlatList
-                showsVerticalScrollIndicator={false}
-                data={filteredDataSource}
-                keyExtractor={(item, index) => index.toString()}
-                ItemSeparatorComponent={ItemSeparatorView}
-                renderItem={ItemView}
-              />
-            </View>
-          </View>
-          <View style={{height: verticalScale(100)}}></View>
         </View>
-      </ScrollView>
+        <View style={{height: verticalScale(100)}}></View>
+      </View>
+      {/* </ScrollView> */}
       <TouchableOpacity
         onPress={() => navigation.navigate('addadjusters')}
         style={styles.PlusBox}>
@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
     height: verticalScale(200),
   },
   InputBox: {
-    width: '80%',
+    width: '90%',
     alignSelf: 'center',
     backgroundColor: Color.White,
     borderRadius: 7,
@@ -158,7 +158,7 @@ const styles = StyleSheet.create({
   },
   nameBox: {
     height: scale(485),
-    width: '80%',
+    width: '90%',
     alignSelf: 'center',
     backgroundColor: Color.White,
     marginTop: scale(15),
