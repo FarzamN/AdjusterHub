@@ -57,10 +57,17 @@ const ChangePass = ({navigation}) => {
         <View style={styles.GreyBox}></View>
 
         <View style={styles.MainContainer}>
-          <Image
-            source={require('../../assets/Images/logo.png')}
-            style={styles.logo}
-          />
+          <View
+            style={{
+              height: verticalScale(150),
+              width: scale(200),
+              alignSelf: 'center',
+            }}>
+            <Image
+              source={require('../../assets/Images/logo.png')}
+              style={styles.logo}
+            />
+          </View>
           <View>
             <CustomInput
               secureTextEntry={isPasswordSecure}
@@ -210,9 +217,9 @@ const styles = StyleSheet.create({
     // paddingBottom: scale(3),
   },
   logo: {
-    alignSelf: 'center',
-    width: 237,
-    height: 180,
+    resizeMode: 'contain',
+    width: '100%',
+    height: '100%',
   },
   viewText: {
     color: '#0568F2',

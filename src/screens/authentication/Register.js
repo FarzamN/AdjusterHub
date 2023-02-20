@@ -52,10 +52,17 @@ const Register = ({navigation}) => {
                   width: scale(200),
                   alignSelf: 'center',
                 }}>
-                <Image
-                  source={require('../../assets/Images/logo.png')}
-                  style={styles.logo}
-                />
+                <View
+                  style={{
+                    height: verticalScale(150),
+                    width: scale(200),
+                    alignSelf: 'center',
+                  }}>
+                  <Image
+                    source={require('../../assets/Images/logo.png')}
+                    style={styles.logo}
+                  />
+                </View>
               </View>
               <View
                 style={{flexDirection: 'row', justifyContent: 'space-between'}}>
@@ -248,6 +255,7 @@ const styles = StyleSheet.create({
     height: scale(540),
   },
   logo: {
+    resizeMode: 'contain',
     width: '100%',
     height: '100%',
   },

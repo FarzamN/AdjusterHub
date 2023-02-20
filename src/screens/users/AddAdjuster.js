@@ -69,10 +69,18 @@ const AddAdjuster = () => {
         </View>
         <View style={styles.GreyBox}></View>
         <View style={styles.MainContainer}>
-          <Image
-            source={require('../../assets/Images/logo.png')}
-            style={styles.logo}
-          />
+          <View
+            style={{
+              height: verticalScale(150),
+              width: scale(200),
+              alignSelf: 'center',
+              marginTop: scale(25),
+            }}>
+            <Image
+              source={require('../../assets/Images/logo.png')}
+              style={styles.logo}
+            />
+          </View>
           <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
             <NewCustomInput
               name="First Name"
@@ -238,10 +246,9 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
   logo: {
-    alignSelf: 'center',
-    width: 237,
-    height: 180,
-    marginTop: scale(30),
+    resizeMode: 'contain',
+    width: '100%',
+    height: '100%',
   },
   Add: {
     backgroundColor: '#545456',

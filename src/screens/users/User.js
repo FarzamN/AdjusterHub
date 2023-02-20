@@ -100,10 +100,12 @@ const User = ({navigation}) => {
           />
         </View>
         <View style={styles.nameBox}>
-          <Image
-            style={styles.companyLogo}
-            source={require('../../assets/Images/one.png')}
-          />
+          <View style={styles.box}>
+            <Image
+              style={styles.companyLogo}
+              source={require('../../assets/Images/four.png')}
+            />
+          </View>
           <View style={{height: verticalScale(380)}}>
             <FlatList
               showsVerticalScrollIndicator={false}
@@ -129,10 +131,10 @@ const User = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Color.Main,
+    backgroundColor: Color.BackgroundColor,
   },
   linearGradient: {
-    height: verticalScale(200),
+    height: verticalScale(150),
   },
   InputBox: {
     width: '90%',
@@ -144,20 +146,17 @@ const styles = StyleSheet.create({
     shadowColor: '#000000',
     shadowOpacity: 0.3,
     shadowOffset: [1, 1],
-    // justifyContent: 'center',
     alignItems: 'center',
     paddingLeft: scale(15),
   },
   SearchImg: {
     marginTop: scale(7),
-    // marginHorizontal: 10,
   },
   search: {
     color: 'black',
     marginTop: 5,
   },
   nameBox: {
-    height: scale(485),
     width: '90%',
     alignSelf: 'center',
     backgroundColor: Color.White,
@@ -165,15 +164,19 @@ const styles = StyleSheet.create({
     borderRadius: scale(15),
     paddingTop: verticalScale(30),
     paddingHorizontal: moderateScale(20),
+    paddingBottom: verticalScale(30),
   },
   companyLogo: {
-    width: scale(100),
-    height: scale(45),
+    width: '100%',
+    height: '100%',
     resizeMode: 'contain',
-    alignSelf: 'center',
-    marginBottom: scale(20),
+    marginTop: -15,
   },
-
+  box: {
+    width: scale(200),
+    height: scale(30),
+    alignSelf: 'center',
+  },
   names: {
     height: verticalScale(50),
     width: '100%',
@@ -182,7 +185,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginBottom: scale(10),
     paddingHorizontal: moderateScale(15),
-    borderWidth: 0,
   },
   Text_Name: {
     color: Color.placeholderTextColor,

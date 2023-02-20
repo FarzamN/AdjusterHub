@@ -51,7 +51,7 @@ const Login = ({navigation}) => {
             style={[styles.container, {backgroundColor: Color.White}]}>
             <View
               style={{
-                height: verticalScale(153),
+                height: verticalScale(150),
                 width: scale(200),
                 alignSelf: 'center',
               }}>
@@ -234,6 +234,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
   logo: {
+    resizeMode: 'contain',
     width: '100%',
     height: '100%',
   },
