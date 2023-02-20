@@ -138,7 +138,7 @@ const AddAdjuster = () => {
               alignSelf: 'center',
               width: '95%',
               paddingVertical: moderateScale(15),
-              marginTop: scale(20),
+              marginTop: scale(30),
             }}
             textStyle={{fontSize: scale(20)}}
           />

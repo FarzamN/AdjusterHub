@@ -71,7 +71,7 @@ const Login = ({navigation}) => {
               placeholder={'Email@gmail.com'}
               keyboardType={'default'}
               restyle={{
-                // marginTop: scale(15),
+                paddingHorizontal: moderateScale(40),
                 backgroundColor: '#F4F5F5',
                 color: '#000',
               }}
@@ -124,7 +124,7 @@ const Login = ({navigation}) => {
                   position: 'absolute',
                   right: scale(15),
                   // top: scale(50),
-                  bottom: scale(20),
+                  bottom: scale(25),
                 }}
                 onPress={() => setIsPasswordSecure(prevCheck => !prevCheck)}>
                 <Text style={styles.viewText}>

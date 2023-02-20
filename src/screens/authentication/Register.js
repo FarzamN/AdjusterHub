@@ -104,6 +104,7 @@ const Register = ({navigation}) => {
                 placeholder={'Email@gmail.com'}
                 keyboardType={'default'}
                 restyle={{
+                  paddingHorizontal: moderateScale(40),
                   backgroundColor: '#F4F5F5',
                   color: '#000',
                 }}
@@ -112,7 +113,7 @@ const Register = ({navigation}) => {
                 PIcolor={'#999B9E'}
                 PIstylye={{
                   position: 'absolute',
-                  bottom: scale(18),
+                  bottom: scale(19),
                   left: scale(12),
                 }}
               />
@@ -154,7 +155,7 @@ const Register = ({navigation}) => {
                   style={{
                     position: 'absolute',
                     right: scale(15),
-                    top: scale(40),
+                    bottom: scale(5),
                   }}
                   onPress={() => setIsPasswordSecure(prevCheck => !prevCheck)}>
                   <Text style={styles.viewText}>

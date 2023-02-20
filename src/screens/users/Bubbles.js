@@ -182,14 +182,12 @@ const Bubbles = ({navigation}) => {
 
   const renderItem = ({item}) => (
     <View style={styles.bubbleBox}>
-      <TouchableOpacity activeOpacity={0.3} onPress={() => handleChange(item)}>
+      <TouchableOpacity activeOpacity={0.9} onPress={() => handleChange(item)}>
         <Text
           style={[
             styles.bubbles,
             {
-              backgroundColor: item.selected
-                ? Color.Main
-                : Color.BackgroundColor,
+              backgroundColor: item.selected ? '#2B83FE' : '#E4E5E6',
               color: item.selected ? Color.White : Color.Black,
             },
           ]}>
@@ -239,17 +237,18 @@ const Bubbles = ({navigation}) => {
               />
             </View>
             <NewCustomInput
-              name="clame"
+              name="Claim"
               control={control}
               style={styles.textInput}
               textStyle={styles.InputTextStyle}
-              placeholder={'Clame#'}
+              placeholder={'Claim#'}
               keyboardType={'default'}
               restyle={{
                 width: '80%',
                 alignSelf: 'center',
                 backgroundColor: '#F4F5F5',
                 color: '#000',
+                borderRadius: 5,
               }}
             />
             <CustomButton
@@ -266,7 +265,7 @@ const Bubbles = ({navigation}) => {
               }}
             />
             <Modal
-              onBackdropPress={() => setModalVisible(false)}
+              onBackdropPress={() => navigation.navigate('reviewer')}
               testID={'modal'}
               isVisible={isModalVisible}>
               <View
@@ -357,6 +356,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     margin: scale(3),
     textTransform: 'capitalize',
+    fontFamily: 'MyriadPro-Regular',
   },
   bubbleBox: {
     flexWrap: 'wrap',
