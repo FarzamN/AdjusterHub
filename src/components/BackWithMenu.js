@@ -23,7 +23,7 @@ const BackWithMenu = props => {
       <View>
         <Image style={{
           width: scale(120),
-          height: scale(50),
+          height: scale(60),
           resizeMode: 'contain'
         }} source={require('../assets/Images/minilogo.png')} />
       </View>

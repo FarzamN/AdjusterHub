@@ -23,13 +23,15 @@ export const DrawerNavigation = () => {
         drawerActiveBackgroundColor: 'white',
         drawerInactiveTintColor: '#1f1f1f',
         drawerInactiveBackgroundColor: 'white',
+       
         drawerLabelStyle: {
-          marginLeft: -15,
+          marginLeft: -20,
         },
         drawerStyle: {
-          borderBottomRightRadius: 50,
-          borderTopRightRadius: 20,
+          backgroundColor:'transparent',
         },
+          drawerType: 'front'
+
       }}
       initialRouteName="Dashboard"
       drawerContent={props => <DrawerContainer {...props} />}>
@@ -45,7 +47,7 @@ export const DrawerNavigation = () => {
       />
       <Drawer.Screen
         options={{
-          title: 'Profile',
+          title: '  Profile',
           drawerIcon: () => (
             <FontAwesome name="user" size={20} color={Color.Main} />
           ),

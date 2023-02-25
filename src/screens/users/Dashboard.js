@@ -6,6 +6,8 @@ import {
   TouchableOpacity,
   FlatList,
   Image,
+  StatusBar,
+  Dimensions,
 } from 'react-native';
 import { verticalScale, scale } from 'react-native-size-matters';
 import BackWithMenu from '../../components/BackWithMenu';
@@ -88,12 +90,14 @@ const Dashboard = ({ navigation }) => {
   );
   return (
     <SafeAreaView style={styles.Container}>
+      <StatusBar barStyle={'dark-content'} />
       <BackWithMenu
         onPress_back={() => navigation.navigate('login')}
         onPress={() => navigation.openDrawer()}
       />
       <View style={{ flex: 1, backgroundColor: Color.BackgroundColor }}>
         <FlatList
+          showsVerticalScrollIndicator={false}
           keyExtractor={item => item.id}
           data={DATA}
           renderItem={Item}
@@ -110,21 +114,21 @@ const Dashboard = ({ navigation }) => {
 const styles = StyleSheet.create({
   Container: {
     flex: 1,
-    backgroundColor: '#0568F2',
+    backgroundColor: '#ffffff',
   },
   item: {
-    padding: 20,
-    marginHorizontal: scale(5),
-    width: '47%',
-    height: verticalScale(160),
+
+    marginLeft : Dimensions.get('screen').width * 0.033,
+    width: Dimensions.get('screen').width * 0.45,
+    height: Dimensions.get('screen').width * 0.45,
     backgroundColor: Color.White,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 5,
   },
   Images: {
-    width: '100%',
-    height: '100%',
+    width: '80%',
+    height: '80%',
     resizeMode: 'contain'
   },
 });

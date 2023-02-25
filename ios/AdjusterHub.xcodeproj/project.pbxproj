@@ -9,15 +9,18 @@
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* AdjusterHubTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* AdjusterHubTests.m */; };
 		0C80B921A6F3F58F76C31292 /* libPods-AdjusterHub.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-AdjusterHub.a */; };
+		123A74E5E7C4451793F0A539 /* Evogria.otf in Resources */ = {isa = PBXBuildFile; fileRef = C8E8D3804A9C4D4C8E0E53F5 /* Evogria.otf */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		62E22AD6298BC69E0056E54A /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 62E22AD5298BC69E0056E54A /* fonts */; };
 		7699B88040F8A987B510C191 /* libPods-AdjusterHub-AdjusterHubTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-AdjusterHub-AdjusterHubTests.a */; };
+		78228FB28D554907B09B4BB8 /* MyriadPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 18034164742F435CB3DCDF3B /* MyriadPro-Regular.otf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		A9A131CC09F14257AECD0CD3 /* gazrg-bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D7108A1616BC492083B612F7 /* gazrg-bold.otf */; };
 		D0AC325F3D904DB58330BDFF /* Babylonica-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 348A1CA8A25D41F0B31C01FB /* Babylonica-Regular.ttf */; };
 		E86BA2A69B824359A2F3810F /* Gaz-W00-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0D13907C13784F73B8810942 /* Gaz-W00-Regular.ttf */; };
+		C45D0CC3E0044F138AD95652 /* Helvetica.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 70D7DC32F0EF4921970FF2DF /* Helvetica.ttc */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,13 +37,16 @@
 		00E356EE1AD99517003FC87E /* AdjusterHubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdjusterHubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* AdjusterHubTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdjusterHubTests.m; sourceTree = "<group>"; };
+		0D13907C13784F73B8810942 /* Gaz-W00-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Gaz-W00-Regular.ttf"; path = "../src/assets/fonts/Gaz-W00-Regular.ttf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* AdjusterHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdjusterHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = AdjusterHub/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = AdjusterHub/AppDelegate.mm; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = AdjusterHub/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = AdjusterHub/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = AdjusterHub/main.m; sourceTree = "<group>"; };
+		18034164742F435CB3DCDF3B /* MyriadPro-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "MyriadPro-Regular.otf"; path = "../src/assets/fonts/MyriadPro-Regular.otf"; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-AdjusterHub-AdjusterHubTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AdjusterHub-AdjusterHubTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		348A1CA8A25D41F0B31C01FB /* Babylonica-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Babylonica-Regular.ttf"; path = "../src/assets/fonts/Babylonica-Regular.ttf"; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-AdjusterHub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdjusterHub.debug.xcconfig"; path = "Target Support Files/Pods-AdjusterHub/Pods-AdjusterHub.debug.xcconfig"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-AdjusterHub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdjusterHub.release.xcconfig"; path = "Target Support Files/Pods-AdjusterHub/Pods-AdjusterHub.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-AdjusterHub-AdjusterHubTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdjusterHub-AdjusterHubTests.debug.xcconfig"; path = "Target Support Files/Pods-AdjusterHub-AdjusterHubTests/Pods-AdjusterHub-AdjusterHubTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -48,10 +54,10 @@
 		62E22AD5298BC69E0056E54A /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = AdjusterHub/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-AdjusterHub-AdjusterHubTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdjusterHub-AdjusterHubTests.release.xcconfig"; path = "Target Support Files/Pods-AdjusterHub-AdjusterHubTests/Pods-AdjusterHub-AdjusterHubTests.release.xcconfig"; sourceTree = "<group>"; };
+		C8E8D3804A9C4D4C8E0E53F5 /* Evogria.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Evogria.otf; path = ../src/assets/fonts/Evogria.otf; sourceTree = "<group>"; };
+		D7108A1616BC492083B612F7 /* gazrg-bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "gazrg-bold.otf"; path = "../src/assets/fonts/gazrg-bold.otf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		D7108A1616BC492083B612F7 /* gazrg-bold.otf */ = {isa = PBXFileReference; name = "gazrg-bold.otf"; path = "../src/assets/fonts/gazrg-bold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		348A1CA8A25D41F0B31C01FB /* Babylonica-Regular.ttf */ = {isa = PBXFileReference; name = "Babylonica-Regular.ttf"; path = "../src/assets/fonts/Babylonica-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		0D13907C13784F73B8810942 /* Gaz-W00-Regular.ttf */ = {isa = PBXFileReference; name = "Gaz-W00-Regular.ttf"; path = "../src/assets/fonts/Gaz-W00-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		70D7DC32F0EF4921970FF2DF /* Helvetica.ttc */ = {isa = PBXFileReference; name = "Helvetica.ttc"; path = "../src/assets/fonts/Helvetica.ttc"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +120,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		67E96F3354B9434CA48D88F4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D7108A1616BC492083B612F7 /* gazrg-bold.otf */,
+				348A1CA8A25D41F0B31C01FB /* Babylonica-Regular.ttf */,
+				0D13907C13784F73B8810942 /* Gaz-W00-Regular.ttf */,
+				C8E8D3804A9C4D4C8E0E53F5 /* Evogria.otf */,
+				18034164742F435CB3DCDF3B /* MyriadPro-Regular.otf */,
+				70D7DC32F0EF4921970FF2DF /* Helvetica.ttc */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,17 +176,6 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
-		};
-		67E96F3354B9434CA48D88F4 /* Resources */ = {
-			isa = "PBXGroup";
-			children = (
-				D7108A1616BC492083B612F7 /* gazrg-bold.otf */,
-				348A1CA8A25D41F0B31C01FB /* Babylonica-Regular.ttf */,
-				0D13907C13784F73B8810942 /* Gaz-W00-Regular.ttf */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-			path = "";
 		};
 /* End PBXGroup section */
 
@@ -269,6 +277,9 @@
 				A9A131CC09F14257AECD0CD3 /* gazrg-bold.otf in Resources */,
 				D0AC325F3D904DB58330BDFF /* Babylonica-Regular.ttf in Resources */,
 				E86BA2A69B824359A2F3810F /* Gaz-W00-Regular.ttf in Resources */,
+				123A74E5E7C4451793F0A539 /* Evogria.otf in Resources */,
+				78228FB28D554907B09B4BB8 /* MyriadPro-Regular.otf in Resources */,
+				C45D0CC3E0044F138AD95652 /* Helvetica.ttc in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

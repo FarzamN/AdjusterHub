@@ -70,7 +70,7 @@ const TermsAndCondition = ({navigation}) => {
             <CustomButton
               onPress={() => navigation.navigate('login')}
               title="Accept and Continue"
-              textStyle={{textAlign: 'center'}}
+              textStyle={{textAlign: 'center', fontSize : 20}}
               containerStyle={{
                 width: '85%',
                 alignSelf: 'center',
@@ -90,6 +90,7 @@ export default TermsAndCondition;
 const styles = StyleSheet.create({
   Container: {
     flex: 1,
+    backgroundColor : '#056BF9'
   },
   logo: {
     resizeMode: 'contain',
@@ -115,7 +116,7 @@ const styles = StyleSheet.create({
     marginTop: scale(10),
     color: Color.greyfont,
     fontSize: scale(12),
-    fontFamily: 'MyriadPro-Regular',
+    fontFamily: 'Helvetica',
   },
 
   firstView: {

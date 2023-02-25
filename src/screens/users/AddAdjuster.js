@@ -7,11 +7,11 @@ import {
   Image,
   TouchableOpacity,
   ScrollView,
+  StatusBar,
 } from 'react-native';
 import LottieView from 'lottie-react-native';
 import {scale, moderateScale, verticalScale} from 'react-native-size-matters';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import LinearGradient from 'react-native-linear-gradient';
 import Validation from '../../components/Validation';
 import {useForm} from 'react-hook-form';
 import CustomButton from '../../components/CustomButton';
@@ -62,6 +62,10 @@ const AddAdjuster = () => {
 
   return (
     <SafeAreaView style={styles.container}>
+      <StatusBar barStyle={'light-content'} />
+      <View
+      style={{flex: 1, backgroundColor : Color.BackgroundColor}}
+      >
       <ScrollView style={{flex: 1}} showsVerticalScrollIndicator={false}>
         <View style={styles.BlueBox}>
           <Text style={styles.TextOne}>Add adjuster</Text>
@@ -179,8 +183,10 @@ const AddAdjuster = () => {
                   }}>
                   New Adjuster Added
                 </Text>
-                <Text style={{color: Color.Main, fontSize: scale(15)}}>
-                  Thanks for your input
+                <Text style={{color: Color.Main, fontSize: scale(15),
+                   fontFamily:'Helvetica'
+                }}>
+                  Thanks for your input.
                 </Text>
               </View>
               <LottieView
@@ -204,46 +210,52 @@ const AddAdjuster = () => {
           <View style={{height: verticalScale(50)}}></View>
         </View>
       </ScrollView>
+      </View>
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
   nameinput: {width: '49%', paddingLeft: 0},
-  textInput: {height: verticalScale(50), marginBottom: scale(35)},
+  textInput: {height: verticalScale(50), marginBottom: verticalScale(25)},
   container: {
     flex: 1,
-    backgroundColor: '#DDDEDF',
+    backgroundColor: Color.Main
   },
   TextOne: {
-    color: '#fff',
+    color: Color.White,
     fontFamily: 'Evogria',
     fontSize: scale(25),
-    marginTop: scale(30),
+    marginTop: scale(20),
     textTransform: 'uppercase',
   },
   TextTwo: {
-    color: '#fff',
-    fontSize: scale(17),
-    marginTop: scale(-8),
-    fontFamily: 'MyriadPro-Regular',
+    color: Color.White,
+    fontSize: scale(15),
+    fontFamily: 'Helvetica',
+    marginTop:-5
   },
   BlueBox: {
     height: verticalScale(200),
     padding: moderateScale(20),
-    backgroundColor: '#045CD2',
+    backgroundColor: Color.Main
   },
   GreyBox: {
     height: verticalScale(460),
   },
   MainContainer: {
-    backgroundColor: '#fff',
+    backgroundColor: Color.White,
     width: '90%',
     alignSelf: 'center',
     position: 'absolute',
-    top: '17%',
+    top: '15%',
     paddingHorizontal: 20,
     borderRadius: 20,
+    zIndex : 100,
+    shadowColor : 'rgba(0,0,0)',
+    shadowOffset : [1,1],
+    shadowRadius : 5,
+    shadowOpacity : 0.4
   },
   logo: {
     resizeMode: 'contain',
@@ -251,7 +263,7 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   Add: {
-    backgroundColor: '#545456',
+    backgroundColor: Color.PickImageBtn,
     width: '95%',
     height: verticalScale(50),
     justifyContent: 'space-evenly',
@@ -259,7 +271,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     borderRadius: 10,
     flexDirection: 'row',
-    marginTop: scale(-10),
+    marginTop: scale(-15),
   },
   Add_Text: {
     color: Color.White,

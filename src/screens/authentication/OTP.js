@@ -7,6 +7,7 @@ import {
   Image,
   TouchableOpacity,
   ScrollView,
+  Dimensions,
 } from 'react-native';
 import {
   CodeField,
@@ -68,13 +69,21 @@ const OTP = ({navigation}) => {
         <View style={styles.GreyBox}></View>
 
         <View style={styles.MainContainer}>
+        <View
+                  style={{
+                    height: verticalScale(180),
+                    width: '95%',
+                    alignSelf: 'center',
+                  }}>
           <Image
             source={require('../../assets/Images/logo.png')}
             style={styles.logo}
           />
+</View>
 
           <CodeField
             ref={ref}
+            {...props}
             value={value}
             onChangeText={setValue}
             cellCount={CELL_COUNT}
@@ -90,30 +99,31 @@ const OTP = ({navigation}) => {
               </Text>
             )}
           />
+        
           <CustomButton
             onPress={() => navigation.navigate('login')}
-            containerStyle={{marginTop: scale(20)}}
+            containerStyle={{marginTop: scale(30)}}
             title={'Verify'}
             textStyle={{
               fontSize: scale(25),
-              paddingVertical: moderateScale(10),
+              paddingVertical: moderateScale(15),
             }}
           />
           <View style={styles.FPassCon}>
             <Text
               style={{
                 fontSize: scale(14),
-                color: '#000',
-                fontFamily: 'MyriadPro-Regular',
+                color: Color.Black,
+                fontFamily: 'Helvetica',
               }}>
-              Wait {time} more secounds to
+              Wait {time} more seconds to
             </Text>
             <TouchableOpacity>
               <Text
                 style={{
                   fontSize: scale(14),
-                  fontFamily: 'MyriadPro-Regular',
-                  color: '#0568F2',
+                  fontFamily: 'Helvetica',
+                  color:Color.Main,
                   marginLeft: scale(5),
                 }}>
                 Resend.
@@ -130,22 +140,22 @@ const styles = StyleSheet.create({
   textInput: {height: verticalScale(50), marginVertical: scale(15)},
   container: {
     flex: 1,
-    backgroundColor: '#DDDEDF',
+    backgroundColor: Color.Main,
   },
   TextOne: {
     color: '#fff',
     fontSize: scale(25),
-    marginTop: scale(30),
+    marginTop: scale(15),
     textTransform: 'uppercase',
   },
   TextTwo: {
     color: '#fff',
     fontSize: scale(17),
-    marginTop: scale(-8),
-    fontFamily: 'MyriadPro-Regular',
+    fontFamily: 'Helvetica',
+    marginTop:-5
   },
   BlueBox: {
-    backgroundColor: '#0568F2',
+    backgroundColor: Color.Main,
     height: verticalScale(200),
     padding: moderateScale(20),
   },
@@ -158,20 +168,25 @@ const styles = StyleSheet.create({
     width: '90%',
     alignSelf: 'center',
     position: 'absolute',
-    top: '22%',
+    top: '18%',
     paddingHorizontal: 20,
     paddingVertical: scale(50),
     borderRadius: 20,
-    height: scale(450),
+    height: Dimensions.get('screen').height * 0.65,
     elevation: 5,
+    zIndex : 100,
+    shadowColor : 'rgba(0,0,0)',
+    shadowOffset : [1,1],
+    shadowRadius : 5,
+    shadowOpacity : 0.5
   },
   logo: {
-    alignSelf: 'center',
-    width: 237,
-    height: 180,
+    resizeMode: 'contain',
+    width: '100%',
+    height: '100%',
   },
   viewText: {
-    color: '#0568F2',
+    color: Color.Main,
     fontSize: scale(15),
     fontWeight: '600',
   },
@@ -191,27 +206,29 @@ const styles = StyleSheet.create({
   FontAwesomeArrow: {
     marginRight: 3,
     marginTop: -2,
-    // backgroundColor: 'red'
+    // backgroundColor: 'red',
     alignSelf: 'center',
   },
   codeFieldRoot: {
     marginTop: scale(20),
-    // backgroundColor: '#DDDEDF',
+   
   },
   cell: {
-    width: scale(65),
-    height: scale(65),
-    // lineHeight: 38,
+    width: scale(60),
+    height: scale(60),
     fontSize: scale(24),
-    borderWidth: 2,
+    borderWidth: 1,
     borderRadius: 10,
     borderColor: Color.Main,
-    textAlign: 'center',
     color: Color.Main,
-    textAlignVertical: 'center',
+    backgroundColor:Color.InputBackgroundTwo,
+    textAlign: 'center',
+    lineHeight: scale(56),
   },
+
   focusCell: {
     borderColor: Color.Main,
   },
+
 });
 export default OTP;

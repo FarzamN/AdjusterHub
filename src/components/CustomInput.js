@@ -26,7 +26,6 @@ const CustomInput = forwardRef((props, ref) => {
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
   return (
     <View style={[styles.field, props.style, props.Hello]}>
-      {props.image ? <Image style={styles.image} source={props.image} /> : null}
 
       <Text style={styles.TextStyle}>{props.InputUText}</Text>
 
@@ -46,7 +45,7 @@ const CustomInput = forwardRef((props, ref) => {
         pattern={props.pattern}
         label={props.label}
         placeholderStyle={props.placeholderStyle}
-        fontSize={props.fontSize}
+        fontSize={17}
         maxLength={props.maxLength}
       />
       <View>
@@ -75,8 +74,9 @@ const styles = StyleSheet.create({
     height: scale(57),
     borderRadius: 12,
     alignItems: 'center',
-    paddingHorizontal: scale(35),
+    paddingHorizontal: scale(40),
     fontSize: scale(20),
+    fontFamily: 'Helvetica',
   },
 });
 export default CustomInput;

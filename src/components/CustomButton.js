@@ -41,8 +41,8 @@ const styles = StyleSheet.create({
 
   font: {
     color: '#fff',
-    fontSize: scale(20),
+    fontSize: scale(24),
     textTransform: 'uppercase',
-    fontFamily: 'gazrg-bold',
+    fontFamily: 'Evogria',
   },
 });

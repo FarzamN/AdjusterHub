@@ -63,9 +63,12 @@
 		<string>fonts/Inter-Bold.ttf</string>
 		<string>fonts/Inter-Regular.ttf</string>
 		<string>fonts/Inter-SemiBold.ttf</string>
-		<string>gazrg-bold.otf</string>
+		<string>Evogria.otf</string>
+		<string>MyriadPro-Regular.otf</string>
+		<string>Helvetica.ttc</string>
 		<string>Babylonica-Regular.ttf</string>
 		<string>Gaz-W00-Regular.ttf</string>
+		<string>gazrg-bold.otf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

@@ -7,6 +7,8 @@ import {
   ScrollView,
   TouchableOpacity,
   FlatList,
+  StatusBar,
+  Dimensions,
 } from 'react-native';
 import Modal from 'react-native-modal';
 import BackAndLogo from '../../components/BackAndLogo';
@@ -42,12 +44,12 @@ const Bubbles = ({navigation}) => {
     },
     {
       id: '3',
-      name: 'communicative',
+      name: 'friendly',
       selected: false,
     },
     {
       id: '4',
-      name: 'friendly',
+      name: 'educated',
       selected: false,
     },
     {
@@ -57,7 +59,7 @@ const Bubbles = ({navigation}) => {
     },
     {
       id: '6',
-      name: 'educated',
+      name: 'communicative',
       selected: false,
     },
     {
@@ -182,12 +184,19 @@ const Bubbles = ({navigation}) => {
 
   const renderItem = ({item}) => (
     <View style={styles.bubbleBox}>
-      <TouchableOpacity activeOpacity={0.9} onPress={() => handleChange(item)}>
+      <TouchableOpacity 
+      style={{
+        backgroundColor: item.selected ? '#2B83FE' : '#E4E5E6',
+        borderRadius : scale(15),
+        margin:2
+      }}
+      activeOpacity={0.9} onPress={() => handleChange(item)}>
         <Text
           style={[
             styles.bubbles,
             {
-              backgroundColor: item.selected ? '#2B83FE' : '#E4E5E6',
+              fontSize : 14,
+              letterSpacing : 0.1,
               color: item.selected ? Color.White : Color.Black,
             },
           ]}>
@@ -198,6 +207,7 @@ const Bubbles = ({navigation}) => {
   );
   return (
     <SafeAreaView styles={styles.container}>
+      <StatusBar  barStyle={'dark-content'} />
       <ScrollView showsVerticalScrollIndicator={false}>
         <BackAndLogo onPress={() => navigation.goBack()} />
         <View style={{height: verticalScale(200)}}>
@@ -212,10 +222,10 @@ const Bubbles = ({navigation}) => {
             height: verticalScale(400),
             backgroundColor: Color.BackgroundColor,
           }}></View>
-        <View style={{position: 'absolute', top: 80, width: '100%'}}>
+        <View style={{position: 'absolute', top: 90, width: '100%'}}>
           <View style={styles.MainBox}>
             {/* <ScrollView> */}
-            <Text style={styles.Describe}>Describe our adjecter</Text>
+            <Text style={styles.Describe}>Describe Your adjuster</Text>
             <View>
               <FlatList
                 numColumns={3}
@@ -244,11 +254,13 @@ const Bubbles = ({navigation}) => {
               placeholder={'Claim#'}
               keyboardType={'default'}
               restyle={{
-                width: '80%',
+                width: '90%',
                 alignSelf: 'center',
                 backgroundColor: '#F4F5F5',
                 color: '#000',
                 borderRadius: 5,
+                paddingHorizontal:moderateScale(40),
+                height:verticalScale(45)
               }}
             />
             <CustomButton
@@ -258,10 +270,10 @@ const Bubbles = ({navigation}) => {
               }}
               title={'Submit'}
               containerStyle={{
-                width: '80%',
+                width: '90%',
                 alignSelf: 'center',
-                marginTop: scale(30),
-                height: verticalScale(50),
+                marginTop: scale(20),
+                paddingVertical: verticalScale(12)
               }}
             />
             <Modal
@@ -286,14 +298,16 @@ const Bubbles = ({navigation}) => {
                 <View>
                   <Text
                     style={{
-                      fontWeight: '600',
                       color: Color.Main,
                       fontSize: scale(16),
                       textTransform: 'uppercase',
+                      fontFamily:'Evogria'
                     }}>
                     FeedBack Added
                   </Text>
-                  <Text style={{color: Color.Main, fontSize: scale(15)}}>
+                  <Text style={{color: Color.Main, fontSize: scale(14),
+                      fontFamily:'Helvetica'
+                  }}>
                     Thanks for your FeedBack
                   </Text>
                 </View>
@@ -329,20 +343,26 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    backgroundColor: '##fff',
+    backgroundColor: Color.BackgroundColor,
   },
   MainBox: {
     width: '90%',
     alignSelf: 'center',
     backgroundColor: Color.White,
-    marginTop: scale(20),
+    marginTop: scale(15),
     borderRadius: 20,
     paddingTop: verticalScale(10),
-    height: scale(570),
+    paddingHorizontal :5,
+    height: Dimensions.get('screen').height * 0.77,
+    zIndex : 100,
+    shadowColor : 'rgba(0,0,0)',
+    shadowOffset : [1,1],
+    shadowRadius : 5,
+    shadowOpacity : 0.4
   },
   Describe: {
     color: Color.Main,
-    marginVertical: scale(5),
+    marginVertical: verticalScale(10),
     fontSize: scale(25),
     textTransform: 'uppercase',
     textAlign: 'center',
@@ -363,6 +383,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginTop: scale(2),
     marginLeft: scale(7),
+    
   },
   inputText: {
     alignSelf: 'center',

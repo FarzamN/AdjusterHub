@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
   FlatList,
   ScrollView,
+  StatusBar,
 } from 'react-native';
 import {verticalScale, scale, moderateScale} from 'react-native-size-matters';
 import BackAndLogo from '../../components/BackAndLogo';
@@ -22,7 +23,7 @@ const User = ({navigation}) => {
   const [masterDataSource, setMasterDataSource] = useState([]);
 
   useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/posts')
+    fetch('https://jsonplaceholder.typicode.com/users')
       .then(response => response.json())
       .then(responseJson => {
         setFilteredDataSource(responseJson);
@@ -53,7 +54,7 @@ const User = ({navigation}) => {
     <TouchableOpacity
       onPress={() => navigation.navigate('reviewer')}
       style={styles.names}>
-      <Text style={styles.Text_Name}>{item.title}</Text>
+      <Text style={styles.Text_Name}>{item.name}</Text>
     </TouchableOpacity>
   );
 
@@ -63,7 +64,6 @@ const User = ({navigation}) => {
         style={{
           height: 0.5,
           width: '100%',
-          backgroundColor: '#C8C8C8',
         }}
       />
     );
@@ -71,6 +71,7 @@ const User = ({navigation}) => {
 
   return (
     <SafeAreaView style={styles.container}>
+      <StatusBar barStyle={'dark-content'} />
       {/* <ScrollView style={{flex: 1}} showsVerticalScrollIndicator={false}> */}
       <BackAndLogo onPress={() => navigation.goBack()} />
       <View style={{height: verticalScale(200)}}>
@@ -85,7 +86,7 @@ const User = ({navigation}) => {
           height: verticalScale(400),
           backgroundColor: Color.BackgroundColor,
         }}></View>
-      <View style={{position: 'absolute', top: scale(95), width: '100%'}}>
+      <View style={{position: 'absolute', top: scale(140), width: '100%'}}>
         <View style={styles.InputBox}>
           <Image
             style={styles.SearchImg}
@@ -131,7 +132,7 @@ const User = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Color.BackgroundColor,
+    backgroundColor: '#ffffff',
   },
   linearGradient: {
     height: verticalScale(150),
@@ -142,12 +143,17 @@ const styles = StyleSheet.create({
     backgroundColor: Color.White,
     borderRadius: 7,
     flexDirection: 'row',
-    height: verticalScale(50),
+    height: verticalScale(40),
     shadowColor: '#000000',
     shadowOpacity: 0.3,
     shadowOffset: [1, 1],
     alignItems: 'center',
     paddingLeft: scale(15),
+    zIndex : 100,
+    shadowColor : 'rgba(0,0,0)',
+    shadowOffset : [1,1],
+    shadowRadius : 5,
+    shadowOpacity : 0.4
   },
   SearchImg: {
     marginTop: scale(7),
@@ -155,6 +161,8 @@ const styles = StyleSheet.create({
   search: {
     color: 'black',
     marginTop: 5,
+    height:verticalScale(20),
+    paddingHorizontal:moderateScale(15)
   },
   nameBox: {
     width: '90%',
@@ -163,8 +171,13 @@ const styles = StyleSheet.create({
     marginTop: scale(15),
     borderRadius: scale(15),
     paddingTop: verticalScale(30),
-    paddingHorizontal: moderateScale(20),
+    paddingHorizontal: moderateScale(15),
     paddingBottom: verticalScale(30),
+    zIndex : 100,
+    shadowColor : 'rgba(0,0,0)',
+    shadowOffset : [1,1],
+    shadowRadius : 5,
+    shadowOpacity : 0.4
   },
   companyLogo: {
     width: '100%',
@@ -176,6 +189,7 @@ const styles = StyleSheet.create({
     width: scale(200),
     height: scale(30),
     alignSelf: 'center',
+    marginVertical:verticalScale(10)
   },
   names: {
     height: verticalScale(50),
@@ -184,7 +198,7 @@ const styles = StyleSheet.create({
     borderRadius: 7,
     justifyContent: 'center',
     marginBottom: scale(10),
-    paddingHorizontal: moderateScale(15),
+    paddingHorizontal: moderateScale(25),
   },
   Text_Name: {
     color: Color.placeholderTextColor,

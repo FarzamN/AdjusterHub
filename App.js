@@ -5,11 +5,9 @@ import {DrawerNavigation} from './src/navigation/DrawerNavigation';
 import SplashScreen from 'react-native-splash-screen';
 
 const App = () => {
-  useEffect(() => {
-    setTimeout(() => {
-      SplashScreen.hide();
-    }, 2000);
-  }, []);
+  setTimeout(() => {
+    SplashScreen.hide();
+  }, 5000);
   return <AuthNavigation />;
 };
 export default App;

@@ -10,6 +10,8 @@ import {
   PermissionsAndroid,
   KeyboardAvoidingView,
   Platform,
+  Dimensions,
+  StatusBar
 } from 'react-native';
 import {scale, moderateScale, verticalScale} from 'react-native-size-matters';
 import Modal from 'react-native-modal';
@@ -125,7 +127,8 @@ const Profile = ({navigation}) => {
     });
   };
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor: '#DDDEDF'}}>
+    <SafeAreaView style={{flex: 1, backgroundColor: Color.White}}>
+      <StatusBar barStyle={'dark-content'} />
       <ScrollView style={{flex: 1}} showsVerticalScrollIndicator={false}>
         <BackWithMenu
           onPress={() => navigation.openDrawer()}
@@ -137,7 +140,7 @@ const Profile = ({navigation}) => {
               <Image
                 style={{width: '100%', height: '100%'}}
                 resizeMode={'stretch'}
-                source={require('../../assets/Images/oldman.jpg')}
+                source={require('../../assets/Images/wallpaper.jpeg')}
               />
             ) : (
               <Image
@@ -162,6 +165,7 @@ const Profile = ({navigation}) => {
               position: 'relative',
               right: scale(18),
               top: scale(20),
+              
             }}>
             <View
               style={{
@@ -216,8 +220,7 @@ const Profile = ({navigation}) => {
 
         <View style={styles.MainContainer}>
           <KeyboardAvoidingView
-            behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-            style={{height: verticalScale(350)}}>
+            behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
             <NewCustomInput
               name="first_name"
               rules={{
@@ -229,8 +232,8 @@ const Profile = ({navigation}) => {
               placeholder={'First Name'}
               keyboardType={'default'}
               restyle={{
-                backgroundColor: '#F4F5F5',
-                color: '#000',
+                backgroundColor: Color.InputBackgroundTwo,
+                color:  Color.Black,
               }}
             />
             <NewCustomInput
@@ -244,8 +247,8 @@ const Profile = ({navigation}) => {
               placeholder={'last Name'}
               keyboardType={'default'}
               restyle={{
-                backgroundColor: '#F4F5F5',
-                color: '#000',
+                backgroundColor: Color.InputBackgroundTwo,
+                color:  Color.Black,
               }}
             />
             <NewCustomInput
@@ -259,8 +262,8 @@ const Profile = ({navigation}) => {
               placeholder={'Company'}
               keyboardType={'default'}
               restyle={{
-                backgroundColor: '#F4F5F5',
-                color: '#000',
+                backgroundColor: Color.InputBackgroundTwo,
+                color:  Color.Black,
               }}
             />
             <NewCustomInput
@@ -275,8 +278,7 @@ const Profile = ({navigation}) => {
               keyboardType={'default'}
               restyle={{
                 marginTop: 0,
-                backgroundColor: '#F4F5F5',
-                color: '#000',
+                color:  Color.Black,
                 margin: 0,
               }}
             />
@@ -287,7 +289,7 @@ const Profile = ({navigation}) => {
               containerStyle={{
                 marginTop: scale(20),
                 width: '100%',
-                paddingVertical: moderateScale(10),
+                paddingVertical: moderateScale(15),
               }}
               textStyle={{fontSize: scale(23)}}
               onPress={handleSubmit(onSubmit)}
@@ -300,12 +302,13 @@ const Profile = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
-  // textInput: {height: verticalScale(50), marginVertical: scale(15)},
+  textInput: {height: verticalScale(50), marginVertical: verticalScale(-2)},
   BlueBox: {
-    height: verticalScale(230),
+    height: verticalScale(200),
   },
   GreyBox: {
-    backgroundColor: '#DDDEDF',
+    backgroundColor: Color.BackgroundColor,
+
     height: verticalScale(380),
   },
   editBox: {
@@ -316,18 +319,24 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     position: 'absolute',
-    bottom: 35,
+    bottom: 40,
     right: 10,
   },
   MainContainer: {
-    height: verticalScale(350),
+    height: Dimensions.get('screen').height * 0.47,
     width: '90%',
-    backgroundColor: '#fff',
+    backgroundColor: Color.White,
     alignSelf: 'center',
     position: 'absolute',
-    top: scale(300),
+    top: scale(280),
     paddingHorizontal: 20,
     borderRadius: 20,
+    shadowColor : 'rgba(0,0,0)',
+    shadowOffset : [1,1],
+    shadowRadius : 5,
+    shadowOpacity : 0.5,
+    justifyContent:'center',
+    // alignItems:'center'
   },
   ModalBtn: {
     flex: 1,
@@ -348,7 +357,6 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 15,
     borderTopRightRadius: 15,
     flexDirection: 'row',
-    // height: scale(100),
   },
   tinyLogo: {
     height: scale(32),

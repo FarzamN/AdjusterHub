@@ -10,6 +10,7 @@ import {
   ScrollView,
   KeyboardAvoidingView,
   Platform,
+  Dimensions,
 } from 'react-native';
 import {scale, moderateScale, verticalScale} from 'react-native-size-matters';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
@@ -46,16 +47,10 @@ const Register = ({navigation}) => {
             <KeyboardAvoidingView
               behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
               style={[styles.container, {backgroundColor: Color.White}]}>
-              <View
-                style={{
-                  height: verticalScale(152),
-                  width: scale(200),
-                  alignSelf: 'center',
-                }}>
-                <View
+             <View
                   style={{
-                    height: verticalScale(150),
-                    width: scale(200),
+                    height: verticalScale(180),
+                    width: '95%',
                     alignSelf: 'center',
                   }}>
                   <Image
@@ -63,7 +58,6 @@ const Register = ({navigation}) => {
                     style={styles.logo}
                   />
                 </View>
-              </View>
               <View
                 style={{flexDirection: 'row', justifyContent: 'space-between'}}>
                 <CustomInput
@@ -72,7 +66,7 @@ const Register = ({navigation}) => {
                     required: 'First Name is required',
                   }}
                   control={control}
-                  style={[styles.textInput, {width: '49%'}]}
+                  style={[styles.textInput, {width: '48.5%'}]}
                   textStyle={styles.InputTextStyle}
                   placeholder={'First Name'}
                   keyboardType={'default'}
@@ -88,7 +82,7 @@ const Register = ({navigation}) => {
                     required: 'Last Name is required',
                   }}
                   control={control}
-                  style={[styles.textInput, {width: '49%'}]}
+                  style={[styles.textInput, {width: '48.5%'}]}
                   textStyle={styles.InputTextStyle}
                   placeholder={'Last Name'}
                   keyboardType={'default'}
@@ -140,6 +134,7 @@ const Register = ({navigation}) => {
                   textStyle={styles.InputTextStyle}
                   placeholder={'Password'}
                   keyboardType={'default'}
+                  fontSize={17}
                   restyle={{
                     backgroundColor: '#F4F5F5',
                     color: '#000',
@@ -162,7 +157,7 @@ const Register = ({navigation}) => {
                   style={{
                     position: 'absolute',
                     right: scale(15),
-                    bottom: scale(5),
+                    bottom: scale(7),
                   }}
                   onPress={() => setIsPasswordSecure(prevCheck => !prevCheck)}>
                   <Text style={styles.viewText}>
@@ -173,7 +168,7 @@ const Register = ({navigation}) => {
               <CustomButton
                 onPress={() => navigation.navigate('otp')}
                 title={'register'}
-                textStyle={{fontSize: scale(30)}}
+             
                 containerStyle={{
                   marginTop: scale(40),
                   height: verticalScale(50),
@@ -184,7 +179,7 @@ const Register = ({navigation}) => {
                   style={{
                     fontSize: scale(13),
                     color: '#000',
-                    fontFamily: 'MyriadPro-Regular',
+                    fontFamily: 'Helvetica',
                   }}>
                   By taping "Register" you accept our
                 </Text>
@@ -197,7 +192,7 @@ const Register = ({navigation}) => {
                       fontStyle: 'normal',
                       marginLeft: scale(5),
                       alignSelf: 'flex-end',
-                      fontFamily: 'MyriadPro-Regular',
+                      fontFamily: 'Helvetica',
                     }}>
                     Terms of Service.
                   </Text>
@@ -213,68 +208,62 @@ const Register = ({navigation}) => {
 
 const styles = StyleSheet.create({
   textInput: {
-    height: verticalScale(50),
-    marginVertical: scale(10),
+    height: verticalScale(45),
+    marginVertical: verticalScale(7),
   },
   container: {
     flex: 1,
-    backgroundColor: '#DDDEDF',
+    backgroundColor: Color.Main,
   },
   TextOne: {
-    color: '#fff',
+    color: Color.White,
     fontSize: scale(25),
-    marginTop: scale(30),
+    marginTop: scale(5),
     textTransform: 'uppercase',
   },
   TextTwo: {
-    color: '#fff',
+    color: Color.White,
     fontSize: scale(17),
-    marginTop: scale(-5),
-    fontFamily: 'MyriadPro-Regular',
+    fontFamily: 'Helvetica',
+    marginTop:-5
   },
   BlueBox: {
-    backgroundColor: '#0568F2',
+    backgroundColor: Color.Main,
     height: verticalScale(200),
     padding: moderateScale(20),
   },
   GreyBox: {
-    backgroundColor: '#DDDEDF',
+    backgroundColor: Color.BackgroundColor,
     height: verticalScale(480),
   },
   MainContainer: {
     elevation: 5,
-    backgroundColor: '#fff',
+    backgroundColor: Color.White,
     width: '90%',
     alignSelf: 'center',
     position: 'absolute',
-    top: '17%',
+    top: '10%',
     paddingHorizontal: 20,
     paddingTop: scale(25),
     paddingBottom: moderateScale(30),
     borderRadius: 20,
-    height: scale(540),
+    height: Dimensions.get('screen').height *0.75,
+    zIndex : 100,
+    shadowColor : 'rgba(0,0,0)',
+    shadowOffset : [1,1],
+    shadowRadius : 5,
+    shadowOpacity : 0.4
   },
   logo: {
     resizeMode: 'contain',
     width: '100%',
     height: '100%',
   },
-  Add: {
-    backgroundColor: '#545456',
-    width: '85%',
-    height: verticalScale(45),
-    justifyContent: 'space-evenly',
-    alignItems: 'center',
-    alignSelf: 'center',
-    borderRadius: 10,
-    flexDirection: 'row',
-    marginTop: scale(20),
-  },
-
   viewText: {
-    color: '#0568F2',
-    fontSize: scale(15),
-    fontFamily: 'MyriadPro-Regular',
+    color: Color.Main,
+    fontSize: scale(13),
+    fontFamily: 'Helvetica',
+    // fontWeight: '500',
   },
   FPassCon: {
     marginTop: scale(5),

@@ -8,6 +8,8 @@ import {
   TouchableOpacity,
   Platform,
   ScrollView,
+  StatusBar,
+  Dimensions,
 } from 'react-native';
 import BackAndLogo from '../../components/BackAndLogo';
 import {Color} from '../../utils/Colors';
@@ -26,7 +28,7 @@ const Person = ({navigation}) => {
   const toggleModalBubble = () => {
     setModalVisibleBubble(true);
   };
-
+  const height = Dimensions.get('screen').height;
   const [isModalVisibleLottie, setModalVisibleLottie] = useState(false);
 
   const toggleModalLottie = () => {
@@ -215,21 +217,18 @@ const Person = ({navigation}) => {
   );
   return (
     <SafeAreaView style={styles.container}>
+      <StatusBar barStyle={'dark-content'} />
       <ScrollView style={{flex: 1}} showsVerticalScrollIndicator={false}>
         <BackAndLogo onPress={() => navigation.goBack()} />
         <View style={{height: verticalScale(200)}}>
           <LinearGradient
             start={{x: 0, y: 0}}
-            end={{x: 1, y: 0}}
+            end={{x: 0, y: 1}}
             colors={['#056DFE', '#045CD2', '#056DFE', '#045CD2']}
             style={{flex: 1}}></LinearGradient>
         </View>
-        <View
-          style={{
-            height: verticalScale(400),
-            backgroundColor: Color.BackgroundColor,
-          }}></View>
-        <View style={{position: 'absolute', top: '12%', width: '100%'}}>
+ 
+        <View style={{position: 'absolute', top: '25%', width: '100%'}}>
           <View style={styles.MainBox}>
             <Image
               style={styles.Photo}
@@ -243,7 +242,7 @@ const Person = ({navigation}) => {
               <Text style={styles.Text_Name}>John Smith</Text>
               <View style={{flexDirection: 'row'}}>
                 <Text style={styles.number}>634</Text>
-                <Text style={[styles.number, styles.MarWOrd]}>{rating}</Text>
+                <Text style={[styles.number, styles.MarWOrd]}>4.95</Text>
                 <Entypo
                   style={styles.star}
                   name={'star'}
@@ -255,17 +254,46 @@ const Person = ({navigation}) => {
                 <Text style={styles.rating}>Reviews</Text>
                 <Text style={[styles.rating, styles.MarNum]}>Rating</Text>
               </View>
-              <Text style={styles.topContaintor}>Top Containtor Comments</Text>
+              <View>
+              <Text style={styles.topContaintor}>Top Contractor Comments</Text>
               <View style={styles.bubbleBox}>
+                <View
+                style={styles.DisableBBl}>
                 <Text style={styles.bubbles}>meticulous</Text>
+                </View>
+                <View
+                 style={styles.DisableBBl}>
                 <Text style={styles.bubbles}>talkative</Text>
+                </View>
+                <View
+               style={styles.DisableBBl}>
                 <Text style={styles.bubbles}>relaxed</Text>
+                </View>
+                <View
+               style={styles.DisableBBl}>
                 <Text style={styles.bubbles}>communicative</Text>
+                </View>
+                <View
+            style={styles.DisableBBl}>
                 <Text style={styles.bubbles}>friendly</Text>
+                </View>
+                <View
+                style={styles.DisableBBl}>
                 <Text style={styles.bubbles}>lenient</Text>
+                </View>
+                <View
+                style={styles.DisableBBl}>
                 <Text style={styles.bubbles}>educated</Text>
+                </View>
+                <View
+                style={styles.DisableBBl}>
                 <Text style={styles.bubbles}>on Time</Text>
+                </View>
+                <View
+               style={styles.DisableBBl}>
                 <Text style={styles.bubbles}>flexible</Text>
+                </View>
+                </View>
               </View>
             </View>
             <CustomButton
@@ -274,6 +302,7 @@ const Person = ({navigation}) => {
                 width: '80%',
                 alignSelf: 'center',
                 paddingVertical: moderateScale(10),
+                marginTop:verticalScale(15)
               }}
               title={'Leave Feedback'}
             />
@@ -320,7 +349,7 @@ const Person = ({navigation}) => {
                   colorFilters={[
                     {
                       keypath: 'button',
-                      color: '#E94057',
+                      color: Color.Main,
                     },
                   ]}
                   autoPlay
@@ -338,19 +367,24 @@ const Person = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#DDDEDF',
+    backgroundColor: Color.White
   },
   linearGradient: {
     height: 200,
   },
   MainBox: {
     width: '90%',
-    height: scale(450),
+    height: Dimensions.get('screen').height * 0.67,
     alignSelf: 'center',
     backgroundColor: Color.White,
     marginTop: scale(95),
     borderRadius: 20,
     paddingVertical: verticalScale(20),
+    zIndex : 100,
+    shadowColor : 'rgba(0,0,0)',
+    shadowOffset : [1,1],
+    shadowRadius : 5,
+    shadowOpacity : 0.4
   },
   ModalMainBox: {
     width: '100%',
@@ -371,23 +405,28 @@ const styles = StyleSheet.create({
 
   topContaintor: {
     color: Color.Main,
-    marginTop: scale(5),
+    marginTop: scale(20),
     fontSize: scale(15),
+    fontFamily:'Helvetica'
   },
   Photo: {
-    width: 200,
-    height: 200,
-    borderRadius: 100,
+    // width: 220,
+    height: Dimensions.get('screen').height * 0.27,
+    aspectRatio:1/1,
+    borderRadius: 200,
     alignSelf: 'center',
     marginTop: scale(-100),
-    borderColor: Color.Black,
+    borderColor: Color.White,
     borderWidth: 2,
+    resizeMode : 'cover'
+    
   },
   companyLogo: {
-    width: '70%',
-    height: verticalScale(29),
+    width: '50%',
+    height: verticalScale(30),
     alignSelf: 'center',
-    marginVertical: scale(10),
+    marginTop: verticalScale(7),
+    resizeMode :'contain'
   },
   name: {
     marginLeft: scale(20),
@@ -395,7 +434,7 @@ const styles = StyleSheet.create({
   Text_Name: {
     color: Color.Black,
     fontSize: scale(35),
-    fontFamily: 'gazrg-bold',
+    fontFamily: 'Evogria',
   },
   number: {
     fontSize: scale(23),
@@ -404,13 +443,13 @@ const styles = StyleSheet.create({
   rating: {
     fontSize: scale(15),
     color: 'black',
-    fontFamily: 'Gaz-W00-Regular',
+   fontFamily:'Helvetica'
   },
   MarWOrd: {
-    marginLeft: scale(40),
+    marginLeft: scale(70),
   },
   MarNum: {
-    marginLeft: scale(20),
+    marginLeft: scale(60),
   },
   star: {
     marginTop: scale(5),
@@ -418,26 +457,12 @@ const styles = StyleSheet.create({
   },
 
   bubbles: {
-    backgroundColor: Color.BackgroundColor,
-    paddingVertical: moderateScale(7),
-    paddingHorizontal: scale(13),
-    ...Platform.select({
-      ios: {
-        borderRadius: 25,
-      },
-      android: {
-        borderRadius: 25,
-      },
-      default: {
-        // other platforms, web for example
-        borderRadius: 25,
-      },
-    }),
-
     color: Color.Black,
     textAlign: 'center',
     margin: scale(3),
+    letterSpacing : 0.5,
     textTransform: 'capitalize',
+    fontSize : 14
   },
   bubbleBox: {
     flexWrap: 'wrap',
@@ -458,6 +483,13 @@ const styles = StyleSheet.create({
     paddingRight: moderateScale(5),
     paddingLeft: scale(5),
   },
+  DisableBBl:{
+    backgroundColor: Color.BackgroundColor,
+    borderRadius : scale(15),
+    padding:3,
+    margin : 5,
+    
+  }
 });
 
 export default Person;

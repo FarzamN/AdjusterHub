@@ -8,6 +8,7 @@ import {
   TextInput,
   TouchableOpacity,
   ScrollView,
+  Dimensions,
 } from 'react-native';
 import {scale, moderateScale, verticalScale} from 'react-native-size-matters';
 
@@ -36,7 +37,10 @@ const ChangePass = ({navigation}) => {
   } = useForm({mode: 'all'});
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView styles={{flex: 1}} showsVerticalScrollIndicator={false}>
+      <View style={{
+        backgroundColor : '#ffffff'
+      }} >
+      <ScrollView styles={{flex: 1,}} showsVerticalScrollIndicator={false}>
         <View style={styles.BlueBox}>
           <TouchableOpacity
             onPress={() => navigation.goBack()}
@@ -59,9 +63,9 @@ const ChangePass = ({navigation}) => {
         <View style={styles.MainContainer}>
           <View
             style={{
-              height: verticalScale(150),
-              width: scale(200),
-              alignSelf: 'center',
+              height: verticalScale(180),
+                width: "95%",
+                alignSelf: 'center',
             }}>
             <Image
               source={require('../../assets/Images/logo.png')}
@@ -105,7 +109,7 @@ const ChangePass = ({navigation}) => {
               style={{
                 position: 'absolute',
                 right: scale(15),
-                bottom: scale(0),
+                bottom: scale(10),
 
                 // justifyContent: 'flex-end',
               }}
@@ -152,7 +156,7 @@ const ChangePass = ({navigation}) => {
               style={{
                 position: 'absolute',
                 right: scale(15),
-                bottom: scale(0),
+                bottom: scale(10),
               }}
               onPress={() => setIsPasswordSecure(prevCheck => !prevCheck)}>
               <Text style={styles.viewText}>
@@ -163,14 +167,15 @@ const ChangePass = ({navigation}) => {
           <CustomButton
             onPress={() => navigation.navigate('login')}
             containerStyle={{
-              marginTop: scale(50),
-              paddingVertical: moderateScale(10),
+              marginTop: scale(55),
+              paddingVertical: moderateScale(15),
             }}
             title={'Confirm'}
-            textStyle={{fontSize: scale(27)}}
+            textStyle={{fontSize: scale(24)}}
           />
         </View>
       </ScrollView>
+      </View>
     </SafeAreaView>
   );
 };
@@ -178,26 +183,25 @@ const ChangePass = ({navigation}) => {
 const styles = StyleSheet.create({
   textInput: {
     height: verticalScale(45),
-    marginVertical: scale(10),
+    marginVertical: scale(8),
   },
   container: {
     flex: 1,
-    backgroundColor: '#DDDEDF',
+    backgroundColor:  Color.Main,
   },
   TextOne: {
     color: '#fff',
-    // fontWeight: '800',
     fontSize: scale(23),
-    marginTop: scale(30),
+    marginTop: scale(20),
   },
   TextTwo: {
     color: '#fff',
-    fontSize: scale(17),
-    marginTop: scale(-8),
-    fontFamily: 'MyriadPro-Regular',
+    fontSize: scale(15),
+    fontFamily: 'Helvetica',
+    marginTop:-5
   },
   BlueBox: {
-    backgroundColor: '#0568F2',
+    backgroundColor: Color.Main,
     height: verticalScale(200),
     padding: moderateScale(20),
   },
@@ -207,13 +211,18 @@ const styles = StyleSheet.create({
   MainContainer: {
     backgroundColor: '#fff',
     width: '90%',
-    height: scale(450),
+    height: Dimensions.get('screen').height * 0.7,
     alignSelf: 'center',
     position: 'absolute',
-    top: '22%',
+    top: '17%',
     paddingHorizontal: 20,
     paddingTop: scale(35),
     borderRadius: 20,
+    zIndex : 100,
+    shadowColor : 'rgba(0,0,0)',
+    shadowOffset : [1,1],
+    shadowRadius : 5,
+    shadowOpacity : 0.4
     // paddingBottom: scale(3),
   },
   logo: {

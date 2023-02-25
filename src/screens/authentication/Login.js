@@ -11,8 +11,9 @@ import {
   Platform,
   StatusBar,
   Dimensions,
+  
 } from 'react-native';
-import {scale, moderateScale, verticalScale} from 'react-native-size-matters';
+import {scale, moderateScale, verticalScale, moderateVerticalScale} from 'react-native-size-matters';
 
 import Validation from '../../components/Validation';
 import {useForm} from 'react-hook-form';
@@ -37,7 +38,8 @@ const Login = ({navigation}) => {
   console.log('++++++++++++++++++++>', height);
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView showsVerticalScrollIndicator={false} style={{flex: 1}}>
+      <StatusBar backgroundColor={'#0568F2'} barStyle={'light-content'} />
+      <ScrollView showsVerticalScrollIndicator={false} style={{flex: 1, backgroundColor : '#DDDEDF'}}>
         <View style={styles.BlueBox}>
           <Text style={[styles.TextOne, {fontFamily: 'Evogria'}]}>
             WELCOME BACK
@@ -51,8 +53,8 @@ const Login = ({navigation}) => {
             style={[styles.container, {backgroundColor: Color.White}]}>
             <View
               style={{
-                height: verticalScale(150),
-                width: scale(200),
+                height: verticalScale(180),
+                width: "95%",
                 alignSelf: 'center',
               }}>
               <Image
@@ -72,8 +74,8 @@ const Login = ({navigation}) => {
               keyboardType={'default'}
               restyle={{
                 paddingHorizontal: moderateScale(40),
-                backgroundColor: '#F4F5F5',
-                color: '#000',
+                backgroundColor: Color.InputBackgroundTwo,
+                color: Color.Black,
               }}
               PIname={'email'}
               PIsize={22}
@@ -102,8 +104,8 @@ const Login = ({navigation}) => {
                 keyboardType={'default'}
                 restyle={{
                   marginTop: scale(-15),
-                  backgroundColor: '#F4F5F5',
-                  color: '#000',
+                  backgroundColor: Color.InputBackgroundTwo,
+                  color: Color.Black,
                 }}
                 PIname2={'locked'}
                 PIsize2={20}
@@ -123,8 +125,7 @@ const Login = ({navigation}) => {
                 style={{
                   position: 'absolute',
                   right: scale(15),
-                  // top: scale(50),
-                  bottom: scale(25),
+                  bottom: scale(30),
                 }}
                 onPress={() => setIsPasswordSecure(prevCheck => !prevCheck)}>
                 <Text style={styles.viewText}>
@@ -136,7 +137,7 @@ const Login = ({navigation}) => {
               <Text
                 style={{
                   fontSize: scale(14),
-                  fontFamily: 'MyriadPro-Regular',
+                  fontFamily: 'Helvetica',
                   color: '#000',
                 }}>
                 Forgot Password?
@@ -146,9 +147,9 @@ const Login = ({navigation}) => {
                 <Text
                   style={{
                     fontSize: scale(14),
-                    color: '#0568F2',
+                    color: Color.Main,
                     marginLeft: scale(5),
-                    fontFamily: 'MyriadPro-Regular',
+                    fontFamily: 'Helvetica',
                   }}>
                   Reset Here.
                 </Text>
@@ -157,12 +158,10 @@ const Login = ({navigation}) => {
             <CustomButton
               onPress={() => navigation.navigate('DrawerNavigation')}
               title={'login'}
-              textStyle={{
-                fontSize: scale(25),
-              }}
+              
               containerStyle={{
-                marginTop: scale(height * 0.03),
-                height: verticalScale(45),
+                marginTop: scale(height * 0.05),
+                paddingVertical: verticalScale(12)
               }}
             />
             <View style={styles.FPassCon}>
@@ -170,7 +169,7 @@ const Login = ({navigation}) => {
                 style={{
                   fontSize: scale(14),
                   color: '#000',
-                  fontFamily: 'MyriadPro-Regular',
+                  fontFamily: 'Helvetica',
                 }}>
                 Don't have an account?
               </Text>
@@ -178,8 +177,8 @@ const Login = ({navigation}) => {
                 <Text
                   style={{
                     fontSize: scale(14),
-                    color: '#0568F2',
-                    fontFamily: 'MyriadPro-Regular',
+                    color: Color.Main,
+                    fontFamily: 'Helvetica',
                     marginLeft: scale(5),
                   }}>
                   Register.
@@ -195,43 +194,48 @@ const Login = ({navigation}) => {
 const styles = StyleSheet.create({
   textInput: {
     height: verticalScale(45),
-    marginVertical: scale(20),
+    marginVertical: verticalScale(14),
   },
   container: {
     flex: 1,
-    backgroundColor: '#DDDEDF',
+    backgroundColor: Color.Main
   },
   TextOne: {
     color: '#fff',
     fontSize: scale(25),
-    marginTop: scale(30),
+    marginTop: scale(20),
   },
   TextTwo: {
     color: '#fff',
     fontSize: scale(17),
-    marginTop: scale(-8),
-    fontFamily: 'MyriadPro-Regular',
+    fontFamily: 'Helvetica',
+    marginTop:-5
   },
   BlueBox: {
-    backgroundColor: '#0568F2',
-    height: scale(height * 0.25),
+    backgroundColor: Color.Main,
+    height: scale(height * 0.28),
     padding: moderateScale(20),
   },
-  GreyBox: {
-    backgroundColor: '#DDDEDF',
-    height: scale(height * 0.55),
-  },
+  // GreyBox: {
+  //   backgroundColor: Color.BackgroundColor,
+  //   height: scale(height * 0.55),
+  // },
   MainContainer: {
     elevation: 5,
-    height: scale(height * 0.6),
-    backgroundColor: '#fff',
+    height: scale(height * 0.65),
+    backgroundColor: Color.White,
     width: '90%',
     alignSelf: 'center',
     position: 'absolute',
-    top: '17%',
+    top: 110,
     paddingHorizontal: 20,
     paddingVertical: scale(20),
     borderRadius: 20,
+    zIndex : 100,
+    shadowColor : 'rgba(0,0,0)',
+    shadowOffset : [1,1],
+    shadowRadius : 5,
+    shadowOpacity : 0.4
   },
   logo: {
     resizeMode: 'contain',
@@ -239,9 +243,11 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   viewText: {
-    color: '#0568F2',
+    
+    color: Color.Main,
     fontSize: scale(15),
     fontWeight: '600',
+
   },
   FPassCon: {
     marginTop: 10,

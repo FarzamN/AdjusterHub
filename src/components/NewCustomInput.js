@@ -2,6 +2,7 @@ import React, {forwardRef, useState} from 'react';
 import {useController, useForm} from 'react-hook-form';
 import {StyleSheet, TextInput, View, Image, Text} from 'react-native';
 import {moderateScale, scale, verticalScale} from 'react-native-size-matters';
+import { Color } from '../utils/Colors';
 
 const NewCustomInput = forwardRef((props, ref) => {
   const {field} = useController({
@@ -12,7 +13,6 @@ const NewCustomInput = forwardRef((props, ref) => {
   });
   return (
     <View style={[styles.field, props.style, props.Hello]}>
-      {props.image ? <Image style={styles.image} source={props.image} /> : null}
 
       <Text style={styles.TextStyle}>{props.InputUText}</Text>
 
@@ -32,7 +32,7 @@ const NewCustomInput = forwardRef((props, ref) => {
         pattern={props.pattern}
         label={props.label}
         placeholderStyle={props.placeholderStyle}
-        fontSize={props.fontSize}
+        fontSize={15}
         maxLength={props.maxLength}
       />
     </View>
@@ -44,22 +44,15 @@ const styles = StyleSheet.create({
     height: scale(55),
     borderRadius: 12,
     alignItems: 'center',
-    paddingHorizontal: scale(25),
-    backgroundColor: '#FFF',
-    color: 'black',
-  },
-  Circle: {
-    height: scale(10),
-    width: scale(10),
-    backgroundColor: 'red',
+    paddingHorizontal: scale(20),
+    backgroundColor: Color.InputBackgroundTwo,
   },
   TextStyle: {
     fontFamily: 'open sans',
-    fontSize: moderateScale(14),
+    fontSize:scale(15),
     fontStyle: 'normal',
     fontWeight: '600',
     zIndex: 10,
-    color: 'grey',
     marginLeft: scale(20),
   },
   field: {

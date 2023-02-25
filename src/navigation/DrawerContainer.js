@@ -15,20 +15,22 @@ const DrawerContainer = props => {
   const navigation = useNavigation();
 
   return (
-    <SafeAreaView style={{flex: 1}}>
+
       <LinearGradient
-        colors={['#056DFE', '#056BF9', '#034EAC', '#024391']}
+        colors={['#066dfe', '#0d6cfe', '#034EAC', '#024391']}
         style={styles.linearGradient}>
         <Image
-          source={require('../assets/Images/drawerlogo.png')}
+          source={require('../assets/Images/navlogo.png')}
           style={styles.sideMenuProfileIcon}
         />
         <DrawerContentScrollView {...props}>
           <DrawerItemList {...props} />
           <DrawerItem
-            style={{backgroundColor: 'white'}}
+            style={{backgroundColor: 'white',
+            // width:'99%',marginLeft:0,borderRadius:0
+          }}
             icon={() => <Entypo color={'#EF6464'} size={20} name={'log-out'} />}
-            labelStyle={{color: '#1f1f1f', marginLeft: -15}}
+            labelStyle={{color: '#1f1f1f', marginLeft: -16}}
             label="Log Out"
             onPress={() => navigation.navigate('login')}
           />
@@ -37,9 +39,10 @@ const DrawerContainer = props => {
           style={{
             fontSize: 17,
             fontWeight: '700',
-            marginLeft: scale(10),
+            marginLeft: scale(13),
             color: 'white',
             textTransform: 'uppercase',
+            fontFamily: 'Helvetica',
           }}>
           adjusterhub
         </Text>
@@ -49,27 +52,30 @@ const DrawerContainer = props => {
             color: '#9AB4D3',
             fontWeight: '600',
             textTransform: 'capitalize',
-            marginBottom: scale(20),
-            marginLeft: scale(10),
+            marginBottom: scale(30),
+            marginLeft: scale(15),
+            fontFamily: 'Helvetica',
           }}>
           app version 1.0.0
         </Text>
       </LinearGradient>
-    </SafeAreaView>
+
   );
 };
 
 const styles = StyleSheet.create({
   linearGradient: {
     flex: 1,
-    borderBottomRightRadius: 50,
-    borderTopRightRadius: 15,
+    borderBottomRightRadius: 30,
+    borderTopRightRadius: 10,
+    width:'95%'
   },
   sideMenuProfileIcon: {
-    width: 150,
-    height: 150,
-    marginTop: scale(20),
+    width: 200,
+    height: 200,
+    marginTop: scale(30),
     alignSelf: 'center',
+    resizeMode : 'contain'
   },
   iconStyle: {
     width: 15,
