@@ -15,10 +15,12 @@ import LinearGradient from 'react-native-linear-gradient';
 
 const TermsAndCondition = ({navigation}) => {
   return (
-    <SafeAreaView style={styles.Container}>
+    <>
+    <SafeAreaView style={styles.Container}/>
+    <SafeAreaView style={{flex:1, backgroundColor : "#034EAC"}}>
       <LinearGradient
         start={{x: 1, y: 0}}
-        end={{x: 0, y: 1}}
+        end={{x: 1, y: 1}}
         colors={['#056BF9', '#056DFE', '#034EAC']}
         style={styles.mainView}>
         <View style={styles.firstView}>
@@ -82,6 +84,8 @@ const TermsAndCondition = ({navigation}) => {
         </View>
       </LinearGradient>
     </SafeAreaView>
+    </>
+    
   );
 };
 
@@ -89,7 +93,7 @@ export default TermsAndCondition;
 
 const styles = StyleSheet.create({
   Container: {
-    flex: 1,
+    flex: 0,
     backgroundColor : '#056BF9'
   },
   logo: {

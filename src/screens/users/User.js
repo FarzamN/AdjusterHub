@@ -76,9 +76,9 @@ const User = ({navigation}) => {
       <BackAndLogo onPress={() => navigation.goBack()} />
       <View style={{height: verticalScale(200)}}>
         <LinearGradient
-          start={{x: 0, y: 0}}
-          end={{x: 1, y: 0}}
-          colors={['#056DFE', '#045CD2', '#056DFE', '#045CD2']}
+          // start={{x: 0, y: 0}}
+          // end={{x: 1, y: 0}}
+          colors={['#056DFE', '#045CD2',]}
           style={{flex: 1}}></LinearGradient>
       </View>
       <View
@@ -86,7 +86,7 @@ const User = ({navigation}) => {
           height: verticalScale(400),
           backgroundColor: Color.BackgroundColor,
         }}></View>
-      <View style={{position: 'absolute', top: scale(140), width: '100%'}}>
+      <View style={{position: 'absolute', top: scale(120), width: '100%'}}>
         <View style={styles.InputBox}>
           <Image
             style={styles.SearchImg}

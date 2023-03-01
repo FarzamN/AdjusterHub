@@ -206,22 +206,18 @@ const Bubbles = ({navigation}) => {
     </View>
   );
   return (
-    <SafeAreaView styles={styles.container}>
-      <StatusBar  barStyle={'dark-content'} />
-      <ScrollView showsVerticalScrollIndicator={false}>
-        <BackAndLogo onPress={() => navigation.goBack()} />
-        <View style={{height: verticalScale(200)}}>
+    <>
+    <SafeAreaView style={styles.container}/>
+    <SafeAreaView style={{flex:1, backgroundColor : Color.BackgroundColor}}>
+<ScrollView showsVerticalScrollIndicator ={false}>
+<BackAndLogo onPress={() => navigation.goBack()} />
+<View style={{height: verticalScale(200)}}>
           <LinearGradient
-            start={{x: 0, y: 0}}
-            end={{x: 1, y: 0}}
-            colors={['#056DFE', '#045CD2', '#056DFE', '#045CD2']}
+            // start={{x: 0, y: 0}}
+            // end={{x: 1, y: 0}}
+            colors={[ '#056DFE','#045CD2',  ]}
             style={{flex: 1}}></LinearGradient>
         </View>
-        <View
-          style={{
-            height: verticalScale(400),
-            backgroundColor: Color.BackgroundColor,
-          }}></View>
         <View style={{position: 'absolute', top: 90, width: '100%'}}>
           <View style={styles.MainBox}>
             {/* <ScrollView> */}
@@ -332,19 +328,24 @@ const Bubbles = ({navigation}) => {
             {/* </ScrollView> */}
           </View>
         </View>
-      </ScrollView>
+
+</ScrollView>
     </SafeAreaView>
+      </>
+    
+    
   );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 0,
+    backgroundColor: Color.White,
+  },
   textInput: {
     height: verticalScale(50),
   },
-  container: {
-    flex: 1,
-    backgroundColor: Color.BackgroundColor,
-  },
+  
   MainBox: {
     width: '90%',
     alignSelf: 'center',
@@ -356,8 +357,8 @@ const styles = StyleSheet.create({
     height: Dimensions.get('screen').height * 0.77,
     zIndex : 100,
     shadowColor : 'rgba(0,0,0)',
-    shadowOffset : [1,1],
-    shadowRadius : 5,
+    shadowOffset : [1,0],
+    shadowRadius : 4,
     shadowOpacity : 0.4
   },
   Describe: {

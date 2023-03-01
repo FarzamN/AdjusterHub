@@ -20,6 +20,7 @@ import NewCustomInput from '../../components/NewCustomInput';
 import Modal from 'react-native-modal';
 
 import {launchImageLibrary} from 'react-native-image-picker';
+import LinearGradient from 'react-native-linear-gradient';
 const AddAdjuster = () => {
   const [isModalVisible, setModalVisible] = useState(false);
   const toggleModal = () => {
@@ -61,16 +62,27 @@ const AddAdjuster = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <>
+    <SafeAreaView style={styles.container}/>
+    <SafeAreaView style={{flex:1, backgroundColor : Color.BackgroundColor}}>
       <StatusBar barStyle={'light-content'} />
       <View
       style={{flex: 1, backgroundColor : Color.BackgroundColor}}
       >
       <ScrollView style={{flex: 1}} showsVerticalScrollIndicator={false}>
-        <View style={styles.BlueBox}>
+      <View style={{height: verticalScale(200)}}>
+        <LinearGradient
+          // start={{x: 0, y: 0}}
+          // end={{x: 1, y: 0}}
+          colors={['#056DFE', '#045CD2',]}
+          style={{flex: 1}}>
+<View style={styles.BlueBox}>
           <Text style={styles.TextOne}>Add adjuster</Text>
           <Text style={styles.TextTwo}>Don't see your Adjuster? Add them!</Text>
         </View>
+          </LinearGradient>
+      </View>
+        
         <View style={styles.GreyBox}></View>
         <View style={styles.MainContainer}>
           <View
@@ -212,6 +224,8 @@ const AddAdjuster = () => {
       </ScrollView>
       </View>
     </SafeAreaView>
+    </>
+    
   );
 };
 
@@ -219,8 +233,8 @@ const styles = StyleSheet.create({
   nameinput: {width: '49%', paddingLeft: 0},
   textInput: {height: verticalScale(50), marginBottom: verticalScale(25)},
   container: {
-    flex: 1,
-    backgroundColor: Color.Main
+    flex: 0,
+    backgroundColor: '#056DFE'
   },
   TextOne: {
     color: Color.White,
@@ -238,7 +252,7 @@ const styles = StyleSheet.create({
   BlueBox: {
     height: verticalScale(200),
     padding: moderateScale(20),
-    backgroundColor: Color.Main
+  
   },
   GreyBox: {
     height: verticalScale(460),

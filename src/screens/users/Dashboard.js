@@ -89,13 +89,15 @@ const Dashboard = ({ navigation }) => {
     </TouchableOpacity>
   );
   return (
-    <SafeAreaView style={styles.Container}>
+    <>
+    <SafeAreaView style={styles.Container}/>
+      <SafeAreaView style={{flex:1, backgroundColor :Color.BackgroundColor}}>
       <StatusBar barStyle={'dark-content'} />
       <BackWithMenu
         onPress_back={() => navigation.navigate('login')}
         onPress={() => navigation.openDrawer()}
       />
-      <View style={{ flex: 1, backgroundColor: Color.BackgroundColor }}>
+      <View style={{ flex: 2, backgroundColor: Color.BackgroundColor,}}>
         <FlatList
           showsVerticalScrollIndicator={false}
           keyExtractor={item => item.id}
@@ -108,12 +110,14 @@ const Dashboard = ({ navigation }) => {
         <View style={{ height: verticalScale(10) }}></View>
       </View>
     </SafeAreaView>
+    </>
+    
   );
 };
 
 const styles = StyleSheet.create({
   Container: {
-    flex: 1,
+    flex: 0,
     backgroundColor: '#ffffff',
   },
   item: {

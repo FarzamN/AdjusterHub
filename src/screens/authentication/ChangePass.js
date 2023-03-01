@@ -18,6 +18,7 @@ import CustomInput from '../../components/CustomInput';
 import CustomButton from '../../components/CustomButton';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {Color} from '../../utils/Colors';
+import LinearGradient from 'react-native-linear-gradient';
 
 const ChangePass = ({navigation}) => {
   const [password, setPassword] = useState('');
@@ -36,12 +37,20 @@ const ChangePass = ({navigation}) => {
     formState: {errors, isValid},
   } = useForm({mode: 'all'});
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={{
+    <>
+    <SafeAreaView style={styles.container}/>
+    <SafeAreaView style={{flex : 1, backgroundColor : Color.BackgroundColor}}>
+      {/* <View style={{
         backgroundColor : '#ffffff'
-      }} >
+      }} > */}
       <ScrollView styles={{flex: 1,}} showsVerticalScrollIndicator={false}>
-        <View style={styles.BlueBox}>
+      <View style={{height: verticalScale(200)}}>
+          <LinearGradient
+            // start={{x: 0, y: 0}}
+            // end={{x: 1, y: 0}}
+            colors={[ '#056DFE','#045CD2',  ]}
+            style={{flex: 1}}>
+<View style={styles.BlueBox}>
           <TouchableOpacity
             onPress={() => navigation.goBack()}
             activeOpacity={0.5}
@@ -58,6 +67,9 @@ const ChangePass = ({navigation}) => {
           </Text>
           <Text style={styles.TextTwo}>Make it unique!</Text>
         </View>
+            </LinearGradient>
+        </View>
+        
         <View style={styles.GreyBox}></View>
 
         <View style={styles.MainContainer}>
@@ -175,8 +187,10 @@ const ChangePass = ({navigation}) => {
           />
         </View>
       </ScrollView>
-      </View>
+      {/* </View> */}
     </SafeAreaView>
+    </>
+    
   );
 };
 
@@ -186,8 +200,8 @@ const styles = StyleSheet.create({
     marginVertical: scale(8),
   },
   container: {
-    flex: 1,
-    backgroundColor:  Color.Main,
+    flex: 0,
+    backgroundColor:  '#056DFE',
   },
   TextOne: {
     color: '#fff',
@@ -201,7 +215,6 @@ const styles = StyleSheet.create({
     marginTop:-5
   },
   BlueBox: {
-    backgroundColor: Color.Main,
     height: verticalScale(200),
     padding: moderateScale(20),
   },

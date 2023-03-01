@@ -18,7 +18,7 @@ const BackAndLogo = props => {
       <View>
         <Image style={{
           width: scale(120),
-          height: scale(55),
+          height: scale(60),
           resizeMode: 'contain'
         }} source={require('../assets/Images/minilogo.png')} />
       </View>
@@ -31,7 +31,9 @@ const BackAndLogo = props => {
 const styles = StyleSheet.create({
   Container: {
     backgroundColor: '#fff',
-    padding: scale(15),
+    // padding: scale(15),
+    paddingHorizontal : scale(15),
+
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',

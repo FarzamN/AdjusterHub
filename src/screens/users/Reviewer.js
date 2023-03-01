@@ -216,7 +216,9 @@ const Person = ({navigation}) => {
     </View>
   );
   return (
-    <SafeAreaView style={styles.container}>
+    <>
+    <SafeAreaView style={styles.container}/>
+      <SafeAreaView style={{flex: 1, backgroundColor :Color.BackgroundColor}}>
       <StatusBar barStyle={'dark-content'} />
       <ScrollView style={{flex: 1}} showsVerticalScrollIndicator={false}>
         <BackAndLogo onPress={() => navigation.goBack()} />
@@ -224,7 +226,7 @@ const Person = ({navigation}) => {
           <LinearGradient
             start={{x: 0, y: 0}}
             end={{x: 0, y: 1}}
-            colors={['#056DFE', '#045CD2', '#056DFE', '#045CD2']}
+            colors={['#056DFE', '#045CD2', ]}
             style={{flex: 1}}></LinearGradient>
         </View>
  
@@ -361,12 +363,14 @@ const Person = ({navigation}) => {
         </View>
       </ScrollView>
     </SafeAreaView>
+    </>
+    
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 0,
     backgroundColor: Color.White
   },
   linearGradient: {

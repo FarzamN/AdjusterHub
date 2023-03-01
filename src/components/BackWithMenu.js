@@ -36,7 +36,8 @@ const BackWithMenu = props => {
 const styles = StyleSheet.create({
   Container: {
     backgroundColor: '#fff',
-    padding: scale(15),
+    paddingHorizontal : scale(15),
+    // paddingTop : 0,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',

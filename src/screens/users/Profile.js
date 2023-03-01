@@ -127,7 +127,9 @@ const Profile = ({navigation}) => {
     });
   };
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor: Color.White}}>
+    <>
+    <SafeAreaView style={{flex: 0, backgroundColor: Color.White}}/>
+      <SafeAreaView style={{flex: 1, backgroundColor: Color.BackgroundColor}}>
       <StatusBar barStyle={'dark-content'} />
       <ScrollView style={{flex: 1}} showsVerticalScrollIndicator={false}>
         <BackWithMenu
@@ -298,6 +300,8 @@ const Profile = ({navigation}) => {
         </View>
       </ScrollView>
     </SafeAreaView>
+    </>
+    
   );
 };
 
@@ -323,7 +327,7 @@ const styles = StyleSheet.create({
     right: 10,
   },
   MainContainer: {
-    height: Dimensions.get('screen').height * 0.47,
+    height: Dimensions.get('screen').height * 0.50,
     width: '90%',
     backgroundColor: Color.White,
     alignSelf: 'center',

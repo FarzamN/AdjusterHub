@@ -21,6 +21,7 @@ import CustomInput from '../../components/CustomInput';
 import CustomButton from '../../components/CustomButton';
 import {Color} from '../../utils/Colors';
 import {Fonts} from '../../utils/Fonts';
+import LinearGradient from 'react-native-linear-gradient';
 
 const height = Dimensions.get('screen').height;
 const Login = ({navigation}) => {
@@ -37,15 +38,26 @@ const Login = ({navigation}) => {
 
   console.log('++++++++++++++++++++>', height);
   return (
-    <SafeAreaView style={styles.container}>
-      <StatusBar backgroundColor={'#0568F2'} barStyle={'light-content'} />
-      <ScrollView showsVerticalScrollIndicator={false} style={{flex: 1, backgroundColor : '#DDDEDF'}}>
-        <View style={styles.BlueBox}>
+    <>
+    <SafeAreaView style={styles.container}/>
+      <SafeAreaView style={{flex:1, backgroundColor: Color.BackgroundColor}}>
+      <StatusBar barStyle={'light-content'} />
+      <ScrollView showsVerticalScrollIndicator={false} style={{flex: 1}}>
+      <View style={{height: verticalScale(200)}}>
+          <LinearGradient
+            // start={{x: 0, y: 0}}
+            // end={{x: 1, y: 0}}
+            colors={[ '#056DFE','#045CD2',  ]}
+            style={{flex: 1}}>
+<View style={styles.BlueBox}>
           <Text style={[styles.TextOne, {fontFamily: 'Evogria'}]}>
             WELCOME BACK
           </Text>
           <Text style={styles.TextTwo}>It's good to see you again!</Text>
         </View>
+            </LinearGradient>
+        </View>
+        
         <View style={styles.GreyBox}></View>
         <View style={styles.MainContainer}>
           <KeyboardAvoidingView
@@ -189,6 +201,8 @@ const Login = ({navigation}) => {
         </View>
       </ScrollView>
     </SafeAreaView>
+    </>
+    
   );
 };
 const styles = StyleSheet.create({
@@ -197,8 +211,8 @@ const styles = StyleSheet.create({
     marginVertical: verticalScale(14),
   },
   container: {
-    flex: 1,
-    backgroundColor: Color.Main
+    flex: 0,
+    backgroundColor: "#056DFE"
   },
   TextOne: {
     color: '#fff',
@@ -212,7 +226,6 @@ const styles = StyleSheet.create({
     marginTop:-5
   },
   BlueBox: {
-    backgroundColor: Color.Main,
     height: scale(height * 0.28),
     padding: moderateScale(20),
   },

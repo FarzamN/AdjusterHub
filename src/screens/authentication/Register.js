@@ -20,6 +20,7 @@ import CustomInput from '../../components/CustomInput';
 import {useForm} from 'react-hook-form';
 import CustomButton from '../../components/CustomButton';
 import {Color} from '../../utils/Colors';
+import LinearGradient from 'react-native-linear-gradient';
 
 const Register = ({navigation}) => {
   const [password, setPassword] = useState('');
@@ -32,15 +33,26 @@ const Register = ({navigation}) => {
     formState: {errors, isValid},
   } = useForm({mode: 'all'});
   return (
-    <SafeAreaView style={styles.container}>
+    <>
+    <SafeAreaView style={styles.container}/>
+    <SafeAreaView style={{flex: 1, backgroundColor : Color.BackgroundColor}}>
       <ScrollView showsVerticalScrollIndicator={false} styles={{flex: 1}}>
         <View styles={{height: '100%'}}>
-          <View style={styles.BlueBox}>
+        <View style={{height: verticalScale(200)}}>
+          <LinearGradient
+            // start={{x: 0, y: 0}}
+            // end={{x: 1, y: 0}}
+            colors={[ '#056DFE','#045CD2'  ]}
+            style={{flex: 1}}>
+ <View style={styles.BlueBox}>
             <Text style={[styles.TextOne, {fontFamily: 'Evogria'}]}>
               Register
             </Text>
             <Text style={styles.TextTwo}>Welcome!</Text>
           </View>
+            </LinearGradient>
+        </View>
+         
           <View style={styles.GreyBox}></View>
 
           <View style={styles.MainContainer}>
@@ -203,6 +215,8 @@ const Register = ({navigation}) => {
         </View>
       </ScrollView>
     </SafeAreaView>
+    </>
+    
   );
 };
 
@@ -212,8 +226,8 @@ const styles = StyleSheet.create({
     marginVertical: verticalScale(7),
   },
   container: {
-    flex: 1,
-    backgroundColor: Color.Main,
+    flex: 0,
+    backgroundColor: '#056DFE',
   },
   TextOne: {
     color: Color.White,
@@ -228,7 +242,6 @@ const styles = StyleSheet.create({
     marginTop:-5
   },
   BlueBox: {
-    backgroundColor: Color.Main,
     height: verticalScale(200),
     padding: moderateScale(20),
   },
