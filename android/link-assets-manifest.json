@@ -1,0 +1,29 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/Babylonica-Regular.ttf",
+      "sha1": "c31c71e667590d75105aca5520410b356546eaf0"
+    },
+    {
+      "path": "src/assets/fonts/Evogria.otf",
+      "sha1": "3826c02a12b73ef866c53d596a53f3b1628c287b"
+    },
+    {
+      "path": "src/assets/fonts/Gaz-W00-Regular.ttf",
+      "sha1": "8d5189f31059b99b560870019826c707edd4632a"
+    },
+    {
+      "path": "src/assets/fonts/Helvetica.ttc",
+      "sha1": "98c12f0d63168b20635fb51d638929753b4e6aed"
+    },
+    {
+      "path": "src/assets/fonts/MyriadPro-Regular.otf",
+      "sha1": "0e18282cd63b45610bf8381ca2895c7fde1477bd"
+    },
+    {
+      "path": "src/assets/fonts/gazrg-bold.otf",
+      "sha1": "22aeadcf902d5bf4eed5e404c25124eed3b063aa"
+    }
+  ]
+}
